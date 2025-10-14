@@ -129,24 +129,24 @@
           <h2 class="text-3xl md:text-4xl font-bold text-primary font-headline">Macro &amp; Micro Electoral Management</h2>
           <p class="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">Our unique dual research structure ensures a panoramic yet precise understanding of Indian elections.</p>
         </div>
-        <div class="tabs max-w-4xl mx-auto">
+        <div class="tabs max-w-4xl mx-auto" role="tablist">
+          <input type="radio" name="tabs" id="macro" checked class="tab-input" role="tab" aria-controls="macro-content" aria-selected="true">
+          <input type="radio" name="tabs" id="micro" class="tab-input" role="tab" aria-controls="micro-content" aria-selected="false">
           <div class="tabs-list">
-            <input type="radio" name="tabs" id="macro" checked class="tab-input">
-            <label for="macro" class="tab-trigger">
+            <label for="macro" class="tab-trigger" role="tab" aria-selected="true">
               <svg class="icon small mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 004 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Macro Management
             </label>
-            <input type="radio" name="tabs" id="micro" class="tab-input">
-            <label for="micro" class="tab-trigger">
+            <label for="micro" class="tab-trigger" role="tab" aria-selected="false">
               <svg class="icon small mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l4 2m-10 0l4-2m0-6v4m6 4v-4m-6 6a6 6 0 100-12 6 6 0 000 12z" />
               </svg>
               Micro Management
             </label>
           </div>
-          <div class="tab-content" id="macro-content">
+          <div class="tab-content" id="macro-content" role="tabpanel" aria-labelledby="macro">
             <div class="card bg-primary-05 border-primary-20">
               <div class="card-header">
                 <h3 class="font-headline text-2xl text-primary">Capturing the National Narrative</h3>
@@ -177,7 +177,7 @@
               </div>
             </div>
           </div>
-          <div class="tab-content" id="micro-content">
+          <div class="tab-content" id="micro-content" role="tabpanel" aria-labelledby="micro">
             <div class="card bg-primary-05 border-primary-20">
               <div class="card-header">
                 <h3 class="font-headline text-2xl text-primary">Ground-Level Realities</h3>
@@ -283,7 +283,6 @@
       </div>
     </div>
   </footer>
-
 
   <script src="js/main.js"></script>
 </body>
