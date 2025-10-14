@@ -16,36 +16,11 @@ window.initToastViewport();
      }
    });
 
-   // Toast test button (for debugging)
-   const app = document.getElementById('app');
-   if (app) {
-     app.innerHTML = `
-       <button id="show-toast">Show Test Toast</button>
-     `;
-     document.getElementById('show-toast').addEventListener('click', () => {
-       window.createToast({
-         title: 'Test Toast',
-         description: 'This is a toast message!',
-         variant: 'default',
-       });
-     });
-   }
 
-   // Responsive background
-   window.initMobileListener((isMobile) => {
-     const main = document.querySelector('main');
-     main.className = `min-h-screen ${isMobile ? 'mobile' : 'desktop'}`;
-   });
-
-
-
-
-// Active link highlight
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.href === window.location.href) {
-    link.classList.add('active');
-  }
-});
-
-// Toast init
-window.initToastViewport();
+   document.querySelectorAll('.tab-input').forEach(input => {
+    input.addEventListener('change', () => {
+        document.querySelectorAll('.tab-trigger').forEach(label => {
+        label.setAttribute('aria-selected', label.getAttribute('for') === input.id);
+        });
+    });
+    });
