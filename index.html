@@ -16,8 +16,8 @@
 
     :root {
       --primary-dark: #0f172a;
-      --primary-blue: #3d4e3f;
-      --primary-orange: #ffca58;
+      --primary-blue: #001b75;
+      --primary-orange: #e7c16e;
       --light-gray: #f8fafc;
       --border-gray: #e2e8f0;
       --text-gray: #64748b;
@@ -45,11 +45,11 @@
     /* Hero Section */
     .hero {
       position: relative;
-      min-height: 70vh;
-      /* background-image: url("assets/vote.jpg");
+      min-height: 80vh;
+      background-image: url("assets/justiceImg.jpg");
       background-repeat: no-repeat;
       background-position: left;
-      background-size: contain; */
+      background-size: cover;
       background-color: #000;
       color: white;
       display: flex;
@@ -58,19 +58,27 @@
       text-align: center;
       padding: 4rem 1rem;
       border-bottom: 4px solid var(--primary-blue);
+      z-index: 20;
     }
 
     .overlay-hero{
       position: absolute;
-      background: #000;
-      left: 0;
-      top: 0;
-      z-index: -10;
+      inset: unset;
+      background: #0000009d;
+      filter: blur(10px);
+      height: 100%;
+      width: 100%;
+      z-index: 10;
     }
 
     .hero-content {
-      max-width: 56rem;
+      /* width: 80vw;
+      height: 60vh; */
+      /* background: #ffffff; */
+      position: relative;
+      max-width: 80vw;
       animation: fadeInUp 0.8s ease-out;
+      z-index: 20;
     }
 
     @keyframes fadeInUp {
@@ -83,6 +91,15 @@
         transform: translateY(0);
       }
     }
+
+    .intro-wrapper{
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+
+
 
     .hero-content h1 {
       font-size: 2.5rem;
@@ -192,7 +209,6 @@
       max-width: 64rem;
       margin: 0 auto;
       padding: 3rem;
-      background: white;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       border: 2px solid var(--border-gray);
@@ -205,7 +221,7 @@
     }
 
     .intro-content h2 {
-      font-size: 2rem;
+      font-size: 3.2rem;
       font-weight: 700;
       color: var(--primary-dark);
       margin-bottom: 1rem;
@@ -537,11 +553,14 @@
     <!-- Introduction Section -->
     <section class="section intro">
       <div class="container">
-        <div class="intro-content">
-          <h2 class="font-headline">Decoding the Pulse of Indian Democracy</h2>
-          <p>
-            We are committed to decoding the pulse of Indian democracy through cutting-edge data analytics, field intelligence, and academic rigor. POLL MATRIX studies how India votes, why it votes, and what those choices mean for governance, policy, and social transformation.
-          </p>
+        <div class="intro-wrapper">
+          <img src="assets/Government_of_india(Logo).png" alt="">
+          <div class="intro-content">
+            <h2 class="font-headline">Decoding the Pulse of Indian Democracy</h2>
+            <p>
+              We are committed to decoding the pulse of Indian democracy through cutting-edge data analytics, field intelligence, and academic rigor. POLL MATRIX studies how India votes, why it votes, and what those choices mean for governance, policy, and social transformation.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -589,7 +608,7 @@
             </div>
             <div>
               <h3 class="font-headline">Innovation</h3>
-              <p>Leveraging AI and advanced analytics.</p>
+              <p>Leveraging AI&ML, advanced analytics in political forecasting.</p>
             </div>
           </div>
           <div class="core-value">
@@ -598,7 +617,7 @@
             </div>
             <div>
               <h3 class="font-headline">Inclusion</h3>
-              <p>Representing diverse social & economic groups.</p>
+              <p>Representing diverse social, regional, and economic groups.</p>
             </div>
           </div>
           <div class="core-value">
@@ -607,7 +626,7 @@
             </div>
             <div>
               <h3 class="font-headline">Impact</h3>
-              <p>Translating data into meaningful insights.</p>
+              <p>Translating data into meaningful political and policy insights.</p>
             </div>
           </div>
         </div>
