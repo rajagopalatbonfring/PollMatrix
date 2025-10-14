@@ -8,56 +8,133 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css">
   <style>
-        /* Hero Section */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-dark: #0f172a;
+      --primary-blue: #3d4e3f;
+      --primary-orange: #ffca58;
+      --light-gray: #f8fafc;
+      --border-gray: #e2e8f0;
+      --text-gray: #64748b;
+      --text-dark: #1e293b;
+    }
+
+    body {
+      font-family: 'PT Sans', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: #ffffff;
+    }
+
+    .font-headline {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+
+    /* Hero Section */
     .hero {
       position: relative;
-      height: 60vh;
-      background: var(--primary-blue);
+      min-height: 70vh;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, #1e293b 100%);
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 1rem;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(30, 64, 175, 0.9);
+      padding: 4rem 1rem;
+      border-bottom: 4px solid var(--primary-blue);
     }
 
     .hero-content {
-      position: relative;
-      z-index: 10;
-      max-width: 48rem;
+      max-width: 56rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero-content h1 {
-      font-size: 2.25rem;
-      font-weight: bold;
+      font-size: 2.5rem;
+      font-weight: 700;
       line-height: 1.2;
-      color: var(--primary-yellow);
+      color: var(--primary-orange);
+      margin-bottom: 1.5rem;
     }
 
     .hero-content p {
-      margin-top: 1rem;
-      font-size: 1.125rem;
-      max-width: 48rem;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     @media (min-width: 768px) {
       .hero-content h1 {
-        font-size: 3.75rem;
+        font-size: 3.5rem;
       }
       .hero-content p {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
       }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: white;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-accent {
+      background: var(--primary-orange);
+      color: white;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+    }
+
+    .btn-accent:hover {
+      background: #ea580c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
     }
 
     /* Sections */
     .section {
-      padding: 4rem 0;
+      padding: 5rem 0;
     }
 
     .section-header {
@@ -67,9 +144,10 @@
     }
 
     .section-header h2 {
-      font-size: 1.875rem;
-      font-weight: bold;
-      color: var(--primary-blue);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
       position: relative;
       display: inline-block;
       padding-bottom: 1rem;
@@ -83,55 +161,48 @@
       transform: translateX(-50%);
       width: 80px;
       height: 3px;
-      background: var(--primary-yellow);
+      background: var(--primary-orange);
     }
 
     .section-header p {
       margin-top: 1.5rem;
       font-size: 1.125rem;
-      color: var(--muted);
-    }
-
-    @media (min-width: 768px) {
-      .section {
-        padding: 6rem 0;
-      }
-      .section-header h2 {
-        font-size: 2.25rem;
-      }
+      color: var(--text-gray);
     }
 
     /* Introduction */
     .intro {
-      background: var(--light-blue);
+      background: var(--light-gray);
     }
 
     .intro-content {
       text-align: center;
       max-width: 64rem;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 3rem;
       background: white;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 20px rgba(30, 64, 175, 0.08);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 2px solid var(--border-gray);
+      transition: all 0.3s;
+    }
+
+    .intro-content:hover {
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+      border-color: var(--primary-blue);
     }
 
     .intro-content h2 {
-      font-size: 1.875rem;
-      font-weight: bold;
-      color: var(--primary-blue);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
     }
 
     .intro-content p {
-      margin-top: 1rem;
       font-size: 1.125rem;
-      color: var(--muted);
-    }
-
-    @media (min-width: 768px) {
-      .intro-content h2 {
-        font-size: 2.25rem;
-      }
+      color: var(--text-gray);
+      line-height: 1.8;
     }
 
     /* Vision and Mission */
@@ -142,35 +213,7 @@
     .vision-mission-grid {
       display: grid;
       gap: 3rem;
-      align-items: stretch;
-    }
-
-    .vision-mission-grid > div {
-      padding: 2rem;
-      background: white;
-      border-radius: var(--radius);
-      border: 2px solid var(--light-blue);
-      border-left: 5px solid var(--primary-yellow);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s;
-    }
-
-    .vision-mission-grid > div:hover {
-      border-color: var(--primary-blue);
-      box-shadow: 0 4px 16px rgba(30, 64, 175, 0.12);
-      transform: translateY(-3px);
-    }
-
-    .vision-mission-grid h3 {
-      font-size: 1.875rem;
-      font-weight: bold;
-      color: var(--primary-blue);
-    }
-
-    .vision-mission-grid p {
-      margin-top: 1rem;
-      font-size: 1.125rem;
-      color: var(--muted);
+      grid-template-columns: 1fr;
     }
 
     @media (min-width: 768px) {
@@ -179,9 +222,37 @@
       }
     }
 
+    .vision-mission-grid > div {
+      padding: 2.5rem;
+      background: white;
+      border-radius: 12px;
+      border: 2px solid var(--border-gray);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+
+    .vision-mission-grid > div:hover {
+      border-color: var(--primary-blue);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .vision-mission-grid h3 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    .vision-mission-grid p {
+      font-size: 1.125rem;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+
     /* Core Values */
     .core-values {
-      background: var(--light-yellow);
+      background: var(--light-gray);
     }
 
     .core-values-grid {
@@ -191,27 +262,34 @@
       grid-template-columns: 1fr;
     }
 
+    @media (min-width: 768px) {
+      .core-values-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     .core-value {
       display: flex;
       gap: 1.5rem;
       align-items: flex-start;
-      padding: 1.5rem;
+      padding: 2rem;
       background: white;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
+      border-radius: 12px;
+      border: 2px solid var(--border-gray);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
       transition: all 0.3s;
     }
 
     .core-value:hover {
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transform: translateY(-4px);
+      border-color: var(--primary-blue);
     }
 
     .icon-wrapper {
-      background: var(--primary-blue);
+      background: var(--primary-dark);
       padding: 1rem;
-      border-radius: var(--radius);
+      border-radius: 8px;
       flex-shrink: 0;
       width: 60px;
       height: 60px;
@@ -222,24 +300,18 @@
 
     .icon-wrapper i {
       font-size: 1.75rem;
-      color: var(--primary-yellow);
+      color: var(--primary-orange);
     }
 
     .core-value h3 {
       font-size: 1.25rem;
-      font-weight: bold;
-      color: var(--primary-blue);
+      font-weight: 700;
+      color: var(--primary-dark);
       margin-bottom: 0.5rem;
     }
 
     .core-value p {
-      color: var(--muted);
-    }
-
-    @media (min-width: 768px) {
-      .core-values-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      color: var(--text-gray);
     }
 
     /* Services */
@@ -254,50 +326,6 @@
       grid-template-columns: 1fr;
     }
 
-    .card {
-      text-align: center;
-      border: 2px solid var(--light-blue);
-      border-radius: var(--radius);
-      background: white;
-      padding: 2rem 1.5rem;
-      transition: all 0.3s;
-    }
-
-    .card:hover {
-      border-color: var(--primary-yellow);
-      box-shadow: 0 8px 24px rgba(30, 64, 175, 0.12);
-      transform: translateY(-5px);
-    }
-
-    .card-icon {
-      margin: 0 auto 1.5rem;
-      width: 70px;
-      height: 70px;
-      border-radius: var(--radius);
-      background: var(--light-blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card-icon i {
-      font-size: 2rem;
-      color: var(--primary-blue);
-    }
-
-    .card h3 {
-      font-size: 1.125rem;
-      font-weight: bold;
-      color: var(--primary-blue);
-      margin-bottom: 0.75rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.875rem;
-      line-height: 1.6;
-    }
-
     @media (min-width: 640px) {
       .services-grid {
         grid-template-columns: 1fr 1fr;
@@ -310,47 +338,145 @@
       }
     }
 
-    .services-button {
+    .card {
       text-align: center;
-      margin-top: 3rem;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 0.875rem 2rem;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
+      border: 2px solid var(--border-gray);
+      border-radius: 12px;
+      background: white;
+      padding: 2rem 1.5rem;
       transition: all 0.3s;
     }
 
-    .btn-primary {
-      background: var(--primary-blue);
-      color: white;
-      box-shadow: 0 2px 8px rgba(30, 64, 175, 0.3);
+    .card:hover {
+      border-color: var(--primary-blue);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+      transform: translateY(-5px);
     }
 
-    .btn-primary:hover {
-      background: #1e3a8a;
-      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
-      transform: translateY(-2px);
+    .card-icon {
+      margin: 0 auto 1.5rem;
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      background: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .btn-accent {
-      background: var(--primary-yellow);
+    .card-icon i {
+      font-size: 2rem;
       color: var(--primary-blue);
-      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
     }
 
-    .btn-accent:hover {
-      background: #f59e0b;
-      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
-      transform: translateY(-2px);
+    .card h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
     }
+
+    .card p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, #1e293b 100%);
+      color: white;
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .cta-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary-orange);
+    }
+
+    .cta-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 48rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Contact Form Section */
+    .contact-section {
+      background: var(--light-gray);
+      padding: 5rem 0;
+    }
+
+    .contact-form-wrapper {
+      max-width: 42rem;
+      margin: 0 auto;
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 2px solid var(--border-gray);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.875rem;
+      border: 2px solid var(--border-gray);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'PT Sans', sans-serif;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-status {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      display: none;
+    }
+
+    .form-status.success {
+      background: #d1fae5;
+      color: #065f46;
+      border: 2px solid #6ee7b7;
+    }
+
+    .form-status.error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 2px solid #fca5a5;
+    }
+
+    
   </style>
 </head>
 <body>
@@ -382,15 +508,14 @@
     </div>
   </header>
 
-  <!-- Main Content (Home Page) -->
-  <main class="min-h-screen">
-    <!-- Hero Section (No Image) -->
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>POLL MATRIX India</h1>
+        <h1 class="font-headline">POLL MATRIX India</h1>
         <p>Where data meets democracy, and insight drives informed governance.</p>
-        <a href="/about" class="btn btn-accent">Learn More About Us</a>
+        <a href="#contact" class="btn btn-accent">Get In Touch</a>
       </div>
     </section>
 
@@ -398,7 +523,7 @@
     <section class="section intro">
       <div class="container">
         <div class="intro-content">
-          <h2>Decoding the Pulse of Indian Democracy</h2>
+          <h2 class="font-headline">Decoding the Pulse of Indian Democracy</h2>
           <p>
             We are committed to decoding the pulse of Indian democracy through cutting-edge data analytics, field intelligence, and academic rigor. POLL MATRIX studies how India votes, why it votes, and what those choices mean for governance, policy, and social transformation.
           </p>
@@ -411,13 +536,13 @@
       <div class="container">
         <div class="vision-mission-grid">
           <div>
-            <h3>Our Vision</h3>
+            <h3 class="font-headline">Our Vision</h3>
             <p>
               To emerge as India's premier center of excellence in electoral research and analytics, creating a bridge between citizens' voices and policy action through technology-driven, socially inclusive research.
             </p>
           </div>
           <div>
-            <h3>Our Mission</h3>
+            <h3 class="font-headline">Our Mission</h3>
             <p>
               To strengthen Indian democracy by delivering independent, ethical, and innovative research that informs governance, shapes public discourse, and fosters civic awareness.
             </p>
@@ -430,7 +555,7 @@
     <section class="section core-values">
       <div class="container">
         <div class="section-header">
-          <h2>Our Core Values</h2>
+          <h2 class="font-headline">Our Core Values</h2>
           <p>Our work is guided by principles that ensure the quality, credibility, and impact of our insights.</p>
         </div>
         <div class="core-values-grid">
@@ -439,7 +564,7 @@
               <i class="fas fa-shield-alt"></i>
             </div>
             <div>
-              <h3>Integrity</h3>
+              <h3 class="font-headline">Integrity</h3>
               <p>Non-partisan, data-verified research.</p>
             </div>
           </div>
@@ -448,7 +573,7 @@
               <i class="fas fa-lightbulb"></i>
             </div>
             <div>
-              <h3>Innovation</h3>
+              <h3 class="font-headline">Innovation</h3>
               <p>Leveraging AI and advanced analytics.</p>
             </div>
           </div>
@@ -457,7 +582,7 @@
               <i class="fas fa-users"></i>
             </div>
             <div>
-              <h3>Inclusion</h3>
+              <h3 class="font-headline">Inclusion</h3>
               <p>Representing diverse social & economic groups.</p>
             </div>
           </div>
@@ -466,7 +591,7 @@
               <i class="fas fa-bullseye"></i>
             </div>
             <div>
-              <h3>Impact</h3>
+              <h3 class="font-headline">Impact</h3>
               <p>Translating data into meaningful insights.</p>
             </div>
           </div>
@@ -478,7 +603,7 @@
     <section class="section services">
       <div class="container">
         <div class="section-header">
-          <h2>Our Services</h2>
+          <h2 class="font-headline">Our Services</h2>
           <p>From national-level opinion polls to grassroots constituency analysis, we offer a comprehensive suite of research services.</p>
         </div>
         <div class="services-grid">
@@ -486,47 +611,94 @@
             <div class="card-icon">
               <i class="fas fa-poll"></i>
             </div>
-            <h3>Opinion & Exit Polls</h3>
+            <h3 class="font-headline">Opinion & Exit Polls</h3>
             <p>Scientifically designed polls reflecting the authentic voice of the electorate.</p>
           </div>
           <div class="card">
             <div class="card-icon">
               <i class="fas fa-chart-line"></i>
             </div>
-            <h3>Voter Behavior Analytics</h3>
+            <h3 class="font-headline">Voter Behavior Analytics</h3>
             <p>Analyzing patterns and triggers that influence electoral outcomes.</p>
           </div>
           <div class="card">
             <div class="card-icon">
               <i class="fas fa-map-marked-alt"></i>
             </div>
-            <h3>Constituency Profiling</h3>
+            <h3 class="font-headline">Constituency Profiling</h3>
             <p>Detailed socio-economic mapping and community segmentation.</p>
           </div>
           <div class="card">
             <div class="card-icon">
               <i class="fas fa-file-alt"></i>
             </div>
-            <h3>Policy Impact Studies</h3>
+            <h3 class="font-headline">Policy Impact Studies</h3>
             <p>Assessing how policies on education and employment shape voter sentiment.</p>
           </div>
           <div class="card">
             <div class="card-icon">
               <i class="fas fa-bullhorn"></i>
             </div>
-            <h3>Campaign Effectiveness</h3>
+            <h3 class="font-headline">Campaign Effectiveness</h3>
             <p>Tracking media outreach and message resonance to evaluate communications.</p>
           </div>
           <div class="card">
             <div class="card-icon">
               <i class="fas fa-laptop"></i>
             </div>
-            <h3>Digital & Media Intelligence</h3>
+            <h3 class="font-headline">Digital & Media Intelligence</h3>
             <p>Mapping online electoral behavior through real-time sentiment analysis.</p>
           </div>
         </div>
-        <div class="services-button">
+        <div style="text-align: center; margin-top: 3rem;">
           <a href="/services" class="btn btn-primary">Explore All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="font-headline">Ready to Transform Democracy with Data?</h2>
+          <p>Partner with us to gain insights that shape the future of Indian governance and civic engagement.</p>
+          <a href="#contact" class="btn btn-accent">Contact Us Today</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="font-headline">Get In Touch</h2>
+          <p>Have questions or want to collaborate? Send us a message and we'll get back to you shortly.</p>
+        </div>
+        <div class="contact-form-wrapper">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="organization">Organization</label>
+              <input type="text" id="organization" name="organization">
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            <div id="formStatus" class="form-status"></div>
+          </form>
         </div>
       </div>
     </section>
@@ -541,13 +713,20 @@
           <p>Where data meets democracy, and insight drives informed governance.</p>
           <div class="social-links">
             <a href="#" class="social-link"><span class="sr-only">Facebook</span>
-              <i class="fab fa-facebook-f"></i>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg>
             </a>
             <a href="#" class="social-link"><span class="sr-only">Twitter</span>
-              <i class="fab fa-twitter"></i>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+              </svg>
             </a>
             <a href="#" class="social-link"><span class="sr-only">LinkedIn</span>
-              <i class="fab fa-linkedin-in"></i>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                <circle cx="4" cy="4" r="2" stroke="none" fill="currentColor" />
+              </svg>
             </a>
           </div>
         </div>
@@ -564,15 +743,22 @@
           <h3>Contact Us</h3>
           <ul>
             <li class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
               <span>Chennai, Tamil Nadu, India</span>
             </li>
             <li class="contact-item">
-              <i class="fas fa-envelope"></i>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
               <a href="mailto:careers@pollmatrix.in">careers@pollmatrix.in</a>
             </li>
             <li class="contact-item">
-              <i class="fas fa-phone"></i>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
               <span>+91-123-456-7890</span>
             </li>
           </ul>
@@ -594,13 +780,71 @@
     // Navigation toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMobile = document.querySelector('.nav-mobile');
+    
     navToggle.addEventListener('click', () => {
       navMobile.classList.toggle('active');
       const icon = navToggle.querySelector('.nav-toggle-icon');
       icon.textContent = navMobile.classList.contains('active') ? '✕' : '☰';
     });
 
-    // Highlight active link
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(contactForm);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        organization: formData.get('organization'),
+        message: formData.get('message')
+      };
+
+      // Create mailto link with form data
+      const subject = encodeURIComponent('Contact Form Submission from ' + data.name);
+      const body = encodeURIComponent(
+        `Name: ${data.name}\n` +
+        `Email: ${data.email}\n` +
+        `Phone: ${data.phone || 'N/A'}\n` +
+        `Organization: ${data.organization || 'N/A'}\n\n` +
+        `Message:\n${data.message}`
+      );
+      
+      const mailtoLink = `mailto:careers@pollmatrix.in?subject=${subject}&body=${body}`;
+      
+      // Open default email client
+      window.location.href = mailtoLink;
+      
+      // Show success message
+      formStatus.textContent = 'Opening your email client... Please send the email to complete your submission.';
+      formStatus.className = 'form-status success';
+      formStatus.style.display = 'block';
+      
+      // Reset form after a delay
+      setTimeout(() => {
+        contactForm.reset();
+        formStatus.style.display = 'none';
+      }, 5000);
+    });
+
+    // Highlight active nav link
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
       if (link.href === window.location.href) {
@@ -609,4 +853,4 @@
     });
   </script>
 </body>
-</html> 
+</html>
