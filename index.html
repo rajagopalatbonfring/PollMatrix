@@ -46,7 +46,11 @@
     .hero {
       position: relative;
       min-height: 70vh;
-      background: linear-gradient(135deg, var(--primary-dark) 0%, #1e293b 100%);
+      /* background-image: url("assets/vote.jpg");
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: contain; */
+      background-color: #000;
       color: white;
       display: flex;
       align-items: center;
@@ -54,6 +58,14 @@
       text-align: center;
       padding: 4rem 1rem;
       border-bottom: 4px solid var(--primary-blue);
+    }
+
+    .overlay-hero{
+      position: absolute;
+      background: #000;
+      left: 0;
+      top: 0;
+      z-index: -10;
     }
 
     .hero-content {
@@ -492,6 +504,7 @@
           <a href="/research" class="nav-link">Research & Reports</a>
           <a href="/collaborations" class="nav-link">Collaborations</a>
           <a href="/careers" class="nav-link">Careers</a>
+          <a href="/blogs" class="nav-link">Blogs</a>
         </nav>
         <button class="nav-toggle" aria-label="Toggle menu">
           <span class="nav-toggle-icon">☰</span>
@@ -504,6 +517,7 @@
         <a href="/research" class="nav-link">Research & Reports</a>
         <a href="/collaborations" class="nav-link">Collaborations</a>
         <a href="/careers" class="nav-link">Careers</a>
+        <a href="/blogs" class="nav-link">Blogs</a>
       </nav>
     </div>
   </header>
@@ -512,6 +526,7 @@
   <main>
     <!-- Hero Section -->
     <section class="hero">
+      <div class="overlay-hero"></div>
       <div class="hero-content">
         <h1 class="font-headline">POLL MATRIX India</h1>
         <p>Where data meets democracy, and insight drives informed governance.</p>

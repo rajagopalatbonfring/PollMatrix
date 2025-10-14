@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-        
     :root {
       --primary-dark: #0f172a;
       --primary-blue: #3d4e3f;
@@ -37,7 +36,7 @@
 
     .container {
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 0px auto;
       padding: 0 1.5rem;
     }
 
@@ -74,6 +73,7 @@
     }
 
     .section-header {
+      margin-top: 30px;
       text-align: center;
       margin-bottom: 3rem;
     }
@@ -131,55 +131,65 @@
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     .institution-card:hover {
       border-color: #3b82f6;
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
-      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.2);
+      transform: translateY(-6px);
     }
 
     .institution-logo {
       background: #f8fafc;
-      height: 120px;
+      height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
+      padding: 2rem;
       border-bottom: 1px solid #e2e8f0;
       position: relative;
     }
 
+    .institution-logo img {
+      max-width: 100%;
+      max-height: 100px;
+      object-fit: contain;
+      filter: brightness(1.1) contrast(1.2);
+    }
+
     .institution-card:hover .institution-logo {
-      background: #eff6ff;
+      background: #e0f2fe;
     }
 
     .logo-icon {
-      width: 3rem;
-      height: 3rem;
+      width: 3.5rem;
+      height: 3.5rem;
       color: #f97316;
     }
 
     .institution-content {
-      padding: 1.5rem;
+      padding: 2rem;
       text-align: center;
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: #f9fafb;
     }
 
     .institution-content p {
-      font-weight: 600;
+      font-weight: 700;
       color: #0f172a;
-      font-size: 0.95rem;
-      line-height: 1.4;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
     }
 
     /* Tabs Section */
     .tabs-container {
       max-width: 64rem;
-      margin: 0 auto;
+      margin: 30px auto;
     }
 
     .tab-inputs {
@@ -385,6 +395,7 @@
           <a href="/research.html" class="nav-link">Research & Reports</a>
           <a href="/collaborations.html" class="nav-link active">Collaborations</a>
           <a href="/careers" class="nav-link">Careers</a>
+          <a href="/blogs" class="nav-link">Blogs</a>
         </nav>
         <button class="nav-toggle" aria-label="Toggle menu">
           <span class="nav-toggle-icon">☰</span>
@@ -397,6 +408,7 @@
         <a href="/research.html" class="nav-link">Research & Reports</a>
         <a href="/collaborations.html" class="nav-link active">Collaborations</a>
         <a href="/careers" class="nav-link">Careers</a>
+        <a href="/blogs" class="nav-link">Blogs</a>
       </nav>
     </div>
   </header>
@@ -424,7 +436,7 @@
       <div class="institutions-grid">
         <div class="institution-card">
           <div class="institution-logo">
-            <img src="assets\IIT_Madras.png" alt="">
+            <img src="assets\IIT_Madras.png" alt="Indian Institute of Technology (IIT) Madras Logo">
           </div>
           <div class="institution-content">
             <p>Indian Institute of Technology (IIT) Madras</p>
@@ -432,7 +444,7 @@
         </div>
         <div class="institution-card">
           <div class="institution-logo">
-            <img src="assets/csir-clri-logo.png" alt="">
+            <img src="assets/csir-clri-logo.png" alt="CSIR – Central Leather Research Institute (CLRI) Logo">
           </div>
           <div class="institution-content">
             <p>CSIR – Central Leather Research Institute (CLRI)</p>
@@ -440,7 +452,7 @@
         </div>
         <div class="institution-card">
           <div class="institution-logo">
-            <img src="assets/mgr.jpg" alt="">
+            <img src="assets/mgr.jpg" alt="Dr. M.G.R. Educational and Research Institute Logo">
           </div>
           <div class="institution-content">
             <p>Dr. M.G.R. Educational and Research Institute, Chennai</p>
@@ -448,7 +460,7 @@
         </div>
         <div class="institution-card">
           <div class="institution-logo">
-            <img src="assets/kisspng-university-of-madras.jpg" alt="">
+            <img src="assets/kisspng-university-of-madras.jpg" alt="University of Madras Logo">
           </div>
           <div class="institution-content">
             <p>University of Madras</p>
@@ -456,7 +468,7 @@
         </div>
         <div class="institution-card">
           <div class="institution-logo">
-            <img src="assets/uniten.png" alt="">
+            <img src="assets/UNITEN-01.png" alt="UNITEN (Tenaga Nasional University, Malaysia) Logo">
           </div>
           <div class="institution-content">
             <p>UNITEN (Tenaga Nasional University, Malaysia)</p>
