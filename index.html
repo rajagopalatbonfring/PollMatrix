@@ -273,12 +273,35 @@
       color: var(--text-gray);
     }
 
+
+    
+
     /* Vision and Mission */
+
     .vision-mission {
+      z-index: 10;
+      position: relative;
       background: white;
+      background-image: url("./assets/CHIEF-MINISTERS-OF-INDIA-2023.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    
+    .overlay-intro-section{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.527);
+      z-index: 10;
     }
 
     .intro-wrapper {
+            z-index: 10;
+      position: relative;
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 2rem;
@@ -287,6 +310,8 @@
     }
 
     .intro-content {
+      position: relative;
+      z-index: 10;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -297,7 +322,7 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       border: 2px solid var(--border-gray);
       transition: all 0.3s;
-      background: #d6d6d6c0;
+      background: #fafafa;
     }
 
     .intro-content:hover {
@@ -306,6 +331,8 @@
     }
 
     .intro-content h2 {
+      position: relative;
+      z-index: 20;
       font-size: 2.5rem;
       font-weight: 700;
       color: var(--primary-blue);
@@ -313,12 +340,16 @@
     }
 
     .intro-content p {
+      position: relative;
+      z-index: 20;
       font-size: 1.125rem;
       color: rgb(36, 36, 36);
       line-height: 1.8;
     }
 
     .ceo-profile {
+      position: relative;
+      z-index: 20;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -348,6 +379,8 @@
     }
 
     .ceo-profile h3 {
+      position: relative;
+      z-index: 20;
       font-size: 1.875rem;
       font-weight: 700;
       color: var(--primary-dark);
@@ -367,6 +400,8 @@
     }
 
     .vision-mission-grid {
+            position: relative;
+      z-index: 20;
       display: grid;
       gap: 2rem;
       grid-template-columns: 1fr 1fr;
@@ -736,10 +771,12 @@
       </div>
       <div class="hero-right">
         <div class="carousel">
-          <div class="carousel-slide active" style="background-image: url('./assets/CHIEF-MINISTERS-OF-INDIA-2023.png')"></div>
+          <!-- <div class="carousel-slide active" style="background-image: url('./assets/CHIEF-MINISTERS-OF-INDIA-2023.png')"></div> -->
           <div class="carousel-slide" style="background-image: url('assets/Nationalparties.jpg')"></div>
           <div class="carousel-slide" style="background-image: url('assets/electionCommission.jpeg')"></div>
           <div class="carousel-slide" style="background-image: url('assets/new.png')"></div>
+          <div class="carousel-slide" style="background-image: url('assets/Indian-politics-top-10-powerful.jpg')"></div>
+          <div class="carousel-slide" style="background-image: url('assets/2024Election.jpg')"></div>
         </div>
         <div class="overlay-hero"></div>
       </div>
@@ -747,6 +784,7 @@
 
     <!-- Vision and Mission Section -->
     <section class="section vision-mission">
+      <div class="overlay-intro-section"></div>
       <!-- Introduction Section -->
       <div class="container">
         <div class="intro-wrapper">
