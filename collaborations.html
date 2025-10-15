@@ -186,61 +186,6 @@
       letter-spacing: 0.01em;
     }
 
-    /* Tabs Section */
-    .tabs-container {
-      max-width: 64rem;
-      margin: 30px auto;
-    }
-
-    .tab-inputs {
-      display: none;
-    }
-
-    .tabs-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0;
-      margin-bottom: 2rem;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .tab-trigger {
-      padding: 1rem 1.5rem;
-      background: #ffffff;
-      border: 2px solid #e2e8f0;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 500;
-      color: #64748b;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-
-    .tab-trigger:hover {
-      background: #f8fafc;
-      color: #0f172a;
-    }
-
-    #tab-media:checked ~ .tabs-list label[for="tab-media"],
-    #tab-blog:checked ~ .tabs-list label[for="tab-blog"] {
-      background: #0f172a;
-      color: #ffffff;
-      font-weight: 600;
-      border-color: #0f172a;
-    }
-
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.4s ease-in-out;
-    }
-
-    #tab-media:checked ~ #media-content,
-    #tab-blog:checked ~ #blog-content {
-      display: block;
-    }
-
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -477,73 +422,6 @@
       </div>
     </section>
 
-    <!-- Media and Blog Tabs -->
-    <section class="container">
-      <h2 class="section-header font-headline" style="font-size: 2.5rem; font-weight: 700; color: #0f172a; margin-bottom: 3rem; text-align: center;">Media & Insights</h2>
-      <div class="tabs-container">
-        <input type="radio" name="media-blog-tabs" id="tab-media" checked class="tab-inputs">
-        <input type="radio" name="media-blog-tabs" id="tab-blog" class="tab-inputs">
-        <div class="tabs-list">
-          <label for="tab-media" class="tab-trigger">Media Collaborations</label>
-          <label for="tab-blog" class="tab-trigger">POLL INSIGHTS – Blog</label>
-        </div>
-        <div class="tab-content" id="media-content">
-          <div class="content-card">
-            <div class="content-header">
-              <svg class="content-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H4a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v1a2 2 0 104 0V4z" />
-              </svg>
-              <h3 class="font-headline">Media Collaborations</h3>
-            </div>
-            <p class="content-description">
-              In a democracy driven by information, media is both mirror and magnifier. We partner with leading national and regional media networks to provide accurate, non-partisan data for electoral reporting.
-            </p>
-            <h4 class="content-subtitle">We provide:</h4>
-            <ul class="content-list">
-              <li>Election dashboards and infographics for live coverage.</li>
-              <li>Pre- and Post-Poll Media Briefings.</li>
-              <li>Data-driven news features based on survey findings.</li>
-              <li>Expert interviews and panel insights.</li>
-            </ul>
-            <p class="content-note">Our goal: to promote transparency and literacy in electoral journalism.</p>
-            <a href="#" class="btn-primary">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Learn More
-            </a>
-          </div>
-        </div>
-        <div class="tab-content" id="blog-content">
-          <div class="content-card">
-            <div class="content-header">
-              <svg class="content-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
-              </svg>
-              <h3 class="font-headline">POLL INSIGHTS – Blog</h3>
-            </div>
-            <p class="content-description">
-              Our digital publication dedicated to the study of elections, governance, and society, offering readers academic depth with practical relevance.
-            </p>
-            <h4 class="content-subtitle">Highlighted Themes:</h4>
-            <ul class="content-list">
-              <li>The Rise of India's Digital Voter</li>
-              <li>AI and Predictive Analytics in Election Studies</li>
-              <li>Youth Politics: The 21st Century Mandate</li>
-              <li>Women and Political Representation</li>
-              <li>Ethics of Polling in the Post-Truth Era</li>
-            </ul>
-            <p class="content-note">Each article is crafted by our in-house analysts and guest scholars, ensuring accessibility and authority.</p>
-            <a href="#" class="btn-primary">
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Explore Blog
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- Footer -->
