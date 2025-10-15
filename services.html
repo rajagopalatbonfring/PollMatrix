@@ -38,7 +38,6 @@
       padding: 0 1.5rem;
     }
 
-
     /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--primary-blue) 0%, #0f2557 100%);
@@ -316,6 +315,81 @@
       margin-bottom: 2rem;
     }
 
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 27, 117, 0.2);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-gray);
+    }
+
+    .modal-content h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--primary-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-content form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .modal-content label {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .modal-content input,
+    .modal-content select {
+      padding: 0.75rem;
+      border: 1px solid var(--border-gray);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .modal-content input[type="submit"] {
+      background: var(--primary-blue);
+      color: white;
+      border: none;
+      padding: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .modal-content input[type="submit"]:hover {
+      background: #00125a;
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 <body>
@@ -378,7 +452,7 @@
             <li>Behavioral mapping and analysis</li>
             <li>Balanced and representative insights</li>
           </ul>
-          <a href="/register" class="btn-register">Register for Service</a>
+          <button class="btn-register" data-service="Opinion & Exit Polls">Register for Service</button>
         </div>
 
         <!-- Voter Behavior Analytics -->
@@ -396,7 +470,7 @@
             <li>Emotional trigger identification</li>
             <li>Electoral outcome prediction models</li>
           </ul>
-          <a href="/register" class="btn-register">Register for Service</a>
+          <button class="btn-register" data-service="Voter Behavior Analytics">Register for Service</button>
         </div>
 
         <!-- Constituency Profiling -->
@@ -414,7 +488,7 @@
             <li>Leadership evaluation metrics</li>
             <li>Demographic trend analysis</li>
           </ul>
-          <a href="/register" class="btn-register">Register for Service</a>
+          <button class="btn-register" data-service="Constituency Profiling">Register for Service</button>
         </div>
 
         <!-- Policy Impact Studies -->
@@ -432,7 +506,7 @@
             <li>Healthcare initiative assessment</li>
             <li>Social welfare program tracking</li>
           </ul>
-          <a href="/register" class="btn-register">Register for Service</a>
+          <button class="btn-register" data-service="Policy Impact Studies">Register for Service</button>
         </div>
 
         <!-- Campaign Effectiveness Research -->
@@ -450,7 +524,7 @@
             <li>Perception shift analysis</li>
             <li>Multi-channel impact assessment</li>
           </ul>
-          <a href="/register" class="btn-register">Register for Service</a>
+          <button class="btn-register" data-service="Campaign Effectiveness Research">Register for Service</button>
         </div>
 
         <!-- Digital & Media Intelligence -->
@@ -468,7 +542,7 @@
             <li>Influencer network mapping</li>
             <li>Social media behavioral tracking</li>
           </ul>
-          <a href="/register" class="btn-register">Register for Service</a>
+          <button class="btn-register" data-service="Digital & Media Intelligence">Register for Service</button>
         </div>
 
       </div>
@@ -714,6 +788,32 @@
     </div>
   </section>
 
+  <!-- Modal -->
+  <div class="modal" id="registerModal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h2>Register for Service</h2>
+      <form id="registerForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <label for="organization">Organization (Optional)</label>
+        <input type="text" id="organization" name="organization">
+        
+        <label for="service">Service</label>
+        <input type="text" id="service" name="service" readonly required>
+        
+        <input type="submit" value="Submit Registration">
+      </form>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -785,5 +885,54 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Modal functionality
+    const modal = document.getElementById('registerModal');
+    const closeModalBtn = document.querySelector('.modal-close');
+    const registerButtons = document.querySelectorAll('.btn-register');
+    const serviceInput = document.getElementById('service');
+    const registerForm = document.getElementById('registerForm');
+
+    // Open modal and set service field
+    registerButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const serviceName = button.getAttribute('data-service');
+        serviceInput.value = serviceName;
+        modal.style.display = 'flex';
+      });
+    });
+
+    // Close modal
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      registerForm.reset();
+    });
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        registerForm.reset();
+      }
+    });
+
+    // Handle form submission (for demonstration, logs data to console)
+    registerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(registerForm);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        organization: formData.get('organization'),
+        service: formData.get('service')
+      };
+      console.log('Form submitted:', data);
+      modal.style.display = 'none';
+      registerForm.reset();
+      alert('Registration submitted successfully!');
+    });
+  </script>
 </body>
 </html>
