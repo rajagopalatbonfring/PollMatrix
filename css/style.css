@@ -110,8 +110,8 @@
     
     /* Footer */
     .footer {
-      background: var(--primary-blue);
-      color: white;
+      background: white;
+      color: rgb(95, 95, 95);
       padding: 3rem 0 1.5rem;
     }
 
@@ -132,7 +132,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 600;
       margin-bottom: 1rem;
-      color: var(--primary-yellow);
+      color: var(--primary-blue);
     }
 
     .footer-section ul {
@@ -144,7 +144,7 @@
     }
 
     .footer-section a {
-      color: rgba(255,255,255,0.9);
+      color: rgb(95, 95, 95);
       text-decoration: none;
       transition: color 0.2s;
     }
