@@ -50,38 +50,81 @@
       background: #ffffff;
     }
 
-    /* Hero Section */
+ 
+/* Hero Section */
     .hero {
       position: relative;
-      min-height: 70vh;
-      background-image: url("assets/justiceImg.jpg");
-      background-repeat: no-repeat;
-      background-position: left;
-      background-size: cover;
-      background-color: #000;
+      max-height: 70vh;
       color: white;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 4rem 1rem;
+      padding: 0;
       border-bottom: 4px solid var(--primary-blue);
+      z-index: 20;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 40%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
       z-index: 20;
     }
 
-    .overlay-hero{
-      position: absolute;
-      inset: unset;
-      background: #0000009d;
-      filter: blur(10px);
-      height: 100%;
+    .hero-right {
+      flex: 1;
+      position: relative;
       width: 100%;
+      height: 70vh; /* Full viewport height */
+    }
+
+    .carousel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 10;
     }
 
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+    }
+
+    .overlay-hero {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      z-index: 15;
+    }
+
     .hero-content {
-      position: relative;
-      max-width: 80vw;
+      padding: 20px;
+      background: #e7e7e7;
+      max-width: 80%;
       animation: fadeInUp 0.8s ease-out;
       z-index: 20;
     }
@@ -97,37 +140,45 @@
       }
     }
 
-    .intro-wrapper{
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-    }
-
-
-
     .hero-content h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
       line-height: 1.2;
-      color: var(--primary-orange);
+      color: var(--primary-blue);
       margin-bottom: 1.5rem;
     }
 
     .hero-content p {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       margin-bottom: 2rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--primary-dark);
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        min-height: 60vh;
+      }
+      .hero-left {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+      .hero-right {
+        width: 100%;
+        height: 60vh;
+      }
+      .carousel {
+        height: 100%;
+      }
       .hero-content h1 {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
       }
       .hero-content p {
-        font-size: 1.4rem;
+        font-size: 1rem;
       }
     }
+
 
     /* Buttons */
     .btn {
@@ -211,6 +262,10 @@
     /* Introduction */
     .intro {
       background: #cacacad2;
+    }
+
+    .intro-wrapper{
+      display: flex;
     }
 
     .intro-content {
@@ -639,47 +694,57 @@
   <!-- Main Content -->
   <main>
     <!-- Hero Section -->
+     <!-- Hero Section -->
     <section class="hero">
-      <div class="overlay-hero"></div>
-      <div class="hero-content">
-        <h1 class="font-headline">POLL MATRIX India</h1>
-        <p>Where data meets democracy, and insight drives informed governance.</p>
-        <a href="#contact" class="btn btn-accent">Get In Touch</a>
+      <div class="hero-left">
+        <div class="hero-content">
+          <h1 class="font-headline">POLL MATRIX India</h1>
+          <p>Where data meets democracy, and insight drives informed governance.</p>
+          <a href="#contact" class="btn btn-accent">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="carousel">
+          <div class="carousel-slide active" style="background-image: url('./assets/CHIEF-MINISTERS-OF-INDIA-2023.png')"></div>
+          <div class="carousel-slide" style="background-image: url('assets/Nationalparties.jpg')"></div>
+          <div class="carousel-slide" style="background-image: url('assets/electionCommission.jpeg')"></div>
+          <div class="carousel-slide" style="background-image: url('assets/new.png')"></div>
+        </div>
+        <div class="overlay-hero"></div>
       </div>
     </section>
 
-    <!-- Introduction Section -->
-    <section class="section intro">
-      <div class="container">
-        <div class="intro-wrapper">
-          <img src="assets/Government_of_india(Logo).png" alt="">
-          <div class="intro-content">
-            <h2 class="font-headline">Decoding the Pulse of Indian Democracy</h2>
-            <p>
-              We are committed to decoding the pulse of Indian democracy through cutting-edge data analytics, field intelligence, and academic rigor. POLL MATRIX studies how India votes, why it votes, and what those choices mean for governance, policy, and social transformation.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
 
     <!-- Vision and Mission Section -->
     <section class="section vision-mission">
+      <!-- Introduction Section -->
       <div class="container">
-        <div class="vision-mission-grid">
-          <div>
-            <h3 class="font-headline">Our Vision</h3>
-            <p>
-              To emerge as India's premier center of excellence in electoral research and analytics, creating a bridge between citizens' voices and policy action through technology-driven, socially inclusive research.
-            </p>
-          </div>
+        <div class="intro-wrapper">
           <div class="ceo-profile">
             <img src="assets/CEO-profileimg.jpg" alt="CEO" class="ceo-image">
             <h3 class="font-headline">Mr.P.Senthil Kumar</h3>
             <p class="title">Founder & Chairman</p>
             <p>
               Mr. P. Senthil Kumar’s vision guides both CAAS Research Foundation and POLL MATRIX. He believes that data-driven democracy is key to India’s political progress.
+            </p>
+          </div>
+            <div class="intro-content">
+              <h2 class="font-headline">Decoding the Pulse of Indian Democracy</h2>
+              <p>
+                We are committed to decoding the pulse of Indian democracy through cutting-edge data analytics, field intelligence, and academic rigor. POLL MATRIX studies how India votes, why it votes, and what those choices mean for governance, policy, and social transformation.
+              </p>
+            </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="vision-mission-grid">
+          <div>
+            <h3 class="font-headline">Our Vision</h3>
+            <p>
+              To emerge as India's premier center of excellence in electoral research and analytics, creating a bridge between citizens' voices and policy action through technology-driven, socially inclusive research.
             </p>
           </div>
           <div>
@@ -924,6 +989,7 @@
     </div>
   </footer>
 
+
   <script>
     // Navigation toggle
     const navToggle = document.querySelector('.nav-toggle');
@@ -949,6 +1015,25 @@
       });
     });
 
+    // Carousel functionality
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Initialize carousel
+    showSlide(currentSlide);
+    setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
     // Contact Form Submission
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
@@ -965,7 +1050,6 @@
         message: formData.get('message')
       };
 
-      // Create mailto link with form data
       const subject = encodeURIComponent('Contact Form Submission from ' + data.name);
       const body = encodeURIComponent(
         `Name: ${data.name}\n` +
@@ -977,15 +1061,12 @@
       
       const mailtoLink = `mailto:careers@pollmatrix.in?subject=${subject}&body=${body}`;
       
-      // Open default email client
       window.location.href = mailtoLink;
       
-      // Show success message
       formStatus.textContent = 'Opening your email client... Please send the email to complete your submission.';
       formStatus.className = 'form-status success';
       formStatus.style.display = 'block';
       
-      // Reset form after a delay
       setTimeout(() => {
         contactForm.reset();
         formStatus.style.display = 'none';
@@ -1000,5 +1081,6 @@
       }
     });
   </script>
+  
 </body>
 </html>
