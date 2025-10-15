@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research & Reports - Poll Matrix India</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
   <style>
-
     * {
       margin: 0;
       padding: 0;
@@ -22,312 +21,513 @@
       --border-gray: #e2e8f0;
       --text-gray: #64748b;
       --text-dark: #1e293b;
+      --light-blue: #e6f0ff;
+      --light-yellow: #fef9e7;
+      --radius: 12px;
     }
-    
-/* Research & Reports Page Styles */
 
-/* Hero Section */
-.bg-primary {
-  background: var(--primary-blue);
-}
+    body {
+      font-family: 'PT Sans', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      background: white;
+    }
 
-.text-primary-foreground {
-  color: white;
-}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-.text-primary-foreground-80 {
-  color: rgba(255, 255, 255, 0.9);
-}
+    /* Hero Section */
+    .hero {
+      background: var(--primary-blue);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
 
-.py-16 {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-.text-center {
-  text-align: center;
-}
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+    }
 
-.text-4xl {
-  font-size: 2.25rem;
-}
+    .hero p {
+      font-size: 1.125rem;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
 
-.font-headline {
-  font-family: 'Space Grotesk', sans-serif;
-}
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+      .hero p {
+        font-size: 1.25rem;
+      }
+    }
 
-.max-w-3xl {
-  max-width: 48rem;
-}
+    /* Featured Report */
+    .featured-section {
+      padding: 4rem 0;
+      background: var(--light-gray);
+    }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      color: var(--primary-blue);
+      margin-bottom: 2.5rem;
+      font-weight: 700;
+    }
 
-.text-lg {
-  font-size: 1.125rem;
-}
+    .featured-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0, 27, 117, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid var(--light-blue);
+    }
 
-@media (min-width: 768px) {
-  .md\:text-5xl {
-    font-size: 3rem;
-  }
-}
+    .featured-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 27, 117, 0.15);
+      border-color: var(--primary-orange);
+    }
 
-/* Card */
-.card {
-  border: 2px solid transparent;
-  border-radius: var(--radius);
-  background: var(--card);
-  overflow: hidden;
-  transition: all 0.3s;
-}
+    .featured-content {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
 
-.card:hover {
-  border-color: var(--primary-yellow);
-  transform: translateY(-2px);
-}
+    .featured-image {
+      background: var(--light-blue);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 250px;
+    }
 
-.card-header {
-  padding: 1.5rem;
-}
+    .featured-image svg {
+      width: 80px;
+      height: 80px;
+      color: var(--primary-blue);
+    }
 
-.card-content {
-  padding: 1.5rem;
-}
+    .featured-text {
+      padding: 2rem;
+    }
 
-.bg-card {
-  background: var(--light-yellow);
-}
+    .featured-text h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
 
-.bg-primary-05 {
-  background: var(--light-blue);
-}
+    .featured-text p {
+      color: var(--text-gray);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
 
-.border-primary-20 {
-  border-color: var(--primary-blue);
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
 
-.report-image-placeholder {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .btn-primary {
+      background: var(--primary-blue);
+      color: white;
+    }
 
-@media (min-width: 768px) {
-  .report-image-placeholder {
-    height: 200px;
-  }
-}
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 27, 117, 0.3);
+    }
 
-/* Grid */
-.grid {
-  display: grid;
-}
+    .btn svg {
+      width: 18px;
+      height: 18px;
+    }
 
-.grid-cols-1 {
-  grid-template-columns: 1fr;
-}
+    /* Publications Grid */
+    .publications-section {
+      padding: 4rem 0;
+      background: white;
+    }
 
-.gap-8 {
-  gap: 2rem;
-}
+    .publications-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
 
-.max-w-6xl {
-  max-width: 72rem;
-}
+    /* Card Style 1: Hover Overlay */
+    .pub-card-1 {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      border: 2px solid var(--border-gray);
+    }
 
-@media (min-width: 768px) {
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+    .pub-card-1:hover {
+      border-color: var(--primary-orange);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    }
 
-@media (min-width: 1024px) {
-  .lg\:grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+    .pub-card-1 .card-image {
+      background: var(--light-yellow);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 180px;
+    }
 
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius);
-  font-weight: 500;
-  transition: all 0.3s;
-}
+    .pub-card-1 svg {
+      width: 60px;
+      height: 60px;
+      color: var(--primary-orange);
+    }
 
-.btn-primary {
-  background: var(--primary-blue);
-  color: white;
-  border: 2px solid var(--primary-blue);
-}
+    .pub-card-1 .card-content {
+      padding: 1.5rem;
+    }
 
-.btn-primary:hover {
-  background: var(--light-blue);
-  color: var(--primary-blue);
-  border-color: var(--primary-blue);
-}
+    .pub-card-1 h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: var(--primary-blue);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
 
-.btn-outline {
-  background: transparent;
-  color: var(--primary-blue);
-  border: 2px solid var(--primary-blue);
-}
+    .pub-card-1 p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
 
-.btn-outline:hover {
-  background: var(--light-blue);
-  color: var(--primary-blue);
-}
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-blue);
+      border: 2px solid var(--primary-blue);
+      width: 100%;
+      justify-content: center;
+    }
 
-/* Utility Classes */
-.mb-12 {
-  margin-bottom: 3rem;
-}
+    .btn-outline:hover {
+      background: var(--primary-blue);
+      color: white;
+      transform: translateY(-2px);
+    }
 
-.mb-4 {
-  margin-bottom: 1rem;
-}
+    /* Card Style 2: Side Icon */
+    .pub-card-2 {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: 0 6px 18px rgba(0, 27, 117, 0.08);
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--primary-blue);
+    }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
+    .pub-card-2:hover {
+      transform: translateX(5px);
+      box-shadow: 0 10px 24px rgba(0, 27, 117, 0.12);
+    }
 
-.mt-16 {
-  margin-top: 4rem;
-}
+    .pub-card-2 .icon-wrapper {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      background: var(--light-blue);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.mt-4 {
-  margin-top: 1rem;
-}
+    .pub-card-2 svg {
+      width: 40px;
+      height: 40px;
+      color: var(--primary-blue);
+    }
 
-.p-6 {
-  padding: 1.5rem;
-}
+    .pub-card-2 .card-content {
+      flex: 1;
+    }
 
-.text-3xl {
-  font-size: 1.875rem;
-}
+    .pub-card-2 h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: var(--primary-blue);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
 
-.text-xl {
-  font-size: 1.25rem;
-}
+    .pub-card-2 p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
 
-.font-bold {
-  font-weight: bold;
-}
+    /* Card Style 3: Tilted Icon */
+    .pub-card-3 {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      border: 2px solid var(--border-gray);
+    }
 
-.text-primary {
-  color: var(--primary-blue);
-}
+    .pub-card-3:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary-orange);
+    }
 
-.text-muted-foreground {
-  color: var(--muted);
-}
+    .pub-card-3 .card-image {
+      background: var(--light-yellow);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 180px;
+    }
 
-.text-accent {
-  color: var(--primary-yellow);
-}
+    .pub-card-3 .icon-container {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-8deg);
+      transition: transform 0.3s ease;
+    }
 
-.bg-muted {
-  background: var(--muted);
-}
+    .pub-card-3:hover .icon-container {
+      transform: rotate(0deg);
+    }
 
-.shadow-lg {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
+    .pub-card-3 svg {
+      width: 50px;
+      height: 50px;
+      color: var(--primary-orange);
+    }
 
-.shadow-xl {
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
-}
+    .pub-card-3 .card-content {
+      padding: 1.5rem;
+    }
 
-.transition-all {
-  transition-property: all;
-}
+    .pub-card-3 h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: var(--primary-blue);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
 
-.duration-300 {
-  transition-duration: 300ms;
-}
+    .pub-card-3 p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
+    /* Card Style 4: Corner Accent */
+    .pub-card-4 {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      position: relative;
+      border: 2px solid var(--border-gray);
+    }
 
-.rounded-t-lg {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-}
+    .pub-card-4::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;
+      height: 60px;
+      background: var(--primary-orange);
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+      transition: all 0.3s ease;
+    }
 
-.border-radius {
-  border-radius: var(--radius);
-}
+    .pub-card-4:hover {
+      border-color: var(--primary-blue);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 27, 117, 0.1);
+    }
 
-.flex {
-  display: flex;
-}
+    .pub-card-4:hover::after {
+      width: 80px;
+      height: 80px;
+    }
 
-.flex-col {
-  flex-direction: column;
-}
+    .pub-card-4 .card-image {
+      background: var(--light-blue);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 180px;
+    }
 
-.flex-grow {
-  flex-grow: 1;
-}
+    .pub-card-4 svg {
+      width: 60px;
+      height: 60px;
+      color: var(--primary-blue);
+    }
 
-.items-center {
-  align-items: center;
-}
+    .pub-card-4 .card-content {
+      padding: 1.5rem;
+    }
 
-.justify-center {
-  justify-content: center;
-}
+    .pub-card-4 h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: var(--primary-blue);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
 
-.inline-flex {
-  display: inline-flex;
-}
+    .pub-card-4 p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
 
-.w-full {
-  width: 100%;
-}
+    /* Info Section */
+    .info-section {
+      background: var(--light-blue);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      box-shadow: 0 6px 18px rgba(0, 27, 117, 0.08);
+    }
 
-.icon {
-  width: 2rem;
-  height: 2rem;
-}
+    .info-section p {
+      color: var(--text-gray);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
 
-.icon.small {
-  width: 1.5rem;
-  height: 1.5rem;
-}
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
 
-.mr-2 {
-  margin-right: 0.5rem;
-}
+    .modal-content {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 27, 117, 0.2);
+    }
 
-@media (min-width: 768px) {
-  .md\:flex-row {
-    flex-direction: row;
-  }
-  .md\:w-1\/3 {
-    width: 33.333333%;
-  }
-  .md\:w-2\/3 {
-    width: 66.666667%;
-  }
-  .md\:text-4xl {
-    font-size: 2.25rem;
-  }
-}
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-gray);
+    }
 
-.bg-background {
-  min-height: 100vh;
-}
+    .modal-content h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--primary-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-content form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .modal-content label {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .modal-content input {
+      padding: 0.75rem;
+      border: 1px solid var(--border-gray);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .modal-content input[type="submit"] {
+      background: var(--primary-blue);
+      color: white;
+      border: none;
+      padding: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .modal-content input[type="submit"]:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
   </style>
 </head>
 <body>
@@ -346,7 +546,7 @@
           <a href="/blogs" class="nav-link">Blogs</a>
         </nav>
         <button class="nav-toggle" aria-label="Toggle menu">
-          <span class="nav-toggle-icon">☰</span>
+          <span>☰</span>
         </button>
       </div>
       <nav class="nav-mobile">
@@ -361,128 +561,155 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="min-h-screen bg-background">
-    <!-- Hero Section -->
-    <div class="bg-primary text-primary-foreground relative overflow-hidden">
-      <div class="container py-16 text-center relative z-10">
-        <h1 class="text-4xl md:text-5xl font-bold font-headline">Research & Reports</h1>
-        <p class="mt-4 max-w-3xl mx-auto text-lg text-primary-foreground-80">
-          Our flagship publications serve as credible reference documents for policy analysts, academics, and election commissions.
-        </p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Research & Reports</h1>
+        <p>Our flagship publications serve as credible reference documents for policy analysts, academics, and election commissions. Every report undergoes strict peer review and validation to ensure academic integrity and data accuracy.</p>
       </div>
-      <div class="absolute inset-0 bg-gradient-to-r from-primary-blue/80 to-light-blue/80"></div>
     </div>
+  </section>
 
-    <!-- Featured Report Section -->
-    <div class="container py-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary font-headline text-center mb-12">Featured Report</h2>
-      <div class="card bg-primary-05 border-primary-20 shadow-lg hover:shadow-xl transition-all duration-300 max-w-4xl mx-auto">
-        <div class="flex flex-col md:flex-row items-center">
-          <div class="w-full md:w-1/3 p-6">
-            <div class="report-image-placeholder bg-muted rounded-lg p-6 flex items-center justify-center">
-              <svg class="icon w-16 h-16 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 4h13M3 4h18m-18 0v16a2 2 0 002 2h14a2 2 0 002-2V8m-18 0l4 4m0 0l4-4m-4 4v12" />
-              </svg>
-            </div>
+  <!-- Featured Report -->
+  <section class="featured-section">
+    <div class="container">
+      <h2 class="section-title">Featured Report</h2>
+      <div class="featured-card">
+        <div class="featured-content">
+          <div class="featured-image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
           </div>
-          <div class="w-full md:w-2/3 p-6">
-            <h3 class="text-xl font-bold text-primary font-headline mb-2">The National Voter Sentiment Survey</h3>
-            <p class="text-muted-foreground mb-4">
-              An in-depth analysis of public mood, key issues, and voting intentions across the nation, offering unparalleled insights into the electorate’s pulse.
-            </p>
-            <a href="#" class="btn btn-primary mt-4 inline-flex items-center">
-              <svg class="icon small mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <div class="featured-text">
+            <h3>The National Voter Sentiment Survey</h3>
+            <p>An in-depth analysis of public mood, key issues, and voting intentions across the nation, offering unparalleled insights into the electorate's pulse. This comprehensive survey has informed policy dialogues, media debates, and academic curricula across India.</p>
+            <button class="btn btn-primary" data-report="The National Voter Sentiment Survey">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Read Report
-            </a>
+              Request Report
+            </button>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- All Publications Grid -->
-    <div class="container py-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary font-headline text-center mb-12">All Publications</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="card flex flex-col bg-card border-primary-20 shadow-lg hover:shadow-xl transition-all duration-300">
-          <div class="report-image-placeholder bg-muted rounded-t-lg p-6 flex items-center justify-center">
-            <svg class="icon w-12 h-12 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <!-- All Publications -->
+  <section class="publications-section">
+    <div class="container">
+      <h2 class="section-title">All Publications</h2>
+      <div class="publications-grid">
+        <!-- Card 1 -->
+        <div class="pub-card-1">
+          <div class="card-image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
           </div>
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="font-headline text-xl font-bold text-primary mb-2">Public Trust & Governance Index</h3>
-            <p class="text-muted-foreground flex-grow">A comprehensive index measuring citizen trust in public institutions and governance effectiveness.</p>
-            <a href="#" class="btn btn-outline mt-4 w-full inline-flex items-center justify-center">
-              <svg class="icon small mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <div class="card-content">
+            <h3>Public Trust & Governance Index</h3>
+            <p>A comprehensive index measuring citizen trust in public institutions and governance effectiveness. This report has informed policy dialogues and media debates across India.</p>
+            <button class="btn btn-outline" data-report="Public Trust & Governance Index">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              View Details
-            </a>
+              Request Details
+            </button>
           </div>
         </div>
-        <div class="card flex flex-col bg-card border-primary-20 shadow-lg hover:shadow-xl transition-all duration-300">
-          <div class="report-image-placeholder bg-muted rounded-t-lg p-6 flex items-center justify-center">
-            <svg class="icon w-12 h-12 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 006 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+
+        <!-- Card 2 -->
+        <div class="pub-card-2">
+          <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
             </svg>
           </div>
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="font-headline text-xl font-bold text-primary mb-2">Election and Development Linkage Report</h3>
-            <p class="text-muted-foreground flex-grow">Examining the correlation between development indicators and electoral outcomes in key states.</p>
-            <a href="#" class="btn btn-outline mt-4 w-full inline-flex items-center justify-center">
-              <svg class="icon small mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <div class="card-content">
+            <h3>Election and Development Linkage Report</h3>
+            <p>Examining the correlation between development indicators and electoral outcomes in key states. This flagship publication serves as a credible reference document for policy analysts.</p>
+            <button class="btn btn-outline" data-report="Election and Development Linkage Report">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              View Details
-            </a>
+              Request Details
+            </button>
           </div>
         </div>
-        <div class="card flex flex-col bg-card border-primary-20 shadow-lg hover:shadow-xl transition-all duration-300">
-          <div class="report-image-placeholder bg-muted rounded-t-lg p-6 flex items-center justify-center">
-            <svg class="icon w-12 h-12 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
+
+        <!-- Card 3 -->
+        <div class="pub-card-3">
+          <div class="card-image">
+            <div class="icon-container">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
           </div>
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="font-headline text-xl font-bold text-primary mb-2">Digital Influence in Indian Politics</h3>
-            <p class="text-muted-foreground flex-grow">A study on the role of social media, misinformation, and digital campaigns in shaping voter behavior.</p>
-            <a href="#" class="btn btn-outline mt-4 w-full inline-flex items-center justify-center">
-              <svg class="icon small mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <div class="card-content">
+            <h3>Digital Influence in Indian Politics</h3>
+            <p>A study on the role of social media, misinformation, and digital campaigns in shaping voter behavior. Essential reading for academics and election commissions.</p>
+            <button class="btn btn-outline" data-report="Digital Influence in Indian Politics">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              View Details
-            </a>
+              Request Details
+            </button>
           </div>
         </div>
-        <div class="card flex flex-col bg-card border-primary-20 shadow-lg hover:shadow-xl transition-all duration-300">
-          <div class="report-image-placeholder bg-muted rounded-t-lg p-6 flex items-center justify-center">
-            <svg class="icon w-12 h-12 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+
+        <!-- Card 4 -->
+        <div class="pub-card-4">
+          <div class="card-image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
             </svg>
           </div>
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="font-headline text-xl font-bold text-primary mb-2">Regional Voter Perception Atlas</h3>
-            <p class="text-muted-foreground flex-grow">A detailed atlas mapping voter perceptions, concerns, and priorities across different regions of India.</p>
-            <a href="#" class="btn btn-outline mt-4 w-full inline-flex items-center justify-center">
-              <svg class="icon small mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <div class="card-content">
+            <h3>Economic Indicators & Voting Patterns</h3>
+            <p>An analysis of how economic factors influence voter preferences across urban and rural India. A key resource for understanding electoral dynamics.</p>
+            <button class="btn btn-outline" data-report="Economic Indicators & Voting Patterns">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              View Details
-            </a>
+              Request Details
+            </button>
           </div>
         </div>
       </div>
-      <div class="mt-16 text-center">
-        <p class="text-muted-foreground max-w-3xl mx-auto">
-          Every report undergoes strict peer review and validation to ensure academic integrity and data accuracy.
-        </p>
+
+      <!-- Info Section -->
+      <div class="info-section">
+        <p>Our research methodology adheres to the highest standards of academic rigor and statistical validation. All reports are peer-reviewed by subject matter experts to ensure credibility and reliability.</p>
       </div>
     </div>
-  </main>
+  </section>
 
+  <!-- Modal -->
+  <div class="modal" id="requestModal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h2>Request Report</h2>
+      <form id="requestForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="organization">Organization (Optional)</label>
+        <input type="text" id="organization" name="organization">
+        
+        <label for="report">Report</label>
+        <input type="text" id="report" name="report" readonly required>
+        
+        <input type="submit" value="Submit Request">
+      </form>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -517,6 +744,7 @@
             <li><a href="/services">Services</a></li>
             <li><a href="/research">Research & Reports</a></li>
             <li><a href="/careers">Careers</a></li>
+            <li><a href="/blogs">Blogs</a></li>
           </ul>
         </div>
         <div class="footer-section">
@@ -555,6 +783,61 @@
       </div>
     </div>
   </footer>
-  <script src="js/main.js"></script>
+
+  <script>
+    // Mobile Menu Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMobile = document.querySelector('.nav-mobile');
+
+    navToggle.addEventListener('click', () => {
+      navMobile.style.display = navMobile.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Modal Functionality
+    const modal = document.getElementById('requestModal');
+    const closeModalBtn = document.querySelector('.modal-close');
+    const requestButtons = document.querySelectorAll('.btn[data-report]');
+    const reportInput = document.getElementById('report');
+    const requestForm = document.getElementById('requestForm');
+
+    // Open modal and set report field
+    requestButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const reportName = button.getAttribute('data-report');
+        reportInput.value = reportName;
+        modal.style.display = 'flex';
+      });
+    });
+
+    // Close modal
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      requestForm.reset();
+    });
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        requestForm.reset();
+      }
+    });
+
+    // Handle form submission (logs data to console for demo)
+    requestForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(requestForm);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        organization: formData.get('organization'),
+        report: formData.get('report')
+      };
+      console.log('Form submitted:', data);
+      modal.style.display = 'none';
+      requestForm.reset();
+      alert('Request submitted successfully!');
+    });
+  </script>
 </body>
 </html>
