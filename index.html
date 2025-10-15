@@ -53,6 +53,7 @@
  
 /* Hero Section */
     .hero {
+      /* background: rgba(3, 3, 14, 0.863); */
       position: relative;
       max-height: 80vh;
       color: rgb(177, 177, 177);
@@ -97,7 +98,7 @@
     .carousel-slide {
       position: absolute;
       top: 0;
-      left: 0;
+      right: 0;
       width: 100%;
       height: 100%;
       opacity: 0;
@@ -122,10 +123,15 @@
     }
 
     .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
       border-radius: 20px;
       padding: 20px;
       background: #e7e7e7;
       max-width: 80%;
+      height: 60%;
       animation: fadeInUp 0.8s ease-out;
       z-index: 20;
     }
@@ -142,8 +148,8 @@
     }
 
     .hero-content h1 {
-      font-size: 3rem;
-      font-weight: 700;
+      font-size: 5rem;
+      font-weight: 900;
       line-height: 1.2;
       color: var(--primary-blue);
       margin-bottom: 1.5rem;
@@ -291,7 +297,7 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       border: 2px solid var(--border-gray);
       transition: all 0.3s;
-      background: #e7c16ec0;
+      background: #d6d6d6c0;
     }
 
     .intro-content:hover {
@@ -308,7 +314,7 @@
 
     .intro-content p {
       font-size: 1.125rem;
-      color: white;
+      color: rgb(36, 36, 36);
       line-height: 1.8;
     }
 
@@ -603,6 +609,10 @@
     /* Contact Form Section */
     .contact-section {
       background: var(--light-gray);
+      background-image: url("assets/newcta.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
       padding: 5rem 0;
     }
 
