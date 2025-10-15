@@ -5,29 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About POLL MATRIX - Poll Matrix India</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
   <style>
-
-    :root {
-      --primary-dark: #0f172a;
-      --primary-blue: #3d4e3f;
-      --primary-orange: #ffca58;
-      --light-gray: #f8fafc;
-      --border-gray: #e2e8f0;
-      --text-gray: #64748b;
-      --text-dark: #1e293b;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'PT Sans', sans-serif;
-      color: var(--foreground);
-      background: #f9fafb;
-      line-height: 1.6;
+    :root {
+      --primary-dark: #0f172a;
+      --primary-blue: #001b75;
+      --primary-orange: #e7c16e;
+      --light-gray: #f8fafc;
+      --border-gray: #e2e8f0;
+      --text-gray: #64748b;
+      --text-dark: #1e293b;
+    }
+
+
+    .logo{
+      width: 300px;
+      border-radius: 10px;
+      padding: 10px;
+      background: #ffffff;
     }
 
     .container {
@@ -36,81 +37,26 @@
       padding: 0 1.5rem;
     }
 
-    /* Header */
-    .header {
-      background: white;
-      border-bottom: 3px solid var(--primary-blue);
-      padding: 1.25rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary-blue);
-      text-decoration: none;
-    }
-
-    .nav-desktop {
-      display: none;
-      gap: 2rem;
-    }
-
-    .nav-link {
-      color: var(--foreground);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-      padding: 0.5rem 0;
-      border-bottom: 2px solid transparent;
-    }
-
-    .nav-link:hover, .nav-link.active {
-      color: var(--primary-blue);
-      border-bottom-color: var(--primary-yellow);
-    }
-
-    .nav-toggle {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--primary-blue);
-    }
-
-    .nav-mobile {
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
-
-    @media (min-width: 768px) {
-      .nav-desktop {
-        display: flex;
-      }
-      .nav-toggle {
-        display: none;
-      }
-    }
-
+  
     /* Hero Section */
     .hero {
-      background: var(--primary-blue);
+      position: relative;
+      background-image: url("assets/senthilkumarBoardImg.jpg");
       color: white;
       padding: 5rem 0;
       text-align: center;
       position: relative;
+    }
+
+    
+   .overlay-hero {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(48, 48, 48, 0.267);
+      z-index: 15;
     }
 
     .hero::after {
@@ -124,6 +70,8 @@
     }
 
     .hero h1 {
+      position: relative;
+      z-index: 20;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 2.5rem;
       font-weight: 700;
@@ -131,6 +79,8 @@
     }
 
     .hero p {
+      position: relative;
+      z-index: 20;
       font-size: 1.125rem;
       max-width: 48rem;
       margin: 0 auto;
@@ -276,16 +226,19 @@
     /* Chairman Section */
     .chairman-card {
       background: #fefce8;
-      border-left: 4px solid var(--primary-yellow);
     }
 
     .chairman-image {
       background: white;
     }
 
+    .chairman-image > img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .chairman-placeholder {
-      width: 200px;
-      height: 200px;
       border-radius: 50%;
       border: 4px solid var(--accent);
       background: #fef3c7;
@@ -311,7 +264,8 @@
       margin-top: 1rem;
     }
 
-    /* Carousel Section */
+   
+  /* Tabs Section */
     .tabs-section {
       padding: 4rem 0;
       background: white;
@@ -336,29 +290,33 @@
       transform: translateX(-50%);
       width: 80px;
       height: 4px;
-      background: var(--primary-yellow);
+      background: var(--primary-orange);
     }
 
     .tabs-container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       position: relative;
     }
 
     .tabs-list {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
       gap: 0;
       margin-bottom: 2rem;
       background: white;
       border: 2px solid #e5e7eb;
-      border-radius: var(--radius);
+      border-radius: 8px;
       overflow: hidden;
     }
 
-    @media (min-width: 768px) {
-      .tabs-list {
-        grid-template-columns: repeat(4, 1fr);
+    /* Updated Tabs List for Chairman's Message */
+    .message-tabs-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      .message-tabs-list {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -375,19 +333,23 @@
       cursor: pointer;
       font-size: 0.95rem;
       font-weight: 500;
-      color: var(--foreground);
+      color: var(--text-dark);
       transition: all 0.3s;
       text-align: center;
       border-right: 1px solid #e5e7eb;
       border-bottom: 1px solid #e5e7eb;
     }
 
-    @media (min-width: 768px) {
-      .tab-trigger {
-        border-bottom: none;
-      }
-      .tab-trigger:last-child {
+    .tab-trigger:last-child {
+      border-right: none;
+    }
+
+    @media (max-width: 768px) {
+      .tab-trigger:nth-child(2n) {
         border-right: none;
+      }
+      .tab-trigger:nth-child(n+3) {
+        border-bottom: none;
       }
     }
 
@@ -429,9 +391,9 @@
     .tab-content-card {
       background: white;
       border: 1px solid #e5e7eb;
-      border-radius: var(--radius);
+      border-radius: 8px;
       padding: 2rem;
-      border-left: 4px solid var(--primary-yellow);
+      border-left: 4px solid var(--primary-orange);
     }
 
     .tab-content-title {
@@ -440,6 +402,54 @@
       font-weight: 600;
       color: var(--primary-blue);
       margin-bottom: 1rem;
+    }
+
+    /* Team Section as Cards */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .team-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .team-card:hover {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      transform: translateY(-4px);
+    }
+
+    .team-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .team-content {
+      padding: 1.5rem;
+    }
+
+    .team-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .team-affiliation {
+      color: var(--text-gray);
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
     /* Carousel Navigation Dots */
@@ -462,103 +472,7 @@
     .carousel-dot.active {
       background: var(--primary-blue);
     }
-
-    /* Footer */
-    .footer {
-      background: var(--primary-blue);
-      color: white;
-      padding: 3rem 0 1.5rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    @media (min-width: 768px) {
-      .footer-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .footer-section h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: var(--primary-yellow);
-    }
-
-    .footer-section ul {
-      list-style: none;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-section a {
-      color: rgba(255,255,255,0.9);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-section a:hover {
-      color: var(--primary-yellow);
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .social-link {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-    }
-
-    .social-link:hover {
-      background: var(--primary-yellow);
-      transform: translateY(-2px);
-    }
-
-    .icon {
-      width: 20px;
-      height: 20px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.2);
-      padding-top: 1.5rem;
-      text-align: center;
-      color: rgba(255,255,255,0.8);
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      border: 0;
-    }
+  
   </style>
 </head>
 <body>
@@ -566,7 +480,7 @@
   <header class="header">
     <div class="container">
       <div class="header-content">
-        <a href="/" class="logo">POLL MATRIX India</a>
+        <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
         <nav class="nav-desktop">
           <a href="/" class="nav-link">Home</a>
           <a href="/about" class="nav-link active">About Us</a>
@@ -596,6 +510,7 @@
   <main>
     <!-- Hero Section -->
     <div class="hero">
+      <div class="overlay-hero"></div>
       <div class="container">
         <h1>About POLL MATRIX</h1>
         <p>
@@ -611,9 +526,7 @@
           <div class="card-flex">
             <div class="card-image">
               <div class="image-placeholder">
-                <svg style="width: 80px; height: 80px; color: var(--primary-blue);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l4 2m-10 0l4-2m0-6v4m6 4v-4m-6 6a6 6 0 100-12 6 6 0 000 12z" />
-                </svg>
+                   <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
               </div>
             </div>
             <div class="card-content">
@@ -663,30 +576,64 @@
       </div>
     </div>
 
+    <!-- Our Team Section -->
+    <div class="section">
+      <div class="container">
+        <h2 class="section-title">The Pulse Experts: Our Team</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <img src="assets/NeerajNachiketa.jpeg" alt="Dr. Neeraj Nachiketa" class="team-image">
+            <div class="team-content">
+              <h3 class="team-name">Dr. Neeraj Nachiketa</h3>
+              <p class="team-affiliation">IIT Mumbai</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="assets/Amitjha.jpeg" alt="Amit Jha" class="team-image">
+            <div class="team-content">
+              <h3 class="team-name">Amit Jha</h3>
+              <p class="team-affiliation">Patna University, Bihar</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="assets/MasoodIkram.jpeg" alt="Dr. Masood Ikram" class="team-image">
+            <div class="team-content">
+              <h3 class="team-name">Dr. Masood Ikram</h3>
+              <p class="team-affiliation">Rajiv Gandhi University, Karnataka</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Chairman's Message Carousel -->
     <div class="tabs-section">
       <div class="container">
         <h2 class="tabs-title">Chairman's Message</h2>
         <div class="tabs-container">
-          <div class="tabs-list">
+          <div class="tabs-list message-tabs-list">
             <input type="radio" name="message-tabs" id="message-0" checked class="tab-input">
             <label for="message-0" class="tab-trigger">Bridging the Gap</label>
-            
             <input type="radio" name="message-tabs" id="message-1" class="tab-input">
             <label for="message-1" class="tab-trigger">Ethical Research</label>
-            
             <input type="radio" name="message-tabs" id="message-2" class="tab-input">
             <label for="message-2" class="tab-trigger">Knowledge Ecosystem</label>
-            
             <input type="radio" name="message-tabs" id="message-3" class="tab-input">
             <label for="message-3" class="tab-trigger">Conscience of Democracy</label>
+            <input type="radio" name="message-tabs" id="message-4" class="tab-input">
+            <label for="message-4" class="tab-trigger">Democratic Foresight</label>
           </div>
           
-          <div class="tab-content" id="message-0-content">
+          <div class="tab-content active" id="message-0-content">
             <div class="tab-content-card">
               <h3 class="tab-content-title">Bridging the Gap Between People and Policy</h3>
               <p class="text-content">
-                Mr. Senthil Kumar envisions POLL MATRIX as a bridge—a conduit that connects the lived realities of citizens with the decision-making corridors of power. He believes that effective governance cannot operate in isolation from citizen emotion and expectation. This process bridges not just information gaps but also trust deficits.
+                Mr. Senthil Kumar envisions POLL MATRIX as a bridge—a conduit that connects the lived realities of citizens with the decision-making corridors of power.
+                In his words, “Policy without public perception is prescription without diagnosis.”
+                He believes that effective governance cannot operate in isolation from citizen emotion and expectation. Every policy, every reform, every manifesto promise must be anchored in data that emerges from the real socio-political landscape of India—from the rural panchayat to the metropolitan ward.
+                POLL MATRIX, therefore, acts as a translation mechanism—decoding what citizens express in emotion and converting it into actionable insights. Through scientific polling methodologies, constituency studies, and behavioral analytics, the organization transforms the voices of millions into measurable parameters that policymakers can act upon.
+                This process bridges not just information gaps but also trust deficits. By making voter sentiment visible, quantifiable, and authentic, POLL MATRIX ensures that people become participants in governance, not passive observers of it.
+                In the Indian political context, where perception often precedes policy, this approach marks a fundamental shift—from intuition-based politics to empirical, people-centric governance.
               </p>
             </div>
           </div>
@@ -695,7 +642,16 @@
             <div class="tab-content-card">
               <h3 class="tab-content-title">Promoting Ethical and Transparent Research</h3>
               <p class="text-content">
-                For Mr. Senthil Kumar, integrity in research is the moral backbone of democracy. In an age where misinformation and political sensationalism can distort public discourse, POLL MATRIX has committed itself to transparency, verification, and scientific authenticity. He advocates for polling and data analytics that serve public knowledge rather than partisan interest.
+                For Mr. Senthil Kumar, integrity in research is the moral backbone of democracy.
+                He often asserts that the credibility of any democracy depends not on how often elections are held, but on how truthfully they are understood.
+                In an age where misinformation and political sensationalism can distort public discourse, POLL MATRIX has committed itself to transparency, verification, and scientific authenticity. Every study, every data point, and every projection that leaves its research ecosystem is subjected to rigorous statistical testing and field validation.
+                This commitment stems from the Chairman’s conviction that political research should enlighten, not manipulate. He advocates for polling and data analytics that serve public knowledge rather than partisan interest. To this end, POLL MATRIX follows strict ethical protocols:
+                • Maintaining non-partisan objectivity in all projects.
+                • Ensuring anonymity and consent in field data collection.
+                • Subjecting all results to peer and methodological review before publication.
+                • Disclosing margins of error, confidence intervals, and sampling frameworks to maintain academic transparency.
+                By doing so, the organization establishes an unprecedented standard of credibility and accountability in the Indian electoral research space.
+                Mr. Kumar’s leadership transforms POLL MATRIX from a research organization into a custodian of democratic ethics—a sentinel that protects the integrity of public knowledge.
               </p>
             </div>
           </div>
@@ -704,7 +660,12 @@
             <div class="tab-content-card">
               <h3 class="tab-content-title">Creating a Knowledge Ecosystem for Democracy</h3>
               <p class="text-content">
-                Beyond polling and prediction, the Chairman's vision extends toward building a national knowledge infrastructure for democracy—a collaborative ecosystem that unites researchers, journalists, policymakers, and citizens. He envisions POLL MATRIX as a democratic think hub, where diverse disciplines converge to produce research that shapes both electoral outcomes and governance reform.
+                Beyond polling and prediction, the Chairman’s vision extends toward building a national knowledge infrastructure for democracy—a collaborative ecosystem that unites researchers, journalists, policymakers, and citizens.
+                He envisions POLL MATRIX as a democratic think hub, where diverse disciplines converge to produce research that shapes both electoral outcomes and governance reform.
+                This knowledge ecosystem is powered by data analytics, academic partnerships, and civic engagement—a triad that ensures democracy evolves with both intellect and empathy.
+                Through partnerships with institutions such as IIT Madras, CSIR-CLRI, and the University of Madras, POLL MATRIX fosters interdisciplinary research that blends technological precision with social insight.
+                By engaging with media networks and civil society, the organization works to democratize access to information, ensuring that knowledge circulates freely and transparently.
+                In Mr. Kumar’s perspective, this convergence is vital for modern India, where governance must increasingly respond to real-time citizen feedback. The age of instinctive politics, he argues, is yielding to the era of informed leadership—one that interprets the voter not as a number but as a narrative.
               </p>
             </div>
           </div>
@@ -713,16 +674,35 @@
             <div class="tab-content-card">
               <h3 class="tab-content-title">Research as the Conscience of Democracy</h3>
               <p class="text-content">
-                Mr. Senthil Kumar often refers to research as "the conscience of democracy." For him, research is not a mechanical process of counting opinions—it is an act of national introspection. It reflects who we are as a people, what we expect from leadership, and how we measure progress.
+                Mr. Senthil Kumar often refers to research as “the conscience of democracy.”
+                For him, research is not a mechanical process of counting opinions—it is an act of national introspection. It reflects who we are as a people, what we expect from leadership, and how we measure progress.
+                This belief drives POLL MATRIX’s dual commitment to scientific rigor and social relevance. Every dataset is treated as a story—of aspiration, anxiety, and agency. Every statistic is a reflection of the human condition within a democratic framework.
+                In the political lexicon he promotes, research is reform. It has the power to correct misjudgments, challenge populism, and introduce rational discourse into the often emotional arena of Indian politics.
+                By institutionalizing data-driven decision-making, he envisions a future where governance is predictive rather than reactive, inclusive rather than elitist, and transparent rather than transactional.
+              </p>
+            </div>
+          </div>
+
+          <div class="tab-content" id="message-4-content">
+            <div class="tab-content-card">
+              <h3 class="tab-content-title">A Legacy of Democratic Foresight</h3>
+              <p class="text-content">
+                Through CAAS Research Foundation and POLL MATRIX, Mr. Senthil Kumar has laid the groundwork for a new generation of political inquiry—one that values truth over trend, insight over influence, and citizens over statistics.
+                His leadership philosophy insists that democracy must be data-literate and morally grounded.
+                In his own words, “Numbers can predict elections, but only ethics can preserve democracy.”
+                He urges scholars, analysts, and policymakers alike to adopt a scientific temperament toward governance—to treat every voter as a data point of dignity and every policy as a hypothesis for progress.
+                Under his direction, POLL MATRIX continues to evolve as a beacon of empirical democracy—a platform that empowers India’s democratic institutions with the intelligence of its people.
+                Mr. Senthil Kumar’s vision thus positions POLL MATRIX not merely as a polling company but as a national institution of democratic introspection, where the science of politics meets the soul of the republic.
               </p>
             </div>
           </div>
 
           <div class="carousel-dots">
-            <span class="carousel-dot" data-tab="message-0"></span>
+            <span class="carousel-dot active" data-tab="message-0"></span>
             <span class="carousel-dot" data-tab="message-1"></span>
             <span class="carousel-dot" data-tab="message-2"></span>
             <span class="carousel-dot" data-tab="message-3"></span>
+            <span class="carousel-dot" data-tab="message-4"></span>
           </div>
         </div>
       </div>
@@ -734,7 +714,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-section">
-          <a href="/" class="logo">POLL MATRIX India</a>
+          <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
           <p>Where data meets democracy, and insight drives informed governance.</p>
           <div class="social-links">
             <a href="#" class="social-link"><span class="sr-only">Facebook</span>
@@ -801,6 +781,7 @@
     </div>
   </footer>
 
+
   <script>
     // Mobile menu toggle
     const navToggle = document.querySelector('.nav-toggle');
@@ -810,63 +791,40 @@
       navMobile.style.display = navMobile.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    // Carousel functionality
-    const tabs = document.querySelectorAll('.tab-input');
-    const contents = document.querySelectorAll('.tab-content');
-    const dots = document.querySelectorAll('.carousel-dot');
-    let currentIndex = 0;
-    let carouselInterval;
+    // Tab functionality for chairman's message
+    function setupTabs(tabSelector, contentSelector, dotSelector) {
+      const tabs = document.querySelectorAll(tabSelector);
+      const contents = document.querySelectorAll(contentSelector);
+      const dots = document.querySelectorAll(dotSelector);
 
-    function showTab(index) {
-      // Remove active classes
-      tabs.forEach(tab => tab.checked = false);
-      contents.forEach(content => content.classList.remove('active'));
-      dots.forEach(dot => dot.classList.remove('active'));
+      function showTab(index) {
+        tabs.forEach(tab => tab.checked = false);
+        contents.forEach(content => content.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
 
-      // Add active classes to current tab
-      tabs[index].checked = true;
-      contents[index].classList.add('active');
-      dots[index].classList.add('active');
-    }
+        tabs[index].checked = true;
+        contents[index].classList.add('active');
+        dots[index].classList.add('active');
+      }
 
-    function nextTab() {
-      currentIndex = (currentIndex + 1) % tabs.length;
-      showTab(currentIndex);
-    }
-
-    // Start carousel
-    function startCarousel() {
-      carouselInterval = setInterval(nextTab, 5000); // Change every 5 seconds
-    }
-
-    // Stop carousel on user interaction
-    function stopCarousel() {
-      clearInterval(carouselInterval);
-    }
-
-    // Manual tab selection
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('change', () => {
-        stopCarousel();
-        currentIndex = index;
-        showTab(index);
-        setTimeout(startCarousel, 10000); // Resume after 10 seconds
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('change', () => {
+          showTab(index);
+        });
       });
-    });
 
-    // Dot navigation
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        stopCarousel();
-        currentIndex = index;
-        showTab(index);
-        setTimeout(startCarousel, 10000); // Resume after 10 seconds
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showTab(index);
+        });
       });
-    });
 
-    // Initialize carousel
-    showTab(currentIndex);
-    startCarousel();
+      // Show the first tab by default
+      showTab(0);
+    }
+
+    // Initialize message tabs
+    setupTabs('.tab-input[name="message-tabs"]', '.tab-content[id^="message-"]', '.carousel-dot');
   </script>
 </body>
 </html>
