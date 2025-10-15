@@ -567,11 +567,22 @@
       text-align: center;
     }
 
+    .cta-section-container{
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
     .cta-section >.container > img {
       width: 400px;
     }
 
+    .cta-content > a{
+      display: inline-block;
+    }
+
     .cta-content h2 {
+      text-align: left;
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 1rem;
@@ -579,6 +590,7 @@
     }
 
     .cta-content p {
+       text-align: left;
       font-size: 1.25rem;
       margin-bottom: 2rem;
       color: rgba(255, 255, 255, 0.9);
@@ -588,7 +600,7 @@
     }
 
 
-        /* Contact Form Section */
+    /* Contact Form Section */
     .contact-section {
       background: var(--light-gray);
       padding: 5rem 0;
@@ -703,14 +715,13 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
      <!-- Hero Section -->
     <section class="hero">
       <div class="hero-left">
         <div class="hero-content">
           <h1 class="font-headline">POLL MATRIX India</h1>
           <p>Where data meets democracy, and insight drives informed governance.</p>
-          <a href="#contact" class="btn btn-accent">Get In Touch</a>
+          <a href="/about" class="btn btn-accent">About Us</a>
         </div>
       </div>
       <div class="hero-right">
@@ -723,9 +734,6 @@
         <div class="overlay-hero"></div>
       </div>
     </section>
-
-
-
 
     <!-- Vision and Mission Section -->
     <section class="section vision-mission">
@@ -876,7 +884,7 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
-      <div class="container">
+      <div class="container cta-section-container">
         <img src="assets\handImg.png" alt="">
         <div class="cta-content">
           <h2 class="font-headline">Ready to Transform Democracy with Data?</h2>
