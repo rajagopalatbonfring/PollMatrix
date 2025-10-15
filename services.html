@@ -162,7 +162,14 @@
       flex-shrink: 0;
     }
 
-    .btn-register {
+    .service-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      margin-top: auto;
+    }
+
+    .btn-register, .btn-view-details {
       background: var(--primary-blue);
       color: white;
       padding: 0.875rem 2rem;
@@ -176,8 +183,20 @@
       display: inline-block;
     }
 
+    .btn-view-details {
+      background: var(--light-blue);
+      color: var(--primary-blue);
+    }
+
     .btn-register:hover {
       background: #00125a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 27, 117, 0.3);
+    }
+
+    .btn-view-details:hover {
+      background: var(--primary-blue);
+      color: white;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0, 27, 117, 0.3);
     }
@@ -395,6 +414,45 @@
       background: #00125a;
       transform: translateY(-2px);
     }
+
+    /* Details Modal Styles */
+    .details-modal-content {
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .details-modal-content h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    .details-modal-content p {
+      color: var(--text-gray);
+      margin-bottom: 1rem;
+    }
+
+    .details-modal-content ul {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+
+    .details-modal-content ul li {
+      padding: 0.5rem 0;
+      color: var(--text-gray);
+      display: flex;
+      align-items: start;
+      gap: 0.5rem;
+    }
+
+    .details-modal-content ul li:before {
+      content: "✓";
+      color: var(--primary-orange);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
@@ -457,7 +515,10 @@
             <li>Behavioral mapping and analysis</li>
             <li>Balanced and representative insights</li>
           </ul>
-          <button class="btn-register" data-service="Opinion & Exit Polls">Register for Service</button>
+          <div class="service-buttons">
+            <button class="btn-register" data-service="Opinion & Exit Polls">Register for Service</button>
+            <button class="btn-view-details" data-service="Opinion & Exit Polls">View Details</button>
+          </div>
         </div>
 
         <!-- Voter Behavior Analytics -->
@@ -475,7 +536,10 @@
             <li>Emotional trigger identification</li>
             <li>Electoral outcome prediction models</li>
           </ul>
-          <button class="btn-register" data-service="Voter Behavior Analytics">Register for Service</button>
+          <div class="service-buttons">
+            <button class="btn-register" data-service="Voter Behavior Analytics">Register for Service</button>
+            <button class="btn-view-details" data-service="Voter Behavior Analytics">View Details</button>
+          </div>
         </div>
 
         <!-- Constituency Profiling -->
@@ -493,7 +557,10 @@
             <li>Leadership evaluation metrics</li>
             <li>Demographic trend analysis</li>
           </ul>
-          <button class="btn-register" data-service="Constituency Profiling">Register for Service</button>
+          <div class="service-buttons">
+            <button class="btn-register" data-service="Constituency Profiling">Register for Service</button>
+            <button class="btn-view-details" data-service="Constituency Profiling">View Details</button>
+          </div>
         </div>
 
         <!-- Policy Impact Studies -->
@@ -511,7 +578,10 @@
             <li>Healthcare initiative assessment</li>
             <li>Social welfare program tracking</li>
           </ul>
-          <button class="btn-register" data-service="Policy Impact Studies">Register for Service</button>
+          <div class="service-buttons">
+            <button class="btn-register" data-service="Policy Impact Studies">Register for Service</button>
+            <button class="btn-view-details" data-service="Policy Impact Studies">View Details</button>
+          </div>
         </div>
 
         <!-- Campaign Effectiveness Research -->
@@ -529,7 +599,10 @@
             <li>Perception shift analysis</li>
             <li>Multi-channel impact assessment</li>
           </ul>
-          <button class="btn-register" data-service="Campaign Effectiveness Research">Register for Service</button>
+          <div class="service-buttons">
+            <button class="btn-register" data-service="Campaign Effectiveness Research">Register for Service</button>
+            <button class="btn-view-details" data-service="Campaign Effectiveness Research">View Details</button>
+          </div>
         </div>
 
         <!-- Digital & Media Intelligence -->
@@ -547,7 +620,10 @@
             <li>Influencer network mapping</li>
             <li>Social media behavioral tracking</li>
           </ul>
-          <button class="btn-register" data-service="Digital & Media Intelligence">Register for Service</button>
+          <div class="service-buttons">
+            <button class="btn-register" data-service="Digital & Media Intelligence">Register for Service</button>
+            <button class="btn-view-details" data-service="Digital & Media Intelligence">View Details</button>
+          </div>
         </div>
 
       </div>
@@ -793,7 +869,7 @@
     </div>
   </section>
 
-  <!-- Modal -->
+  <!-- Register Modal -->
   <div class="modal" id="registerModal">
     <div class="modal-content">
       <button class="modal-close" aria-label="Close modal">&times;</button>
@@ -816,6 +892,14 @@
         
         <input type="submit" value="Submit Registration">
       </form>
+    </div>
+  </div>
+
+  <!-- Details Modal -->
+  <div class="modal" id="detailsModal">
+    <div class="modal-content details-modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div id="detailsContent"></div>
     </div>
   </div>
 
@@ -894,32 +978,147 @@
 
   <script>
     // Modal functionality
-    const modal = document.getElementById('registerModal');
-    const closeModalBtn = document.querySelector('.modal-close');
+    const registerModal = document.getElementById('registerModal');
+    const detailsModal = document.getElementById('detailsModal');
+    const closeModalBtn = document.querySelectorAll('.modal-close');
     const registerButtons = document.querySelectorAll('.btn-register');
+    const viewDetailsButtons = document.querySelectorAll('.btn-view-details');
     const serviceInput = document.getElementById('service');
     const registerForm = document.getElementById('registerForm');
+    const detailsContent = document.getElementById('detailsContent');
 
-    // Open modal and set service field
+    // Service details data
+    const serviceDetails = {
+      "Opinion & Exit Polls": {
+        title: "Opinion & Exit Polls",
+        description: "Our scientifically designed polls capture the authentic voice of the electorate using advanced methodologies to ensure accurate and representative insights.",
+        features: [
+          "Demographic sampling and stratification for balanced representation",
+          "Digital tracking and real-time monitoring of voter sentiment",
+          "Behavioral mapping and analysis to understand voter preferences",
+          "Balanced and representative insights with minimized bias",
+          "High-precision data collection through mixed-mode surveys",
+          "Advanced statistical analysis for reliable predictions"
+        ],
+        benefits: "Gain actionable insights into voter preferences to inform campaign strategies and media coverage."
+      },
+      "Voter Behavior Analytics": {
+        title: "Voter Behavior Analytics",
+        description: "Comprehensive analysis combining field data with behavioral economics and psychology to uncover the drivers of voter decision-making.",
+        features: [
+          "Long-term voter pattern analysis to identify trends",
+          "Issue-based decision-making studies to understand priorities",
+          "Emotional trigger identification for targeted messaging",
+          "Electoral outcome prediction models using AI",
+          "Segmentation by demographics and psychographics",
+          "Cross-regional comparative analysis"
+        ],
+        benefits: "Understand the psychological and economic factors influencing voters to craft effective strategies."
+      },
+      "Constituency Profiling": {
+        title: "Constituency Profiling",
+        description: "Detailed constituency reports providing actionable intelligence for campaigns and analysts.",
+        features: [
+          "Socio-economic mapping of constituencies",
+          "Community segmentation analysis for targeted outreach",
+          "Leadership evaluation metrics to assess candidate impact",
+          "Demographic trend analysis for strategic planning",
+          "Historical voting pattern analysis",
+          "GIS-based constituency visualization"
+        ],
+        benefits: "Empower campaigns with granular data to optimize resource allocation and messaging."
+      },
+      "Policy Impact Studies": {
+        title: "Policy Impact Studies",
+        description: "Comprehensive assessment of how policies shape voter sentiment and influence governance feedback loops.",
+        features: [
+          "Education policy impact analysis on voter perceptions",
+          "Employment program evaluation for economic impact",
+          "Healthcare initiative assessment for public response",
+          "Social welfare program tracking for effectiveness",
+          "Longitudinal studies on policy adoption",
+          "Stakeholder feedback integration"
+        ],
+        benefits: "Measure the electoral impact of policies to guide governance and campaign strategies."
+      },
+      "Campaign Effectiveness Research": {
+        title: "Campaign Effectiveness Research",
+        description: "Evaluate how effectively political communication reaches and resonates with its intended audience.",
+        features: [
+          "Media outreach tracking across channels",
+          "Message resonance measurement for impact",
+          "Perception shift analysis to gauge campaign success",
+          "Multi-channel impact assessment (TV, social, print)",
+          "Audience segmentation for tailored campaigns",
+          "Real-time campaign performance monitoring"
+        ],
+        benefits: "Optimize campaign strategies by understanding what resonates with voters."
+      },
+      "Digital & Media Intelligence": {
+        title: "Digital & Media Intelligence",
+        description: "Track real-time sentiment and map the online dimension of electoral behavior across digital platforms.",
+        features: [
+          "Real-time sentiment analysis on social media",
+          "Issue trend identification for timely responses",
+          "Influencer network mapping for strategic partnerships",
+          "Social media behavioral tracking for voter insights",
+          "Cross-platform analytics (Twitter, Facebook, etc.)",
+          "Predictive modeling of digital trends"
+        ],
+        benefits: "Stay ahead of digital trends to shape online narratives and engage voters effectively."
+      }
+    };
+
+    // Open register modal and set service field
     registerButtons.forEach(button => {
       button.addEventListener('click', () => {
         const serviceName = button.getAttribute('data-service');
         serviceInput.value = serviceName;
-        modal.style.display = 'flex';
+        registerModal.style.display = 'flex';
+        detailsModal.style.display = 'none';
       });
     });
 
-    // Close modal
-    closeModalBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      registerForm.reset();
+    // Open details modal and populate content
+    viewDetailsButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const serviceName = button.getAttribute('data-service');
+        const details = serviceDetails[serviceName];
+        detailsContent.innerHTML = `
+          <h3>${details.title}</h3>
+          <p>${details.description}</p>
+          <h4>Key Features</h4>
+          <ul>
+            ${details.features.map(feature => `<li>${feature}</li>`).join('')}
+          </ul>
+          <h4>Benefits</h4>
+          <p>${details.benefits}</p>
+        `;
+        detailsModal.style.display = 'flex';
+        registerModal.style.display = 'none';
+      });
     });
 
-    // Close modal when clicking outside
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
+    // Close modals
+    closeModalBtn.forEach(btn => {
+      btn.addEventListener('click', () => {
+        registerModal.style.display = 'none';
+        detailsModal.style.display = 'none';
         registerForm.reset();
+      });
+    });
+
+    // Close modals when clicking outside
+    registerModal.addEventListener('click', (e) => {
+      if (e.target === registerModal) {
+        registerModal.style.display = 'none';
+        registerForm.reset();
+      }
+    });
+
+    detailsModal.addEventListener('click', (e) => {
+      if (e.target === detailsModal) {
+        detailsModal.style.display = 'none';
       }
     });
 
@@ -935,7 +1134,7 @@
         service: formData.get('service')
       };
       console.log('Form submitted:', data);
-      modal.style.display = 'none';
+      registerModal.style.display = 'none';
       registerForm.reset();
       alert('Registration submitted successfully!');
     });
