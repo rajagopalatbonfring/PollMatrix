@@ -8,11 +8,16 @@
   <link rel="stylesheet" href="css/style.css" />
   <style>
 
-    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
       --primary-dark: #0f172a;
-      --primary-blue: #3d4e3f;
-      --primary-orange: #ffca58;
+      --primary-blue: #001b75;
+      --primary-orange: #e7c16e;
       --light-gray: #f8fafc;
       --border-gray: #e2e8f0;
       --text-gray: #64748b;
@@ -326,16 +331,16 @@
   </style>
 </head>
 <body>
-  <!-- Header (same as homepage, about, services) -->
+  <!-- Header -->
   <header class="header">
     <div class="container">
       <div class="header-content">
-        <a href="/" class="logo">POLL MATRIX India</a>
+        <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
         <nav class="nav-desktop">
           <a href="/" class="nav-link">Home</a>
-          <a href="/about.html" class="nav-link">About Us</a>
-          <a href="/services.html" class="nav-link">Services</a>
-          <a href="/research.html" class="nav-link active">Research & Reports</a>
+          <a href="/about" class="nav-link">About Us</a>
+          <a href="/services" class="nav-link">Services</a>
+          <a href="/research" class="nav-link active">Research & Reports</a>
           <a href="/collaborations" class="nav-link">Collaborations</a>
           <a href="/careers" class="nav-link">Careers</a>
           <a href="/blogs" class="nav-link">Blogs</a>
@@ -346,9 +351,9 @@
       </div>
       <nav class="nav-mobile">
         <a href="/" class="nav-link">Home</a>
-        <a href="/about.html" class="nav-link">About Us</a>
-        <a href="/services.html" class="nav-link">Services</a>
-        <a href="/research.html" class="nav-link active">Research & Reports</a>
+        <a href="/about" class="nav-link">About Us</a>
+        <a href="/services" class="nav-link">Services</a>
+        <a href="/research" class="nav-link active">Research & Reports</a>
         <a href="/collaborations" class="nav-link">Collaborations</a>
         <a href="/careers" class="nav-link">Careers</a>
         <a href="/blogs" class="nav-link">Blogs</a>
@@ -484,7 +489,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-section">
-          <a href="/" class="logo">POLL MATRIX India</a>
+          <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
           <p>Where data meets democracy, and insight drives informed governance.</p>
           <div class="social-links">
             <a href="#" class="social-link"><span class="sr-only">Facebook</span>
