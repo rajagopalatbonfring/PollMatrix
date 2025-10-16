@@ -38,6 +38,7 @@
       padding: 0 1.5rem;
     }
 
+    /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--primary-blue) 0%, #0f2557 100%);
       background-image: url("../assets/service3.jpg");
@@ -69,21 +70,79 @@
       }
     }
 
+    /* Details Section */
     .details-section {
       padding: 4rem 0;
     }
 
     .section-title {
-      text-align: center;
+      text-align: left;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 2rem;
       color: var(--primary-blue);
       margin-bottom: 3rem;
     }
 
+    .details-wrapper {
+      display: flex;
+      gap: 2rem;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      flex: 0 0 250px;
+      background: var(--light-gray);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      margin-bottom: 0.75rem;
+    }
+
+    .sidebar a {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: var(--primary-orange);
+    }
+
+    .sidebar .view-all {
+      display: block;
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background: var(--primary-blue);
+      color: white;
+      text-align: center;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .sidebar .view-all:hover {
+      background: #00125a;
+    }
+
+    /* Details Content */
     .details-content {
+      flex: 1;
       max-width: 900px;
-      margin: 0 auto;
     }
 
     .details-content h2 {
@@ -118,6 +177,7 @@
       flex-shrink: 0;
     }
 
+    /* Image Section */
     .image-section {
       padding: 4rem 0;
       background: var(--light-gray);
@@ -148,6 +208,7 @@
       color: var(--text-gray);
     }
 
+    /* Registration Section */
     .registration-section {
       padding: 4rem 0;
     }
@@ -203,6 +264,36 @@
       background: #00125a;
       transform: translateY(-2px);
     }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .details-wrapper {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        flex: none;
+        margin-bottom: 2rem;
+      }
+
+      .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .sidebar li {
+        margin-bottom: 0;
+      }
+
+      .sidebar .view-all {
+        margin-top: 1rem;
+      }
+
+      .details-content {
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -217,8 +308,8 @@
           <div class="nav-dropdown">
             <a href="/services" class="nav-link active">Services</a>
             <div class="dropdown-menu">
-              <a href="/services/psephological-research" class="dropdown-item">Psephological Research & Opinion Polls</a>
-              <a href="/services/campaign-management" class="dropdown-item active">Deep Route Campaign Management</a>
+              <a href="/services/psephological-research" class="dropdown-item active">Psephological Research & Opinion Polls</a>
+              <a href="/services/campaign-management" class="dropdown-item">Deep Route Campaign Management</a>
               <a href="/services/voting-pattern" class="dropdown-item">Voting Pattern / Field Research</a>
               <a href="/services/media-research" class="dropdown-item">Media Research & PRM</a>
               <a href="/services/social-media" class="dropdown-item">Social Media Management</a>
@@ -242,8 +333,8 @@
         <div class="nav-dropdown-mobile">
           <a href="/services" class="nav-link active">Services</a>
           <div class="dropdown-menu-mobile">
-            <a href="/services/psephological-research" class="dropdown-item">Psephological Research & Opinion Polls</a>
-            <a href="/services/campaign-management" class="dropdown-item active">Deep Route Campaign Management</a>
+            <a href="/services/psephological-research" class="dropdown-item active">Psephological Research & Opinion Polls</a>
+            <a href="/services/campaign-management" class="dropdown-item">Deep Route Campaign Management</a>
             <a href="/services/voting-pattern" class="dropdown-item">Voting Pattern / Field Research</a>
             <a href="/services/media-research" class="dropdown-item">Media Research & PRM</a>
             <a href="/services/social-media" class="dropdown-item">Social Media Management</a>
@@ -268,36 +359,55 @@
     </div>
   </section>
 
-  <!-- Details Section -->
+  <!-- Details Section with Sidebar -->
   <section class="details-section">
     <div class="container">
-      <h2 class="section-title">About Deep Route Campaign Management</h2>
-      <div class="details-content">
-        <p>Our Deep Route Campaign Management service provides end-to-end solutions for planning and executing election campaigns. From strategy formulation to resource allocation and messaging, we ensure every aspect of your campaign is optimized for maximum voter engagement and impact.</p>
-        
-        <h2>Our Approach</h2>
-        <p>We combine data-driven insights with on-ground expertise to craft campaigns that resonate with voters. Our team works closely with candidates and political parties to develop tailored strategies, leveraging analytics, voter sentiment, and regional dynamics.</p>
-        
-        <h2>Campaign Components</h2>
-        <ul>
-          <li><span><strong>Strategy Development:</strong> Crafting a comprehensive campaign plan based on voter demographics and key issues.</span></li>
-          <li><span><strong>Scheduling and Logistics:</strong> Coordinating rallies, public appearances, and volunteer activities.</span></li>
-          <li><span><strong>Messaging and Content:</strong> Developing compelling narratives and campaign materials aligned with voter priorities.</span></li>
-          <li><span><strong>Resource Allocation:</strong> Optimizing budgets and manpower for maximum reach and efficiency.</span></li>
-        </ul>
-        
-        <h2>Key Features</h2>
-        <ul>
-          <li>Customized campaign blueprints tailored to constituencies</li>
-          <li>Real-time campaign performance tracking</li>
-          <li>Integration with voter data analytics</li>
-          <li>Multi-channel outreach: rallies, door-to-door, digital</li>
-          <li>Training for campaign teams and volunteers</li>
-          <li>Compliance with election regulations</li>
-        </ul>
-        
-        <h2>Benefits for Our Clients</h2>
-        <p>Our service empowers candidates and parties to run efficient, impactful campaigns that connect with voters at every level. With a focus on strategic precision and measurable outcomes, we help you maximize your electoral success.</p>
+      
+      <div class="details-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+          <h3>Other Services</h3>
+          <ul>
+            <li><a href="/services/campaign-management">Deep Route Campaign Management</a></li>
+            <li><a href="/services/voting-pattern">Voting Pattern / Field Research</a></li>
+            <li><a href="/services/media-research">Media Research & PRM</a></li>
+            <li><a href="/services/social-media">Social Media Management</a></li>
+            <li><a href="/services/war-room">War Room for Candidate Mapping & Winning Booth</a></li>
+            <li><a href="/services/ground-campaigns">Ground Campaigns / Door to Door</a></li>
+            <li><a href="/services/ai-robotics">AI & Robotics for Mass Reach</a></li>
+          </ul>
+          <a href="/services" class="view-all">View All Services</a>
+        </nav>
+
+        <!-- Details Content -->
+        <div class="details-content">
+<h2 class="section-title" style="font-size: 3rem; margin-top: 0;">About Deep Route Campaign Management</h2>
+            <p>Our Deep Route Campaign Management service provides end-to-end solutions for planning and executing election campaigns. From strategy formulation to resource allocation and messaging, we ensure every aspect of your campaign is optimized for maximum voter engagement and impact.</p>
+            
+            <h2>Our Approach</h2>
+            <p>We combine data-driven insights with on-ground expertise to craft campaigns that resonate with voters. Our team works closely with candidates and political parties to develop tailored strategies, leveraging analytics, voter sentiment, and regional dynamics.</p>
+            
+            <h2>Campaign Components</h2>
+            <ul>
+            <li><span><strong>Strategy Development:</strong> Crafting a comprehensive campaign plan based on voter demographics and key issues.</span></li>
+            <li><span><strong>Scheduling and Logistics:</strong> Coordinating rallies, public appearances, and volunteer activities.</span></li>
+            <li><span><strong>Messaging and Content:</strong> Developing compelling narratives and campaign materials aligned with voter priorities.</span></li>
+            <li><span><strong>Resource Allocation:</strong> Optimizing budgets and manpower for maximum reach and efficiency.</span></li>
+            </ul>
+            
+            <h2>Key Features</h2>
+            <ul>
+            <li>Customized campaign blueprints tailored to constituencies</li>
+            <li>Real-time campaign performance tracking</li>
+            <li>Integration with voter data analytics</li>
+            <li>Multi-channel outreach: rallies, door-to-door, digital</li>
+            <li>Training for campaign teams and volunteers</li>
+            <li>Compliance with election regulations</li>
+            </ul>
+            
+            <h2>Benefits for Our Clients</h2>
+            <p>Our service empowers candidates and parties to run efficient, impactful campaigns that connect with voters at every level. With a focus on strategic precision and measurable outcomes, we help you maximize your electoral success.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -308,20 +418,20 @@
       <h2 class="section-title">Visual Representations</h2>
       <div class="image-grid">
         <div class="image-card">
-          <img src="https://www.example.com/campaign-strategy.jpg" alt="Campaign Strategy">
-          <div class="image-caption">Campaign Strategy Blueprint</div>
+          <img src="https://www.eastwestcenter.org/sites/default/files/2024-03/yashwant_deshmukh_mailchimp_final.png" alt="The Hitchhiker's Guide to Indian Elections">
+          <div class="image-caption">Insights into Indian Elections</div>
         </div>
         <div class="image-card">
-          <img src="https://www.example.com/voter-outreach.jpg" alt="Voter Outreach">
-          <div class="image-caption">Voter Outreach Planning</div>
+          <img src="https://i1.rgstatic.net/publication/355654455_Psephological_Advancements_and_Pitfalls_of_Political_Opinion_Polls_in_India/links/617a5300eef53e51e1f73b0a/largepreview.png" alt="Psephological Advancements PDF">
+          <div class="image-caption">Advancements in Political Opinion Polls</div>
         </div>
         <div class="image-card">
-          <img src="https://www.example.com/campaign-rally.jpg" alt="Campaign Rally">
-          <div class="image-caption">Organizing Campaign Rallies</div>
+          <img src="https://www.pewresearch.org/global/wp-content/uploads/sites/2/2019/03/PG_2019-03-25_Public-Opinion-in-India_0-01.png?w=420" alt="Public Opinion Chart">
+          <div class="image-caption">Indian Public Opinion Survey Results</div>
         </div>
         <div class="image-card">
-          <img src="https://www.example.com/campaign-analytics.jpg" alt="Campaign Analytics">
-          <div class="image-caption">Campaign Performance Analytics</div>
+          <img src="https://i1.rgstatic.net/publication/304607014_Status_of_Opinion_Polls_Media_Gimmick_and_Political_Communication_in_India/links/5f17e0fea6fdcc9626a68a93/largepreview.png" alt="Opinion Polls Status PDF">
+          <div class="image-caption">Status of Opinion Polls in India</div>
         </div>
       </div>
     </div>
@@ -347,7 +457,7 @@
           <input type="text" id="organization" name="organization">
           
           <label for="service">Service</label>
-          <input type="text" id="service" name="service" value="Deep Route Campaign Management" readonly required>
+          <input type="text" id="service" name="service" value="Psephological Research & Opinion Polls" readonly required>
           
           <input type="submit" value="Submit Registration">
         </form>
@@ -399,7 +509,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span>Chennai, Tamil Nadu, India</span>
+              <span>32/267 Udayam colony , 18th Main Road , Anna Nagar , Chennai- 40</span>
             </li>
             <li class="contact-item">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -429,6 +539,7 @@
   </footer>
 
   <script>
+    // Handle form submission (for demonstration)
     const registerForm = document.getElementById('registerForm');
     registerForm.addEventListener('submit', (e) => {
       e.preventDefault();
