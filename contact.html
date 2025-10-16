@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poll Matrix India - Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-dark: #0f172a;
+      --primary-blue: #001b75;
+      --primary-orange: #e7c16e;
+      --light-gray: #f8fafc;
+      --border-gray: #e2e8f0;
+      --text-gray: #64748b;
+      --text-dark: #1e293b;
+    }
+    body {
+      font-family: 'PT Sans', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: #ffffff;
+    }
+
+    .font-headline {
+      font-family: 'Times New Roman', serif;
+      color: var(--text-black);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--primary-gray);
+      padding: 3rem 0;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .contact-header h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--text-black);
+      padding-bottom: 0.5rem;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .contact-info {
+      font-size: 1.1rem;
+    }
+
+    .contact-info h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+      color: var(--text-gray);
+    }
+
+    .contact-info a {
+      color: var(--text-black);
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border: 2px solid var(--border-gray);
+      border-radius: 0;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.875rem;
+      border: 2px solid var(--border-gray);
+      border-radius: 0;
+      font-family: 'PT Serif', serif;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-dark);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--primary-dark);
+      color: var(--primary-gray);
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #333333;
+    }
+
+    .map-section {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 300px;
+      border: 2px solid var(--border-gray);
+    }
+
+  
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-header h1 {
+        font-size: 2rem;
+      }
+
+      .contact-info h3 {
+        font-size: 1.2rem;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+        <nav class="nav-desktop">
+          <a href="/" class="nav-link active">Home</a>
+          <a href="/about" class="nav-link">About Us</a>
+          <div class="nav-dropdown">
+            <a href="/services" class="nav-link">Services</a>
+            <div class="dropdown-menu">
+              <a href="/services/psephological-research" class="dropdown-item">Psephological Research & Opinion Polls</a>
+              <a href="/services/campaign-management" class="dropdown-item">Deep Route Campaign Management</a>
+              <a href="/services/voting-pattern" class="dropdown-item">Voting Pattern / Field Research</a>
+              <a href="/services/media-research" class="dropdown-item">Media Research & PRM</a>
+              <a href="/services/social-media" class="dropdown-item">Social Media Management</a>
+              <a href="/services/war-room" class="dropdown-item">War Room for Candidate Mapping & Winning Booth</a>
+              <a href="/services/ground-campaigns" class="dropdown-item">Ground Campaigns / Door to Door</a>
+              <a href="/services/ai-robotics" class="dropdown-item">AI & Robotics for Mass Reach</a>
+            </div>
+          </div>
+          <a href="/research" class="nav-link">Research & Reports</a>
+          <a href="/institutions" class="nav-link">Institutions</a>
+          <a href="/careers" class="nav-link">Careers</a>
+          <a href="/blogs" class="nav-link">Blogs</a>
+          <a href="/contact" class="nav-link">Contact</a>
+        </nav>
+        <button class="nav-toggle" aria-label="Toggle menu">
+          <span class="nav-toggle-icon">☰</span>
+        </button>
+      </div>
+      <nav class="nav-mobile">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="/about" class="nav-link">About Us</a>
+        <div class="nav-dropdown-mobile">
+          <a href="/services" class="nav-link">Services</a>
+          <div class="dropdown-menu-mobile">
+            <a href="/services/psephological-research" class="dropdown-item">Psephological Research & Opinion Polls</a>
+            <a href="/services/campaign-management" class="dropdown-item">Deep Route Campaign Management</a>
+            <a href="/services/voting-pattern" class="dropdown-item">Voting Pattern / Field Research</a>
+            <a href="/services/media-research" class="dropdown-item">Media Research & PRM</a>
+            <a href="/services/social-media" class="dropdown-item">Social Media Management</a>
+            <a href="/services/war-room" class="dropdown-item">War Room for Candidate Mapping & Winning Booth</a>
+            <a href="/services/ground-campaigns" class="dropdown-item">Ground Campaigns / Door to Door</a>
+            <a href="/services/ai-robotics" class="dropdown-item">AI & Robotics for Mass Reach</a>
+          </div>
+        </div>
+        <a href="/research" class="nav-link">Research & Reports</a>
+        <a href="/institutions" class="nav-link">Institutions</a>
+        <a href="/services/careers" class="nav-link">Careers</a>
+        <a href="/blogs" class="nav-link">Blogs</a>
+        <a href="/contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-header">
+          <h1 class="font-headline">Contact Us</h1>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3 class="font-headline">Get in Touch</h3>
+            <p>Have questions or want to collaborate? Reach out to us at:</p>
+            <p>32/267 Udayam Colony, 18th Main Road, Anna Nagar, Chennai - 40</p>
+            <p><a href="mailto:careers@pollmatrix.in">careers@pollmatrix.in</a></p>
+            <p>Phone: +91-123-456-7890</p>
+            <p>Available: Monday - Friday, 9:00 AM - 6:00 PM IST</p>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="map-section">
+          <h3 class="font-headline">Our Location</h3>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.897548555643!2d80.2065236145483!3d13.083817490799586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266eaeee9e7e5%3A0x2e8f3c1f4e6f0e5d!2sAnna+Nagar%2C+Chennai%2C+Tamil+Nadu!5e0!3m2!1sen!2sin!4v1606793214832!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+          <p>Where data meets democracy, and insight drives informed governance.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><span class="sr-only">Facebook</span>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg>
+            </a>
+            <a href="#" class="social-link"><span class="sr-only">Twitter</span>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+              </svg>
+            </a>
+            <a href="#" class="social-link"><span class="sr-only">LinkedIn</span>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                <circle cx="4" cy="4" r="2" stroke="none" fill="currentColor" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/research">Research & Reports</a></li>
+            <li><a href="/institutions" class="nav-link">Institutions</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blogs">Blogs</a></li>
+            <li><a href="/contact">Contact</a></li>
+
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul>
+            <li class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>32/267 Udayam colony , 18th Main Road , Anna Nagar , Chennai- 40</span>
+            </li>
+            <li class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <a href="mailto:careers@pollmatrix.in">careers@pollmatrix.in</a>
+            </li>
+            <li class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span>+91-123-456-7890</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Our Mission</h3>
+          <p>
+            To strengthen Indian democracy by delivering independent, ethical, and innovative research that informs governance, shapes public discourse, and fosters civic awareness.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 POLL MATRIX India. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(contactForm);
+        const data = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          message: formData.get('message')
+        };
+
+        const subject = encodeURIComponent('Contact Form Submission from ' + data.name);
+        const body = encodeURIComponent(
+          `Name: ${data.name}\n` +
+          `Email: ${data.email}\n` +
+          `Phone: ${data.phone || 'N/A'}\n\n` +
+          `Message:\n${data.message}`
+        );
+        
+        const mailtoLink = `mailto:careers@pollmatrix.in?subject=${subject}&body=${body}`;
+        
+        window.location.href = mailtoLink;
+      });
+    }
+  </script>
+</body>
+</html>
