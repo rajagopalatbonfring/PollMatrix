@@ -76,16 +76,73 @@
     }
 
     .section-title {
-      text-align: center;
+      text-align: left;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 2rem;
       color: var(--primary-blue);
       margin-bottom: 3rem;
     }
 
+    .details-wrapper {
+      display: flex;
+      gap: 2rem;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      flex: 0 0 250px;
+      background: var(--light-gray);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      margin-bottom: 0.75rem;
+    }
+
+    .sidebar a {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: var(--primary-orange);
+    }
+
+    .sidebar .view-all {
+      display: block;
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background: var(--primary-blue);
+      color: white;
+      text-align: center;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .sidebar .view-all:hover {
+      background: #00125a;
+    }
+
+    /* Details Content */
     .details-content {
+      flex: 1;
       max-width: 900px;
-      margin: 0 auto;
     }
 
     .details-content h2 {
@@ -207,6 +264,36 @@
       background: #00125a;
       transform: translateY(-2px);
     }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .details-wrapper {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        flex: none;
+        margin-bottom: 2rem;
+      }
+
+      .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .sidebar li {
+        margin-bottom: 0;
+      }
+
+      .sidebar .view-all {
+        margin-top: 1rem;
+      }
+
+      .details-content {
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -264,44 +351,60 @@
     </div>
   </header>
 
-  <!-- Hero -->
+<!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Psephological Research & Opinion Polls</h1>
-      <p>Unlocking the pulse of the electorate through scientific surveys and in-depth analysis.</p>
+      <h1>War Room for Candidate Mapping & Winning Booth</h1>
+      <p>Real-time campaign monitoring and strategy optimization from a centralized command center.</p>
     </div>
   </section>
 
-  <!-- Details Section -->
+  <!-- Details Section with Sidebar -->
   <section class="details-section">
     <div class="container">
-      <h2 class="section-title">About Our Psephological Research</h2>
-      <div class="details-content">
-        <p>Psephology is the scientific study of elections and voting behavior. At Poll Matrix India, our Psephological Research & Opinion Polls service provides comprehensive surveys designed to gauge public opinion, voter preferences, and the electability of candidates. We conduct pre-poll, exit, and post-poll studies to deliver accurate insights that empower political stakeholders, media, and analysts.</p>
-        
-        <h2>Our Approach</h2>
-        <p>We employ advanced methodologies combining quantitative and qualitative research techniques. Our team of experienced psephologists uses stratified sampling, AI-driven data analysis, and behavioral modeling to ensure high accuracy and minimal bias in our findings.</p>
-        
-        <h2>Types of Polls We Conduct</h2>
-        <ul>
-          <li><span><strong>Pre-Poll Surveys:</strong> Assess voter sentiment, issue priorities, and candidate popularity before the election campaign intensifies.</span></li>
-          <li><span><strong>Exit Polls:</strong> Conducted immediately after voting, these provide early indications of election outcomes based on actual voter choices.</span></li>
-          <li><span><strong>Post-Poll Studies:</strong> In-depth analysis of election results, voter turnout patterns, and factors influencing the verdict.</span></li>
-          <li><span><strong>Opinion Polls:</strong> Regular surveys on current affairs, policy impacts, and public mood to track shifting preferences over time.</span></li>
-        </ul>
-        
-        <h2>Key Features</h2>
-        <ul>
-          <li>Scientifically designed questionnaires for unbiased responses</li>
-          <li>Multi-mode data collection: In-person, telephone, and online</li>
-          <li>Advanced statistical modeling for precise predictions</li>
-          <li>Demographic breakdowns: Age, gender, caste, region-specific insights</li>
-          <li>Real-time dashboards for clients to monitor trends</li>
-          <li>Compliance with ethical standards and data privacy regulations</li>
-        </ul>
-        
-        <h2>Benefits for Our Clients</h2>
-        <p>Our psephological research helps political parties refine strategies, media outlets provide informed coverage, and researchers gain deep insights into electoral dynamics. With a track record of accurate predictions in Indian elections, we help you stay ahead in the democratic process.</p>
+      <div class="details-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+          <h3>Other Services</h3>
+          <ul>
+            <li><a href="/services/psephological-research">Psephological Research & Opinion Polls</a></li>
+            <li><a href="/services/campaign-management">Deep Route Campaign Management</a></li>
+            <li><a href="/services/voting-pattern">Voting Pattern / Field Research</a></li>
+            <li><a href="/services/media-research">Media Research & PRM</a></li>
+            <li><a href="/services/social-media">Social Media Management</a></li>
+            <li><a href="/services/ground-campaigns">Ground Campaigns / Door to Door</a></li>
+            <li><a href="/services/ai-robotics">AI & Robotics for Mass Reach</a></li>
+          </ul>
+          <a href="/services" class="view-all">View All Services</a>
+        </nav>
+
+        <!-- Details Content -->
+        <div class="details-content">
+          <h2 class="section-title" style="font-size: 3rem; margin-top: 0;">About Our War Room</h2>
+          <p>Our War Room service establishes command centers to monitor campaign progress, analyze real-time data, and coordinate operations for candidate success.</p>
+          
+          <h2>Our Approach</h2>
+          <p>Integrates voter data, field reports, and predictive analytics to inform strategic decisions.</p>
+          
+          <h2>Services</h2>
+          <ul>
+            <li>Real-time data dashboards</li>
+            <li>Candidate profiling</li>
+            <li>Booth-level strategy planning</li>
+            <li>Operational coordination</li>
+          </ul>
+          
+          <h2>Key Features</h2>
+          <ul>
+            <li>Centralized data hub</li>
+            <li>AI-driven insights</li>
+            <li>Rapid response mechanisms</li>
+            <li>Secure data handling</li>
+          </ul>
+          
+          <h2>Benefits for Our Clients</h2>
+          <p>Enables agile campaign adjustments and maximizes booth-level wins.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -312,20 +415,20 @@
       <h2 class="section-title">Visual Representations</h2>
       <div class="image-grid">
         <div class="image-card">
-          <img src="https://www.eastwestcenter.org/sites/default/files/2024-03/yashwant_deshmukh_mailchimp_final.png" alt="The Hitchhiker's Guide to Indian Elections">
-          <div class="image-caption">Insights into Indian Elections</div>
+          <img src="war-room-dashboard.jpg" alt="War Room Dashboard">
+          <div class="image-caption">War Room Dashboard</div>
         </div>
         <div class="image-card">
-          <img src="https://i1.rgstatic.net/publication/355654455_Psephological_Advancements_and_Pitfalls_of_Political_Opinion_Polls_in_India/links/617a5300eef53e51e1f73b0a/largepreview.png" alt="Psephological Advancements PDF">
-          <div class="image-caption">Advancements in Political Opinion Polls</div>
+          <img src="candidate-map.jpg" alt="Candidate Mapping">
+          <div class="image-caption">Candidate Mapping</div>
         </div>
         <div class="image-card">
-          <img src="https://www.pewresearch.org/global/wp-content/uploads/sites/2/2019/03/PG_2019-03-25_Public-Opinion-in-India_0-01.png?w=420" alt="Public Opinion Chart">
-          <div class="image-caption">Indian Public Opinion Survey Results</div>
+          <img src="booth-strategy.jpg" alt="Booth Strategy Plan">
+          <div class="image-caption">Booth Strategy Plan</div>
         </div>
         <div class="image-card">
-          <img src="https://i1.rgstatic.net/publication/304607014_Status_of_Opinion_Polls_Media_Gimmick_and_Political_Communication_in_India/links/5f17e0fea6fdcc9626a68a93/largepreview.png" alt="Opinion Polls Status PDF">
-          <div class="image-caption">Status of Opinion Polls in India</div>
+          <img src="data-center.jpg" alt="Data Operations Center">
+          <div class="image-caption">Data Operations Center</div>
         </div>
       </div>
     </div>
@@ -351,7 +454,7 @@
           <input type="text" id="organization" name="organization">
           
           <label for="service">Service</label>
-          <input type="text" id="service" name="service" value="Psephological Research & Opinion Polls" readonly required>
+          <input type="text" id="service" name="service" value="War Room for Candidate Mapping & Winning Booth" readonly required>
           
           <input type="submit" value="Submit Registration">
         </form>
