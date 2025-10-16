@@ -218,6 +218,9 @@
 
 
 
+    .News-Banner{
+
+    }
 
 
 
@@ -799,7 +802,19 @@
         <nav class="nav-desktop">
           <a href="/" class="nav-link active">Home</a>
           <a href="/about" class="nav-link">About Us</a>
-          <a href="/services" class="nav-link">Services</a>
+          <div class="nav-dropdown">
+            <a href="/services" class="nav-link">Services</a>
+            <div class="dropdown-menu">
+              <a href="/services/psephological-research" class="dropdown-item">Psephological Research & Opinion Polls</a>
+              <a href="/services/campaign-management" class="dropdown-item">Deep Route Campaign Management</a>
+              <a href="/services/voting-pattern" class="dropdown-item">Voting Pattern / Field Research</a>
+              <a href="/services/media-research" class="dropdown-item">Media Research & PRM</a>
+              <a href="/services/social-media" class="dropdown-item">Social Media Management</a>
+              <a href="/services/war-room" class="dropdown-item">War Room for Candidate Mapping & Winning Booth</a>
+              <a href="/services/ground-campaigns" class="dropdown-item">Ground Campaigns / Door to Door</a>
+              <a href="/services/ai-robotics" class="dropdown-item">AI & Robotics for Mass Reach</a>
+            </div>
+          </div>
           <a href="/research" class="nav-link">Research & Reports</a>
           <a href="/collaborations" class="nav-link">Collaborations</a>
           <a href="/careers" class="nav-link">Careers</a>
@@ -812,43 +827,60 @@
       <nav class="nav-mobile">
         <a href="/" class="nav-link active">Home</a>
         <a href="/about" class="nav-link">About Us</a>
-        <a href="/services" class="nav-link">Services</a>
+        <div class="nav-dropdown-mobile">
+          <a href="/services" class="nav-link">Services</a>
+          <div class="dropdown-menu-mobile">
+            <a href="/services/psephological-research" class="dropdown-item">Psephological Research & Opinion Polls</a>
+            <a href="/services/campaign-management" class="dropdown-item">Deep Route Campaign Management</a>
+            <a href="/services/voting-pattern" class="dropdown-item">Voting Pattern / Field Research</a>
+            <a href="/services/media-research" class="dropdown-item">Media Research & PRM</a>
+            <a href="/services/social-media" class="dropdown-item">Social Media Management</a>
+            <a href="/services/war-room" class="dropdown-item">War Room for Candidate Mapping & Winning Booth</a>
+            <a href="/services/ground-campaigns" class="dropdown-item">Ground Campaigns / Door to Door</a>
+            <a href="/services/ai-robotics" class="dropdown-item">AI & Robotics for Mass Reach</a>
+          </div>
+        </div>
         <a href="/research" class="nav-link">Research & Reports</a>
         <a href="/collaborations" class="nav-link">Collaborations</a>
-        <a href="/careers" class="nav-link">Careers</a>
+        <a href="/services/careers" class="nav-link">Careers</a>
         <a href="/blogs" class="nav-link">Blogs</a>
       </nav>
     </div>
   </header>
 
+
   <!-- Main Content -->
   <main>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-left">
-      <div class="hero-content">
-        <h1>POLL MATRIX<br>India</h1>
-        <p>Where data meets democracy, and insight drives informed governance.</p>
-        <a href="#about" class="btn">About Us</a>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-content">
+          <h1>POLL MATRIX<br>India</h1>
+          <p>Where data meets democracy, and insight drives informed governance.</p>
+          <a href="#about" class="btn">About Us</a>
+        </div>
       </div>
-    </div>
 
-    <div class="hero-right">
-      <div class="carousel-slide active" style="background-image: url('assets/Nationalparties.jpg')"></div>
-      <div class="carousel-slide" style="background-image: url('assets/electionCommission.jpeg')"></div>
-      <div class="carousel-slide" style="background-image: url('assets/new.png')"></div>
-      <div class="carousel-slide" style="background-image: url('assets/Indian-politics-top-10-powerful.jpg')"></div>
-      <div class="carousel-slide" style="background-image: url('assets/2024Election.jpg')"></div>
-      
-      <div class="carousel-dots">
-        <span class="dot active" data-slide="0"></span>
-        <span class="dot" data-slide="1"></span>
-        <span class="dot" data-slide="2"></span>
-        <span class="dot" data-slide="3"></span>
-        <span class="dot" data-slide="4"></span>
+      <div class="hero-right">
+        <div class="carousel-slide active" style="background-image: url('assets/Nationalparties.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('assets/electionCommission.jpeg')"></div>
+        <div class="carousel-slide" style="background-image: url('assets/new.png')"></div>
+        <div class="carousel-slide" style="background-image: url('assets/Indian-politics-top-10-powerful.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('assets/2024Election.jpg')"></div>
+        
+        <div class="carousel-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+          <span class="dot" data-slide="3"></span>
+          <span class="dot" data-slide="4"></span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="News-Banner">
+
+    </section>
 
     <!-- Vision and Mission Section -->
     <section class="section vision-mission">
@@ -1131,16 +1163,6 @@
 
 
   <script>
-    // Navigation toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMobile = document.querySelector('.nav-mobile');
-    
-    navToggle.addEventListener('click', () => {
-      navMobile.classList.toggle('active');
-      const icon = navToggle.querySelector('.nav-toggle-icon');
-      icon.textContent = navMobile.classList.contains('active') ? '✕' : '☰';
-    });
-
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
