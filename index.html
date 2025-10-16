@@ -218,9 +218,175 @@
 
 
 
-    .News-Banner{
 
+
+
+
+
+
+
+    /* News Banner Section */
+    .News-Banner {
+      background: #1c2526;
+      color: white;
+      padding: 1rem 0;
+      width: 100%;
+      border-top: 4px solid var(--primary-orange);
+      border-bottom: 4px solid var(--primary-orange);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
     }
+
+    .news-banner-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+      padding: 0 1.5rem;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .news-banner-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    .news-banner-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-orange);
+      margin-right: 2rem;
+      white-space: nowrap;
+    }
+
+    .news-ticker {
+      display: flex;
+      gap: 2rem;
+      animation: ticker 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    .news-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .news-item:hover {
+      color: var(--primary-orange);
+    }
+
+    .news-item::before {
+      content: '•';
+      color: var(--primary-orange);
+      font-size: 1.2rem;
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .news-ticker:hover {
+      animation-play-state: paused;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero-left {
+        width: 40%;
+        padding: 3rem;
+      }
+
+      .hero-right {
+        width: 60%;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+
+      .news-banner-title {
+        font-size: 1.3rem;
+        margin-right: 1.5rem;
+      }
+
+      .news-item {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .hero-left {
+        width: 100%;
+        padding: 2rem;
+        min-height: 50vh;
+      }
+
+      .hero-right {
+        width: 100%;
+        height: 60vh;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .carousel-dots {
+        bottom: 2rem;
+      }
+
+      .news-banner-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .news-banner-title {
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+      }
+
+      .news-ticker {
+        flex-direction: column;
+        animation: none;
+      }
+
+      .news-item {
+        display: flex;
+        white-space: normal;
+        padding: 0.5rem 0;
+      }
+    }
+
+
+
+
+
+
 
 
 
@@ -879,8 +1045,17 @@
       </div>
     </section>
 
+    <!-- News Banner Section -->
     <section class="News-Banner">
-
+      <div class="news-banner-container">
+        <h2 class="news-banner-title " style="background-color: red;">CURRENT NEWS</h2>
+        <div class="news-ticker">
+          <a href="#" class="news-item">Opposition Calls for Electoral Reforms Ahead of 2026 State Elections</a>
+          <a href="#" class="news-item">Supreme Court to Review Political Funding Transparency Laws</a>
+          <a href="#" class="news-item">New Coalition Government Faces Challenges in Policy Implementation</a>
+          <a href="#" class="news-item">Voter Turnout Expected to Rise in Upcoming By-Elections</a>
+        </div>
+      </div>
     </section>
 
     <!-- Vision and Mission Section -->
