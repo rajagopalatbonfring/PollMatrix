@@ -43,179 +43,177 @@
     }
 
 
+/* Hero Section - Full Height Split */
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  overflow: hidden;
+}
 
- /* Hero Section - Full Height Split */
-    .hero {
-      position: relative;
-      height: 90vh;
-      display: flex;
-      overflow: hidden;
-    }
+.hero-left {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  background: #f5f5f5;
+  z-index: 10;
+}
 
-    /* Left Content Area - 35% */
-    .hero-left {
-      width: 25%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem;
-      background: #f5f5f5;
-      z-index: 10;
-    }
+.hero-content {
+  animation: fadeInLeft 0.8s ease-out;
+}
 
-    .hero-content {
-      animation: fadeInLeft 0.8s ease-out;
-    }
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-    @keyframes fadeInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+}
 
-    .hero-content h1 {
-      font-size: 4rem;
-      font-weight: 900;
-      line-height: 1.1;
-      color: var(--primary-blue);
-      margin-bottom: 1.5rem;
-    }
+.hero-content p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
 
-    .hero-content p {
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 2.5rem;
-      line-height: 1.6;
-    }
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--primary-blue);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+}
 
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: var(--primary-blue);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
-    }
+.btn:hover {
+  background: #0052a3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
 
-    .btn:hover {
-      background: #0052a3;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
-    }
+.hero-right {
+  width: 75%;
+  position: relative;
+  height: 90vh;
+}
 
-    /* Right Carousel Area - 65% Full Height */
-    .hero-right {
-      width: 75%;
-      position: relative;
-      height: 90vh;
-    }
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    .carousel-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1.2s ease-in-out;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+.carousel-slide.active {
+  opacity: 1;
+}
 
-    .carousel-slide.active {
-      opacity: 1;
-    }
+.carousel-nav {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  z-index: 10;
+}
 
-    /* Carousel Navigation Dots */
-    .carousel-dots {
-      position: absolute;
-      bottom: 3rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-      z-index: 10;
-    }
+.arrow {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
 
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.6);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
 
-    .dot.active {
-      background: white;
-      transform: scale(1.3);
-    }
+.arrow-left, .arrow-right {
+  outline: none;
+}
 
-    .dot:hover {
-      background: rgba(255, 255, 255, 0.9);
-    }
+@media (max-width: 1024px) {
+  .hero-left {
+    width: 40%;
+    padding: 3rem;
+  }
 
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .hero-left {
-        width: 40%;
-        padding: 3rem;
-      }
+  .hero-right {
+    width: 60%;
+  }
 
-      .hero-right {
-        width: 60%;
-      }
+  .hero-content h1 {
+    font-size: 3rem;
+  }
 
-      .hero-content h1 {
-        font-size: 3rem;
-      }
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+}
 
-      .hero-content p {
-        font-size: 1.1rem;
-      }
-    }
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
 
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        height: auto;
-      }
+  .hero-left {
+    width: 100%;
+    padding: 2rem;
+    min-height: 50vh;
+  }
 
-      .hero-left {
-        width: 100%;
-        padding: 2rem;
-        min-height: 50vh;
-      }
+  .hero-right {
+    width: 100%;
+    height: 60vh;
+  }
 
-      .hero-right {
-        width: 100%;
-        height: 60vh;
-      }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
 
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
+  .hero-content p {
+    font-size: 1rem;
+  }
 
-      .hero-content p {
-        font-size: 1rem;
-      }
-
-      .carousel-dots {
-        bottom: 2rem;
-      }
-    }
-
+  .carousel-nav {
+    bottom: 2rem;
+  }
+}
 
 
 
@@ -1020,34 +1018,29 @@
   <!-- Main Content -->
   <main>
     <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-left">
-        <div class="hero-content">
-          <h1>POLL MATRIX<br>India</h1>
-          <p>Where data meets democracy, and insight drives informed governance.</p>
-          <a href="/about" class="btn">About Us</a>
-        </div>
-      </div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-content">
+      <h1>POLL MATRIX<br>India</h1>
+      <p>Where data meets democracy, and insight drives informed governance.</p>
+      <a href="/about" class="btn">About Us</a>
+    </div>
+  </div>
 
-      <div class="hero-right">
-        <!-- <div class="carousel-slide" style="background-image: url('assets/Nationalparties.jpg')"></div> -->
-        <div class="carousel-slide active" style="background-image: url('assets/List_of_Prime_Ministers_of_India.webp')"></div>
-        <div class="carousel-slide" style="background-image: url('assets/National-Party-leaders.png')"></div>
-        <div class="carousel-slide" style="background-image: url('assets/tamilnaduParties.png')"></div>
-        <div class="carousel-slide" style="background-image: url('assets/ElectionCommissionMain.jpg')"></div>
-        <!-- <div class="carousel-slide" style="background-image: url('assets/Indian-politics-top-10-powerful.jpg')"></div> -->
-        <div class="carousel-slide" style="background-image: url('assets/CELEBRATE DEMOCRACY.png')"></div>
-        <div class="carousel-slide" style="background-image: url('assets/Voters-standing-in-a-queue-to-cast-their-vote.webp')"></div>
-        
-        <div class="carousel-dots">
-          <span class="dot active" data-slide="0"></span>
-          <span class="dot" data-slide="1"></span>
-          <span class="dot" data-slide="2"></span>
-          <span class="dot" data-slide="3"></span>
-          <span class="dot" data-slide="4"></span>
-        </div>
-      </div>
-    </section>
+  <div class="hero-right">
+    <div class="carousel-slide active" style="background-image: url('assets/List_of_Prime_Ministers_of_India.png')"></div>
+    <div class="carousel-slide" style="background-image: url('assets/National-Party-leaders.png')"></div>
+    <div class="carousel-slide" style="background-image: url('assets/tamilnaduParties.png')"></div>
+    <div class="carousel-slide" style="background-image: url('assets/ElectionCommissionMain.jpg')"></div>
+    <div class="carousel-slide" style="background-image: url('assets/CELEBRATE DEMOCRACY.png')"></div>
+    <div class="carousel-slide" style="background-image: url('assets/Voters-standing-in-a-queue-to-cast-their-vote.webp')"></div>
+    
+    <div class="carousel-nav">
+      <button class="arrow arrow-left">&#9664;</button>
+      <button class="arrow arrow-right">&#9654;</button>
+    </div>
+  </div>
+</section>
 
     <!-- News Banner Section -->
     <section class="News-Banner">
@@ -1409,49 +1402,56 @@
   </script>
   
 
-  <script>
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.dot');
-    let currentSlide = 0;
-    let autoPlayInterval;
+<script>
+const slides = document.querySelectorAll('.carousel-slide');
+let currentSlide = 0;
+let autoPlayInterval;
+const slideDuration = 5000;
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-      currentSlide = index;
-    }
+function showSlide(index) {
+  // Normalize index to stay within bounds
+  index = (index + slides.length) % slides.length;
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+  currentSlide = index;
+}
 
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
+function nextSlide() {
+  showSlide(currentSlide + 1);
+}
 
-    function startAutoPlay() {
-      autoPlayInterval = setInterval(nextSlide, 5000);
-    }
+function prevSlide() {
+  showSlide(currentSlide - 1);
+}
 
-    function stopAutoPlay() {
-      clearInterval(autoPlayInterval);
-    }
+function startAutoPlay() {
+  stopAutoPlay(); // Clear any existing interval
+  autoPlayInterval = setInterval(nextSlide, slideDuration);
+}
 
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        showSlide(index);
-        stopAutoPlay();
-        startAutoPlay();
-      });
-    });
+function stopAutoPlay() {
+  clearInterval(autoPlayInterval);
+}
 
-    showSlide(0);
-    startAutoPlay();
+document.querySelector('.arrow-left').addEventListener('click', () => {
+  prevSlide();
+  stopAutoPlay();
+  startAutoPlay();
+});
 
-    const heroRight = document.querySelector('.hero-right');
-    heroRight.addEventListener('mouseenter', stopAutoPlay);
-    heroRight.addEventListener('mouseleave', startAutoPlay);
-  </script>
+document.querySelector('.arrow-right').addEventListener('click', () => {
+  nextSlide();
+  stopAutoPlay();
+  startAutoPlay();
+});
+
+const heroRight = document.querySelector('.hero-right');
+heroRight.addEventListener('mouseenter', stopAutoPlay);
+heroRight.addEventListener('mouseleave', startAutoPlay);
+
+showSlide(0);
+startAutoPlay();
+</script>
 </body>
 </html>
