@@ -526,6 +526,16 @@
     </div>
   </footer>
 
+  <script>
+        // Mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMobile = document.querySelector('.nav-mobile');
+    
+    navToggle.addEventListener('click', () => {
+      navMobile.style.display = navMobile.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+
   <script src="js/main.js"></script>
 </body>
 </html>

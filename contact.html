@@ -614,6 +614,15 @@
   </footer>
 
   <script>
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMobile = document.querySelector('.nav-mobile');
+    
+    navToggle.addEventListener('click', () => {
+      navMobile.style.display = navMobile.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+
     const contactForm = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
     

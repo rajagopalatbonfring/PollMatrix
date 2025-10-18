@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -39,128 +39,189 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
 
 
-    /* Hero Section - Full Height Split */
-    .hero {
-      position: relative;
-      height: 90vh;
-      display: flex;
-      overflow: hidden;
-    }
+/* Hero Section - Full Height Split */
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  overflow: hidden;
+}
 
-    .hero-left {
-      width: 25%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 3rem;
-      background: #f5f5f5;
-      z-index: 10;
-    }
+.hero-left {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  background: #f5f5f5;
+  z-index: 10;
+}
 
-    .hero-content {
-      animation: fadeInLeft 0.8s ease-out;
-    }
+.hero-content {
+  animation: fadeInLeft 0.8s ease-out;
+}
 
-    @keyframes fadeInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-    .hero-content h1 {
-      font-size: 3.5rem;
-      font-weight: 900;
-      line-height: 1.1;
-      color: var(--primary-blue);
-      margin-bottom: 1.5rem;
-    }
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+}
 
-    .hero-content p {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
+.hero-content p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 0.9rem 2rem;
-      background: var(--primary-blue);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
-    }
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--primary-blue);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+}
 
-    .btn:hover {
-      background: #0052a3;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
-    }
+.btn:hover {
+  background: #0052a3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
 
-    .hero-right {
-      width: 75%;
-      position: relative;
-      height: 100%;
-    }
+.hero-right {
+  width: 75%;
+  position: relative;
+  height: 90vh;
+}
 
-    .carousel-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1.2s ease-in-out;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    .carousel-slide.active {
-      opacity: 1;
-    }
+.carousel-slide.active {
+  opacity: 1;
+}
 
-    .carousel-nav {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 1.5rem;
-      z-index: 10;
-    }
+.carousel-nav {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  z-index: 10;
+}
 
-    .arrow {
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      width: 36px;
-      height: 36px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease;
-    }
+.arrow {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
 
-    .arrow:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.arrow-left, .arrow-right {
+  outline: none;
+}
+
+@media (max-width: 1024px) {
+  .hero-left {
+    width: 40%;
+    padding: 3rem;
+  }
+
+  .hero-right {
+    width: 60%;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .hero-left {
+    width: 100%;
+    padding: 2rem;
+    min-height: 50vh;
+  }
+
+  .hero-right {
+    width: 100%;
+    height: 60vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .carousel-nav {
+    bottom: 2rem;
+  }
+}
+
+
+
+
+
+
+
+
 
     /* News Banner Section */
     .News-Banner {
@@ -177,30 +238,31 @@
     .news-banner-container {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       max-width: 100%;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
+      flex-wrap: nowrap;
       overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
     }
 
     .news-banner-container::-webkit-scrollbar {
-      display: none;
+      display: none; /* Chrome, Safari, Opera */
     }
 
     .news-banner-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--primary-orange);
-      margin-right: 1.5rem;
+      margin-right: 2rem;
       white-space: nowrap;
-      background: none !important;
     }
 
     .news-ticker {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       animation: ticker 20s linear infinite;
       white-space: nowrap;
     }
@@ -209,7 +271,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: white;
       text-decoration: none;
       transition: color 0.3s ease;
@@ -222,7 +284,7 @@
     .news-item::before {
       content: '•';
       color: var(--primary-orange);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     @keyframes ticker {
@@ -238,15 +300,106 @@
       animation-play-state: paused;
     }
 
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero-left {
+        width: 40%;
+        padding: 3rem;
+      }
+
+      .hero-right {
+        width: 60%;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+
+      .news-banner-title {
+        font-size: 1.3rem;
+        margin-right: 1.5rem;
+      }
+
+      .news-item {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .hero-left {
+        width: 100%;
+        padding: 2rem;
+        min-height: 50vh;
+      }
+
+      .hero-right {
+        width: 100%;
+        height: 60vh;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .carousel-dots {
+        bottom: 2rem;
+      }
+
+      .news-banner-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .news-banner-title {
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+      }
+
+      .news-ticker {
+        flex-direction: column;
+        animation: none;
+      }
+
+      .news-item {
+        display: flex;
+        white-space: normal;
+        padding: 0.5rem 0;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     /* Buttons */
     .btn {
       position: relative;
       z-index: 10;
       display: inline-block;
-      padding: 0.9rem 1.8rem;
+      padding: 1rem 2rem;
       border: none;
       border-radius: 8px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       text-decoration: none;
@@ -277,27 +430,27 @@
       box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
     }
 
-    /* Sections */
+/* Sections */
     .section {
-      padding: 4rem 0;
+      padding: 5rem 0;
     }
 
     .section-header {
       position: relative;
       z-index: 10;
       text-align: center;
-      max-width: 42rem;
-      margin: 0 auto 2.5rem;
+      max-width: 48rem;
+      margin: 0 auto 3rem;
     }
 
     .section-header h2 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 700;
       color: var(--primary-dark);
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
       position: relative;
       display: inline-block;
-      padding-bottom: 0.8rem;
+      padding-bottom: 1rem;
     }
 
     .section-header h2::after {
@@ -306,24 +459,29 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 60px;
+      width: 80px;
       height: 3px;
       background: var(--primary-orange);
     }
 
     .section-header p {
-      margin-top: 1rem;
-      font-size: 1rem;
+      margin-top: 1.5rem;
+      font-size: 1.125rem;
       color: var(--text-gray);
     }
 
+
+    
+
     /* Vision and Mission */
-    .vision-mission > .container > .section-header > h2,
-    .vision-mission > .container > .section-header > p {
+
+
+    .vision-mission > .container> .section-header > h2, .vision-mission > .container> .section-header > p{
       color: white;
     }
 
     .vision-mission {
+      z-index: 10;
       position: relative;
       background: white;
       background-image: url("assets/CHIEF-MINISTERS-OF-INDIA-2023.webp");
@@ -332,7 +490,8 @@
       background-size: cover;
     }
 
-    .overlay-intro-section {
+    
+    .overlay-intro-section{
       position: absolute;
       top: 0;
       bottom: 0;
@@ -343,12 +502,12 @@
     }
 
     .intro-wrapper {
-      position: relative;
       z-index: 10;
+      position: relative;
       display: grid;
       grid-template-columns: 1fr 2fr;
-      gap: 1.5rem;
-      margin-bottom: 3rem;
+      gap: 2rem;
+      margin-bottom: 4rem;
       align-items: stretch;
     }
 
@@ -360,30 +519,34 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       border: 2px solid var(--border-gray);
       transition: all 0.3s;
       background: #fafafa;
     }
 
     .intro-content:hover {
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
       border-color: var(--primary-blue);
     }
 
     .intro-content h2 {
-      font-size: 2.2rem;
+      position: relative;
+      z-index: 20;
+      font-size: 2.5rem;
       font-weight: 700;
       color: var(--primary-blue);
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
 
     .intro-content p {
-      font-size: 1rem;
+      position: relative;
+      z-index: 20;
+      font-size: 1.125rem;
       color: rgb(36, 36, 36);
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     .ceo-profile {
@@ -393,9 +556,9 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem;
       background: white;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 2px solid var(--border-gray);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       transition: all 0.3s;
@@ -403,52 +566,54 @@
 
     .ceo-profile:hover {
       border-color: var(--primary-blue);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
       transform: translateY(-4px);
     }
 
     .ceo-image {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       border: 3px solid var(--primary-blue);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .ceo-profile h3 {
-      font-size: 1.6rem;
+      position: relative;
+      z-index: 20;
+      font-size: 1.875rem;
       font-weight: 700;
       color: var(--primary-dark);
       margin-bottom: 0.5rem;
     }
 
     .ceo-profile .title {
-      font-size: 1rem;
+      font-size: 1.125rem;
       color: var(--primary-orange);
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
 
     .ceo-profile p {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--text-gray);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .vision-mission-grid {
-      position: relative;
+            position: relative;
       z-index: 20;
       display: grid;
-      gap: 1.5rem;
+      gap: 2rem;
       grid-template-columns: 1fr 1fr;
-      margin-top: 2.5rem;
+      margin-top: 3rem;
     }
 
     .vision-mission-grid > div {
-      padding: 2rem;
+      padding: 2.5rem;
       background: white;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 2px solid var(--border-gray);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       transition: all 0.3s;
@@ -456,22 +621,36 @@
 
     .vision-mission-grid > div:hover {
       border-color: var(--primary-blue);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
       transform: translateY(-4px);
     }
 
     .vision-mission-grid h3 {
-      font-size: 1.6rem;
+      font-size: 1.875rem;
       font-weight: 700;
       color: var(--primary-dark);
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
 
     .vision-mission-grid p {
-      font-size: 1rem;
+      font-size: 1.125rem;
       color: var(--text-gray);
-      line-height: 1.6;
+      line-height: 1.7;
     }
+
+    @media (max-width: 768px) {
+      .intro-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .ceo-profile {
+        margin: 0 auto;
+        max-width: 400px;
+      }
+      .vision-mission-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
 
     /* Core Values */
     .core-values {
@@ -479,49 +658,55 @@
     }
 
     .core-values-grid {
-      margin-top: 2.5rem;
+      margin-top: 3rem;
       display: grid;
-      gap: 1.5rem;
+      gap: 2rem;
       grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .core-values-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .core-value {
       display: flex;
-      gap: 1.2rem;
+      gap: 1.5rem;
       align-items: flex-start;
-      padding: 1.8rem;
+      padding: 2rem;
       background: white;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 2px solid var(--border-gray);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
       transition: all 0.3s;
     }
 
     .core-value:hover {
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       transform: translateY(-4px);
       border-color: var(--primary-blue);
     }
 
     .icon-wrapper {
       background: var(--primary-dark);
-      padding: 0.8rem;
+      padding: 1rem;
       border-radius: 8px;
       flex-shrink: 0;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .icon-wrapper i {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       color: var(--primary-orange);
     }
 
     .core-value h3 {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--primary-dark);
       margin-bottom: 0.5rem;
@@ -529,26 +714,31 @@
 
     .core-value p {
       color: var(--text-gray);
-      font-size: 0.95rem;
     }
 
     /* Services */
-    .services > .container > .section-header > h2,
-    .services > .container > .section-header > p {
+    
+    .services > .container> .section-header > h2, .services > .container> .section-header > p{
       color: white;
     }
 
+
+
+
     .services {
       position: relative;
+      z-index: 10;
+      position: relative;
+      /* background: white; */
       background-image: url("servicebgimg.jpg");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
     }
 
-    .overlay-service {
+    .overlay-service{
       position: absolute;
-      background: #01050f8f;
+      background: #01050f8f ;
       top: 0;
       height: 100%;
       width: 100%;
@@ -558,31 +748,43 @@
     .services-grid {
       position: relative;
       z-index: 10;
-      margin-top: 2.5rem;
+      margin-top: 3rem;
       display: grid;
-      gap: 1.5rem;
+      gap: 2rem;
       grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
     }
 
     .card {
       text-align: center;
       border: 2px solid var(--border-gray);
-      border-radius: 10px;
+      border-radius: 12px;
       background: white;
-      padding: 1.8rem 1.2rem;
+      padding: 2rem 1.5rem;
       transition: all 0.3s;
     }
 
     .card:hover {
       border-color: var(--primary-blue);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
       transform: translateY(-5px);
     }
 
     .card-icon {
-      margin: 0 auto 1.2rem;
-      width: 60px;
-      height: 60px;
+      margin: 0 auto 1.5rem;
+      width: 70px;
+      height: 70px;
       border-radius: 8px;
       background: var(--light-gray);
       display: flex;
@@ -591,63 +793,63 @@
     }
 
     .card-icon i {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: var(--primary-orange);
     }
 
     .card h3 {
-      font-size: 1.1rem;
+      font-size: 1.125rem;
       font-weight: 700;
       color: var(--primary-dark);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.75rem;
     }
 
     .card p {
       color: var(--text-gray);
-      font-size: 0.9rem;
-      line-height: 1.5;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     /* CTA Section */
     .cta-section {
       background: linear-gradient(135deg, var(--primary-dark) 0%, #1e293b 100%);
       color: white;
-      padding: 2rem 0;
+      padding: 1rem 0;
       text-align: center;
     }
 
-    .cta-section-container {
+    .cta-section-container{
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      justify-content: start;
     }
 
-    .cta-section > .container > img {
-      max-width: 300px;
-      width: 100%;
+    .cta-section >.container > img {
+      width: 400px;
     }
 
-    .cta-content > a {
+    .cta-content > a{
       display: inline-block;
     }
 
     .cta-content h2 {
       text-align: left;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
       color: var(--primary-orange);
     }
 
     .cta-content p {
-      text-align: left;
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
+       text-align: left;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
       color: rgba(255, 255, 255, 0.9);
-      max-width: 40rem;
+      max-width: 48rem;
+      margin-left: auto;
+      margin-right: auto;
     }
+
 
     /* Contact Form Section */
     .contact-section {
@@ -657,16 +859,15 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      padding: 4rem 0;
+      padding: 5rem 0;
       position: relative;
     }
 
-    .contact-section > .container > .section-header > h2,
-    .contact-section > .container > .section-header > p {
+    .contact-section > .container> .section-header > h2, .contact-section > .container> .section-header > p{
       color: white;
     }
 
-    .overlay-contact-form {
+    .overlay-contact-form{
       position: absolute;
       top: 0;
       bottom: 0;
@@ -679,7 +880,7 @@
     .contact-form-wrapper {
       position: relative;
       z-index: 20;
-      max-width: 40rem;
+      max-width: 42rem;
       margin: 0 auto;
     }
 
@@ -688,27 +889,36 @@
       z-index: 20;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.2rem;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .form-group.full-width {
+        grid-column: span 2;
+      }
     }
 
     .form-group {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
     .form-group label {
       display: block;
       font-weight: 600;
       color: white;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 0.8rem;
+      padding: 0.875rem;
       border: 2px solid var(--border-gray);
       border-radius: 8px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-family: 'PT Sans', sans-serif;
       transition: all 0.3s;
     }
@@ -721,13 +931,13 @@
     }
 
     .form-group textarea {
-      min-height: 120px;
+      min-height: 150px;
       resize: vertical;
     }
 
     .form-status {
-      margin-top: 0.8rem;
-      padding: 0.8rem;
+      margin-top: 1rem;
+      padding: 1rem;
       border-radius: 8px;
       text-align: center;
       display: none;
@@ -744,483 +954,7 @@
       color: #991b1b;
       border: 2px solid #fca5a5;
     }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .hero-left {
-        width: 40%;
-        padding: 2.5rem;
-      }
-
-      .hero-right {
-        width: 60%;
-      }
-
-      .hero-content h1 {
-        font-size: 2.8rem;
-      }
-
-      .hero-content p {
-        font-size: 1rem;
-      }
-
-      .news-banner-title {
-        font-size: 1.2rem;
-        margin-right: 1rem;
-      }
-
-      .news-item {
-        font-size: 0.9rem;
-      }
-
-      .intro-wrapper {
-        grid-template-columns: 1fr;
-      }
-
-      .ceo-profile {
-        max-width: 350px;
-        margin: 0 auto;
-      }
-
-      .vision-mission-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nav-desktop {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-
-      .nav-mobile {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        background: white;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        z-index: 20;
-      }
-
-      .nav-mobile.active {
-        display: flex;
-      }
-
-      .nav-dropdown-mobile .dropdown-menu-mobile {
-        display: none;
-        padding-left: 1rem;
-      }
-
-      .nav-dropdown-mobile.active .dropdown-menu-mobile {
-        display: block;
-      }
-
-      .hero {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .hero-left {
-        width: 100%;
-        padding: 2rem 1.5rem;
-        min-height: 40vh;
-      }
-
-      .hero-right {
-        width: 100%;
-        height: 50vh;
-      }
-
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero-content p {
-        font-size: 0.95rem;
-      }
-
-      .carousel-nav {
-        bottom: 1.5rem;
-        gap: 1rem;
-      }
-
-      .arrow {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-      }
-
-
-      .section {
-        padding: 3rem 0;
-      }
-
-      .section-header h2 {
-        font-size: 1.8rem;
-      }
-
-      .section-header p {
-        font-size: 0.9rem;
-      }
-
-      .intro-content h2 {
-        font-size: 1.8rem;
-      }
-
-      .intro-content p {
-        font-size: 0.9rem;
-      }
-
-      .ceo-profile {
-        padding: 1.5rem;
-      }
-
-      .ceo-image {
-        width: 100px;
-        height: 100px;
-      }
-
-      .ceo-profile h3 {
-        font-size: 1.4rem;
-      }
-
-      .ceo-profile .title {
-        font-size: 0.9rem;
-      }
-
-      .ceo-profile p {
-        font-size: 0.85rem;
-      }
-
-      .vision-mission-grid h3 {
-        font-size: 1.4rem;
-      }
-
-      .vision-mission-grid p {
-        font-size: 0.9rem;
-      }
-
-      .core-value {
-        padding: 1.5rem;
-      }
-
-      .core-value h3 {
-        font-size: 1.1rem;
-      }
-
-      .core-value p {
-        font-size: 0.85rem;
-      }
-
-      .icon-wrapper {
-        width: 45px;
-        height: 45px;
-      }
-
-      .icon-wrapper i {
-        font-size: 1.3rem;
-      }
-
-      .card {
-        padding: 1.5rem 1rem;
-      }
-
-      .card-icon {
-        width: 50px;
-        height: 50px;
-      }
-
-      .card-icon i {
-        font-size: 1.5rem;
-      }
-
-      .card h3 {
-        font-size: 1rem;
-      }
-
-      .card p {
-        font-size: 0.85rem;
-      }
-
-      .cta-content h2 {
-        font-size: 1.8rem;
-        text-align: center;
-      }
-
-      .cta-content p {
-        font-size: 0.95rem;
-        text-align: center;
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .cta-section > .container > img {
-        max-width: 250px;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .form-group.full-width {
-        grid-column: span 1;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        font-size: 0.9rem;
-        padding: 0.7rem;
-      }
-
-      .form-group label {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (min-width: 640px) {
-      .services-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .core-values-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .form-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .form-group.full-width {
-        grid-column: span 2;
-      }
-
-      .intro-wrapper {
-        grid-template-columns: 1fr 2fr;
-      }
-
-      .vision-mission-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .services-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-
-      .hero-left {
-        width: 25%;
-        padding: 3rem;
-      }
-
-      .hero-right {
-        width: 75%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 0.8rem;
-      }
-
-      .hero-left {
-        padding: 1rem 1rem;
-        min-height: 30vh;
-      }
-
-      .hero-right {
-        background: #f5f5f5;
-        height: 20vh;
-      }
-
-      
-      .carousel-slide {
-        background-size: cover;
-      }
-
-      .hero-content h1 {
-        font-size: 1.8rem;
-      }
-
-      .hero-content p {
-        font-size: 0.85rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-      }
-
-      .carousel-nav {
-        bottom: 1rem;
-        gap: 0.8rem;
-      }
-
-      .arrow {
-        width: 28px;
-        height: 28px;
-        font-size: 0.9rem;
-      }
-
-      .news-banner-title {
-        font-size: 1rem;
-      }
-
-      .news-item {
-        font-size: 0.8rem;
-      }
-
-      .section {
-        padding: 2.5rem 0;
-      }
-
-      .section-header h2 {
-        font-size: 1.6rem;
-      }
-
-      .section-header p {
-        font-size: 0.85rem;
-      }
-
-      .intro-content {
-        padding: 1.5rem;
-      }
-
-      .intro-content h2 {
-        font-size: 1.6rem;
-      }
-
-      .intro-content p {
-        font-size: 0.85rem;
-      }
-
-      .ceo-profile {
-        padding: 1.2rem;
-        max-width: 300px;
-      }
-
-      .ceo-image {
-        width: 80px;
-        height: 80px;
-      }
-
-      .ceo-profile h3 {
-        font-size: 1.2rem;
-      }
-
-      .ceo-profile .title {
-        font-size: 0.85rem;
-      }
-
-      .ceo-profile p {
-        font-size: 0.8rem;
-      }
-
-      .vision-mission-grid > div {
-        padding: 1.5rem;
-      }
-
-      .vision-mission-grid h3 {
-        font-size: 1.2rem;
-      }
-
-      .vision-mission-grid p {
-        font-size: 0.85rem;
-      }
-
-      .core-value {
-        padding: 1.2rem;
-      }
-
-      .core-value h3 {
-        font-size: 1rem;
-      }
-
-      .core-value p {
-        font-size: 0.8rem;
-      }
-
-      .icon-wrapper {
-        width: 40px;
-        height: 40px;
-      }
-
-      .icon-wrapper i {
-        font-size: 1.2rem;
-      }
-
-      .card {
-        padding: 1.2rem 0.8rem;
-      }
-
-      .card-icon {
-        width: 45px;
-        height: 45px;
-      }
-
-      .card-icon i {
-        font-size: 1.3rem;
-      }
-
-      .card h3 {
-        font-size: 0.95rem;
-      }
-
-      .card p {
-        font-size: 0.8rem;
-      }
-
-      .cta-content h2 {
-        font-size: 1.6rem;
-      }
-
-      .cta-content p {
-        font-size: 0.85rem;
-      }
-
-      .cta-section > .container > img {
-        max-width: 200px;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        font-size: 0.85rem;
-        padding: 0.6rem;
-      }
-
-      .form-group label {
-        font-size: 0.85rem;
-      }
-
-      .footer-section {
-        padding: 0.8rem;
-      }
-
-      .footer-section h3 {
-        font-size: 1.1rem;
-      }
-
-      .footer-section p,
-      .footer-section ul {
-        font-size: 0.85rem;
-      }
-
-      .footer-bottom p {
-        font-size: 0.8rem;
-      }
-    }
+    
   </style>
 </head>
 <body>
@@ -1279,35 +1013,34 @@
     </div>
   </header>
 
-  <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-left">
-        <div class="hero-content">
-          <h1>POLL MATRIX<br>India</h1>
-          <p>Where data meets democracy, and insight drives informed governance.</p>
-          <a href="about.html" class="btn">About Us</a>
-        </div>
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-content">
+        <h1>POLL MATRIX<br>India</h1>
+        <p>Where data meets democracy, and insight drives informed governance.</p>
+        <a href="about.html" class="btn">About Us</a>
       </div>
-      <div class="hero-right">
-        <div class="carousel-slide active" style="background-image: url('assets/List_of_Prime_Ministers_of_India.png')"></div>
-        <div class="carousel-slide" style="background-image: url('assets/National-Party-leaders.png')"></div>
-        <div class="carousel-slide" style="background-image: url('assets/tamilnaduParties.png')"></div>
-        <div class="carousel-slide" style="background-image: url('assets/ElectionCommissionMain.jpg')"></div>
-        <div class="carousel-slide" style="background-image: url('assets/CELEBRATE DEMOCRACY.png')"></div>
-        <div class="carousel-slide" style="background-image: url('assets/Voters-standing-in-a-queue-to-cast-their-vote.png')"></div>
-        <div class="carousel-nav">
-          <button class="arrow arrow-left">&#9664;</button>
-          <button class="arrow arrow-right">&#9654;</button>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <!-- News Banner Section -->
+    <div class="hero-right">
+      <div class="carousel-slide active" style="background-image: url('assets/List_of_Prime_Ministers_of_India.png')"></div>
+      <div class="carousel-slide" style="background-image: url('assets/National-Party-leaders.png')"></div>
+      <div class="carousel-slide" style="background-image: url('assets/tamilnaduParties.png')"></div>
+      <div class="carousel-slide" style="background-image: url('assets/ElectionCommissionMain.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('assets/CELEBRATE DEMOCRACY.png')"></div>
+      <div class="carousel-slide" style="background-image: url('assets/Voters-standing-in-a-queue-to-cast-their-vote.png')"></div>
+      
+      <div class="carousel-nav">
+        <button class="arrow arrow-left">&#9664;</button>
+        <button class="arrow arrow-right">&#9654;</button>
+      </div>
+    </div>
+  </section>
+
     <section class="News-Banner">
       <div class="news-banner-container">
-        <h2 class="news-banner-title">CURRENT NEWS</h2>
+        <h2 class="news-banner-title " style="background-color: red;">CURRENT NEWS</h2>
         <div class="news-ticker">
           <a href="#" class="news-item">Opposition Calls for Electoral Reforms Ahead of 2026 State Elections</a>
           <a href="#" class="news-item">Supreme Court to Review Political Funding Transparency Laws</a>
@@ -1317,13 +1050,12 @@
       </div>
     </section>
 
-    <!-- Vision and Mission Section -->
     <section class="section vision-mission">
       <div class="overlay-intro-section"></div>
       <div class="container">
         <div class="section-header">
-          <h1 class="font-headline" style="font-size: 2.2rem;">WHO WE ARE</h1>
-          <p>Our work is guided by principles that ensure the quality, credibility, and impact of our insights.</p>
+            <h1 class="font-headline" style="font-size: 4rem;">WHO WE ARE</h1>
+            <p>Our work is guided by principles that ensure the quality, credibility, and impact of our insights.</p>
         </div>
         <div class="intro-wrapper">
           <div class="ceo-profile">
@@ -1334,14 +1066,15 @@
               Mr. P. Senthil Kumar’s vision guides both CAAS Research Foundation and POLL MATRIX. He believes that data-driven democracy is key to India’s political progress.
             </p>
           </div>
-          <div class="intro-content">
-            <h2 class="font-headline">Decoding the Pulse of Indian Democracy</h2>
-            <p>
-              We are committed to decoding the pulse of Indian democracy through cutting-edge data analytics, field intelligence, and academic rigor. POLL MATRIX studies how India votes, why it votes, and what those choices mean for governance, policy, and social transformation.
-            </p>
-          </div>
+            <div class="intro-content">
+              <h2 class="font-headline">Decoding the Pulse of Indian Democracy</h2>
+              <p>
+                We are committed to decoding the pulse of Indian democracy through cutting-edge data analytics, field intelligence, and academic rigor. POLL MATRIX studies how India votes, why it votes, and what those choices mean for governance, policy, and social transformation.
+              </p>
+            </div>
         </div>
       </div>
+
       <div class="container">
         <div class="vision-mission-grid">
           <div>
@@ -1360,11 +1093,11 @@
       </div>
     </section>
 
-    <!-- Core Values Section -->
+
     <section class="section core-values">
       <div class="container">
         <div class="section-header">
-          <h2 class="font-headline" style="font-size: 2.2rem;">Our Core Values</h2>
+          <h2 class="font-headline"  style="font-size: 4rem;">Our Core Values</h2>
           <p>Our work is guided by principles that ensure the quality, credibility, and impact of our insights.</p>
         </div>
         <div class="core-values-grid">
@@ -1408,12 +1141,11 @@
       </div>
     </section>
 
-    <!-- Services Section -->
     <section class="section services">
       <div class="overlay-service"></div>
       <div class="container">
         <div class="section-header">
-          <h2 class="font-headline" style="font-size: 2.2rem;">Our Services</h2>
+          <h2 class="font-headline"  style="font-size: 4rem;">Our Services</h2>
           <p>From national-level opinion polls to grassroots constituency analysis, we offer a comprehensive suite of research services.</p>
         </div>
         <div class="services-grid">
@@ -1460,30 +1192,28 @@
             <p>Mapping online electoral behavior through real-time sentiment analysis.</p>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 2.5rem;">
+        <div style="text-align: center; margin-top: 3rem;">
           <a href="services.html" class="btn btn-primary">Explore All Services</a>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
       <div class="container cta-section-container">
-        <img src="assets/handImg.png" alt="">
+        <img src="assets\handImg.png" alt="">
         <div class="cta-content">
-          <h2 class="font-headline" style="font-size: 2.2rem; line-height: 1.1;">Ready to Transform Democracy with Data?</h2>
+          <h2 class="font-headline"  style="font-size: 4rem; line-height: 1.1;">Ready to Transform Democracy with Data?</h2>
           <p>Partner with us to gain insights that shape the future of Indian governance and civic engagement.</p>
           <a href="contact.html" class="btn btn-accent">Contact Us Today</a>
         </div>
       </div>
     </section>
 
-    <!-- Contact Form Section -->
     <section id="contact" class="contact-section">
       <div class="overlay-contact-form"></div>
       <div class="container">
         <div class="section-header">
-          <h2 class="font-headline" style="font-size: 2.2rem;">Get In Touch</h2>
+          <h2 class="font-headline"  style="font-size: 4rem;">Get In Touch</h2>
           <p>Have questions or want to collaborate? Send us a message and we'll get back to you shortly.</p>
         </div>
         <div class="contact-form-wrapper">
@@ -1520,7 +1250,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -1595,8 +1324,8 @@
     </div>
   </footer>
 
+
   <script>
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1610,21 +1339,7 @@
       });
     });
 
-    // Mobile menu toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMobile = document.querySelector('.nav-mobile');
-    navToggle.addEventListener('click', () => {
-      navMobile.classList.toggle('active');
-    });
 
-    // Mobile dropdown toggle
-    const navDropdownMobile = document.querySelector('.nav-dropdown-mobile');
-    const dropdownMenuMobile = document.querySelector('.dropdown-menu-mobile');
-    navDropdownMobile.addEventListener('click', () => {
-      navDropdownMobile.classList.toggle('active');
-    });
-
-    // Contact Form Submission
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
 
@@ -1663,63 +1378,65 @@
       }, 5000);
     });
 
-    // Highlight active nav link
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
       if (link.href === window.location.href) {
         link.classList.add('active');
       }
     });
-
-    // Carousel functionality
-    const slides = document.querySelectorAll('.carousel-slide');
-    let currentSlide = 0;
-    let autoPlayInterval;
-    const slideDuration = 5000;
-
-    function showSlide(index) {
-      index = (index + slides.length) % slides.length;
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      currentSlide = index;
-    }
-
-    function nextSlide() {
-      showSlide(currentSlide + 1);
-    }
-
-    function prevSlide() {
-      showSlide(currentSlide - 1);
-    }
-
-    function startAutoPlay() {
-      stopAutoPlay();
-      autoPlayInterval = setInterval(nextSlide, slideDuration);
-    }
-
-    function stopAutoPlay() {
-      clearInterval(autoPlayInterval);
-    }
-
-    document.querySelector('.arrow-left').addEventListener('click', () => {
-      prevSlide();
-      stopAutoPlay();
-      startAutoPlay();
-    });
-
-    document.querySelector('.arrow-right').addEventListener('click', () => {
-      nextSlide();
-      stopAutoPlay();
-      startAutoPlay();
-    });
-
-    const heroRight = document.querySelector('.hero-right');
-    heroRight.addEventListener('mouseenter', stopAutoPlay);
-    heroRight.addEventListener('mouseleave', startAutoPlay);
-
-    showSlide(0);
-    startAutoPlay();
   </script>
+  
+
+<script>
+const slides = document.querySelectorAll('.carousel-slide');
+let currentSlide = 0;
+let autoPlayInterval;
+const slideDuration = 5000;
+
+function showSlide(index) {
+  index = (index + slides.length) % slides.length;
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+  currentSlide = index;
+}
+
+function nextSlide() {
+  showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+  showSlide(currentSlide - 1);
+}
+
+function startAutoPlay() {
+  stopAutoPlay();
+  autoPlayInterval = setInterval(nextSlide, slideDuration);
+}
+
+function stopAutoPlay() {
+  clearInterval(autoPlayInterval);
+}
+
+document.querySelector('.arrow-left').addEventListener('click', () => {
+  prevSlide();
+  stopAutoPlay();
+  startAutoPlay();
+});
+
+document.querySelector('.arrow-right').addEventListener('click', () => {
+  nextSlide();
+  stopAutoPlay();
+  startAutoPlay();
+});
+
+const heroRight = document.querySelector('.hero-right');
+heroRight.addEventListener('mouseenter', stopAutoPlay);
+heroRight.addEventListener('mouseleave', startAutoPlay);
+
+showSlide(0);
+startAutoPlay();
+</script>
 </body>
-</html>
+</html> 
+-->
