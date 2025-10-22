@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
       .nav-desktop {
         display: none;
       }
@@ -51,14 +51,18 @@
       box-sizing: border-box;
     }
 
+
     :root {
-      --primary-dark: #0f172a;
+      --primary-dark: #161e4e;
       --primary-blue: #001b75;
-      --primary-orange: #e7c16e;
+      --accent-gold: #e7c16e;
+      --accent-orange: #ff6b35;
       --light-gray: #f8fafc;
       --border-gray: #e2e8f0;
       --text-gray: #64748b;
-      --text-dark: #1e293b;
+      --text-dark: #324461;
+      --gradient-primary: linear-gradient(135deg, #001b75 0%, #0a0e27 100%);
+      --gradient-accent: linear-gradient(135deg, #e7c16e 0%, #ff6b35 100%);
     }
 
     body {
@@ -73,29 +77,48 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
+
 
     /* Hero Section */
     .hero-section {
-      background: #f8fafc;
+      position: relative;
+      background-image: url("assets/careers.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       border-bottom: 1px solid #e2e8f0;
       padding: 5rem 0;
       text-align: center;
     }
 
+    .overlay-hero {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(48, 48, 48, 0.267);
+      z-index: 15;
+    }
+
     .hero-section h1 {
-      font-size: 3rem;
+      position: relative;
+      z-index: 20;
+      font-size: clamp(2.5rem, 6vw, 5rem);
       font-weight: 700;
-      color: #0f172a;
+      color: #ffffff;
       margin-bottom: 1rem;
     }
 
     .hero-section p {
+      position: relative;
+      z-index: 20;
       font-size: 1.125rem;
-      color: #64748b;
+      color: #e9e9e9;
       max-width: 48rem;
       margin: 0 auto;
     }
@@ -103,7 +126,7 @@
     /* Main Content */
 
     section {
-      margin-bottom: 5rem;
+      margin: 5rem 0;
     }
 
     .section-header {
@@ -112,14 +135,14 @@
     }
 
     .section-header h2 {
-      font-size: 2.5rem;
+      font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 700;
       color: #0f172a;
       margin-bottom: 1rem;
     }
 
     .section-header p {
-      font-size: 1.125rem;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
       color: #64748b;
       max-width: 48rem;
       margin: 0 auto;
@@ -158,7 +181,7 @@
     }
 
     .opportunity-card:hover {
-      border-color: #3d4e3f;
+      border-color: #3d464e;
       box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
       transform: translateY(-4px);
     }
@@ -175,13 +198,12 @@
     }
 
     .opportunity-card:hover .icon-wrapper {
-      background: #3d4e3f;
+      background: #103d72;
     }
 
-    .icon {
+     .icon-wrapper > .icon {
       width: 2rem;
       height: 2rem;
-      color: #4b5f4d;
     }
 
     .opportunity-card:hover .icon {
@@ -199,14 +221,13 @@
     .why-join-section {
       background: #0f172a;
       border-radius: 16px;
-      padding: 3rem;
+      padding: 1rem;
       color: #ffffff;
     }
 
     .why-join-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2rem;
       align-items: center;
     }
 
@@ -216,9 +237,10 @@
       }
 
       .why-join-section {
-        padding: 4rem;
+        padding: 2rem;
       }
     }
+
 
     .why-join-section h2 {
       font-size: 2rem;
@@ -262,6 +284,12 @@
       border-radius: 12px;
       padding: 2.5rem;
       text-align: center;
+    }
+
+    @media (max-width : 768px) {
+      .cta-box {
+        padding: 1rem;
+      }
     }
 
     .cta-box h3 {
@@ -321,6 +349,11 @@
       .section-header h2 {
         font-size: 1.875rem;
       }
+
+       .btn-cta {
+        display: flex;
+        flex-direction: column;
+       }
     }
   </style>
 </head>
@@ -385,6 +418,7 @@
   <main>
     <!-- Hero Section -->
     <div class="hero-section">
+      <div class="overlay-hero"></div>
       <div class="container">
         <h1 class="font-headline">Careers at POLL MATRIX</h1>
         <p>

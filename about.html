@@ -15,312 +15,653 @@
     }
 
     :root {
-      --primary-dark: #0f172a;
+      --primary-dark: #161e4e;
       --primary-blue: #001b75;
-      --primary-orange: #e7c16e;
+      --accent-gold: #e7c16e;
+      --accent-orange: #ff6b35;
       --light-gray: #f8fafc;
       --border-gray: #e2e8f0;
       --text-gray: #64748b;
-      --text-dark: #1e293b;
+      --text-dark: #324461;
+      --gradient-primary: linear-gradient(135deg, #001b75 0%, #0a0e27 100%);
+      --gradient-accent: linear-gradient(135deg, #e7c16e 0%, #ff6b35 100%);
     }
 
-
-    .logo{
-      width: 300px;
-      border-radius: 10px;
-      padding: 10px;
-      background: #ffffff;
+    body {
+      font-family: 'PT Sans', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      overflow-x: hidden;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
 
-  
-    /* Hero Section */
+    /* Hero Section - Redesigned */
     .hero {
       position: relative;
-      background-image: url("assets/senthilkumarBoardImg.jpg");
-      color: white;
-      padding: 5rem 0;
-      text-align: center;
+      min-height: 35vh;
+      display: flex;
+      align-items: center;
+      background: var(--text-gray);
+      overflow: hidden;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      min-height: 35vh;
+      max-width: 100vw;
+    }
+
+    .hero-content {
+      flex: 0 0 30%; /* Fixed width for content */
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.3); /* Optional: subtle overlay */
+    }
+
+    .hero-title {
+      font-family: 'PT Sans', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      background: var(--accent-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.1rem);
+      color: rgba(255, 255, 255, 0.9);
+      animation: fadeInUp 1s ease-out 0.2s backwards;
+      max-width: 90%;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      min-height: 35vh;
       position: relative;
     }
 
-    
-   .overlay-hero {
-      position: absolute;
-      top: 0;
-      bottom: 0;
+    .hero-image img {
       width: 100%;
       height: 100%;
-      background: rgba(48, 48, 48, 0.267);
-      z-index: 15;
+      object-fit: cover;
+      object-position: center;
+      animation: backgroundMove 15s ease-in-out infinite alternate;
     }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--primary-yellow);
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
-    .hero h1 {
-      position: relative;
-      z-index: 20;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      position: relative;
-      z-index: 20;
-      font-size: 1.125rem;
-      max-width: 48rem;
-      margin: 0 auto;
-      opacity: 0.95;
-    }
-
-    @media (min-width: 768px) {
-      .hero h1 {
-        font-size: 3.5rem;
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero {
+        min-height: 20vh;
+      }
+      .hero-content {
+        flex: 0 0 45%;
+        padding: 2.5rem 1.5rem;
       }
     }
 
-    /* Main Content */
-    main {
-      background: #f9fafb;
+    @media (max-width: 768px) {
+      .hero {
+        width: 100%;
+        margin-left: 0;
+      }
+      
+      .hero-inner {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .hero-content {
+        flex: none;
+        width: 100%;
+        padding: 2rem 1.5rem;
+        text-align: center;
+      }
+
+      .hero-image {
+        flex: none;
+        width: 100%;
+        min-height: 100%;
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 7vw, 3.5rem);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1rem, 1.8vw, 1.25rem);
+      }
     }
 
-    .section {
-      padding: 4rem 0;
+    @media (max-width: 480px) {
+      .hero-content {
+        padding: 1.5rem 1rem;
+      }
+      .hero-image img {
+        object-fit: cover;
+      }
     }
 
-    .card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: var(--radius);
+
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      animation: fadeInUp 1s ease-out 0.4s backwards;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgb(129, 129, 129);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: var(--accent-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* History Section - Redesigned */
+    .history-section {
+      padding: 8rem 0;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      position: relative;
+    }
+
+    .history-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent 0%, var(--accent-gold) 50%, transparent 100%);
+      opacity: 0.3;
+    }
+
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 5rem;
+    }
+
+    .history-visual {
+      position: relative;
+      height: 500px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 60px rgba(0, 27, 117, 0.2);
+    }
+
+    .history-visual::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent 0deg, var(--accent-gold) 180deg, transparent 360deg);
+      animation: rotate 8s linear infinite;
+    }
+
+    .history-visual::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      background: white;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes rotate {
+      100% { transform: rotate(360deg); }
+    }
+
+    .history-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 60%;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+    }
+
+    .history-content h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .history-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100px;
+      height: 4px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+
+    .history-content h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin: 2rem 0 1rem;
+    }
+
+    .history-content p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--text-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .study-list {
+      display: grid;
+      gap: .2rem;
+      margin-top: 1rem;
+    }
+
+    .study-item {
+      padding: 1rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       transition: all 0.3s;
     }
 
-    .card:hover {
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-      transform: translateY(-4px);
+    .study-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .card-flex {
-      display: flex;
-      flex-direction: column;
-    }
 
-    @media (min-width: 768px) {
-      .card-flex {
-        flex-direction: row;
-      }
-    }
-
-    .card-image {
-      width: 100%;
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f9fafb;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    @media (min-width: 768px) {
-      .card-image {
-        width: 33.333%;
-        border-bottom: none;
-        border-right: 1px solid #e5e7eb;
-      }
-    }
-
-    .image-placeholder {
-      width: 180px;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: white;
-      border-radius: 50%;
-      border: 3px solid var(--primary-blue);
-    }
-
-    .card-content {
-      width: 100%;
-      padding: 2rem;
-    }
-
-    @media (min-width: 768px) {
-      .card-content {
-        width: 66.666%;
-      }
-    }
-
-    .section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
+    /* Chairman Section - Redesigned */
+    .chairman-section {
+      padding: 8rem 0;
+      background: var(--primary-dark);
       position: relative;
-      padding-bottom: 0.75rem;
+      overflow: hidden;
     }
 
-    .section-title::after {
+    .chairman-section::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: var(--primary-yellow);
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(231, 193, 110, 0.1) 0%, transparent 70%);
     }
 
-    .subsection-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--foreground);
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
+    .chairman-grid {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 5rem;
+      align-items: center;
     }
 
-    .text-content {
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-    }
-
-    .content-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .content-list li {
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-      padding-left: 1.5rem;
+    .chairman-image-wrapper {
       position: relative;
-      line-height: 1.8;
     }
 
-    .content-list li::before {
-      content: '▪';
+    .chairman-image-frame {
+      position: relative;
+      width: 400px;
+      height: 500px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+    }
+
+    .chairman-image-frame::before {
+      content: '';
       position: absolute;
-      left: 0;
-      color: var(--primary-yellow);
-      font-weight: bold;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(231, 193, 110, 0.3) 0%, rgba(255, 107, 53, 0.3) 100%);
+      z-index: 1;
     }
 
-    .history-section{
-      background-image: url("");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-
-
-    /* Chairman Section */
-    .chairman-card {
-      background: #fefce8;
-    }
-
-    .chairman-image {
-      background: white;
-    }
-
-    .chairman-image > img{
+    .chairman-image-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .chairman-placeholder {
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      background: #fef3c7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .chairman-content h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 2rem;
     }
 
-    .blockquote {
-      font-size: 1.25rem;
+    .chairman-quote {
+      font-size: 1.5rem;
       font-style: italic;
-      color: var(--foreground);
-      border-left: 4px solid var(--accent);
-      padding-left: 1.5rem;
-      margin: 1.5rem 0;
-      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid var(--accent-gold);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
     }
 
     .quote-author {
+      font-size: 1.125rem;
+      color: var(--accent-gold);
       font-weight: 600;
-      color: var(--primary-blue);
-      text-align: right;
       margin-top: 1rem;
     }
 
-   
-  /* Tabs Section */
-    .tabs-section {
-      padding: 4rem 0;
-      background: white;
+    .chairman-description {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.8);
     }
 
-    .tabs-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary-blue);
+    /* Team Section - Redesigned */
+    .team-section {
+      padding: 8rem 0;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    }
+
+    .team-header {
       text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-      padding-bottom: 1rem;
+      margin-bottom: 5rem;
     }
 
-    .tabs-title::after {
+    .team-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    .team-header p {
+      font-size: 1.25rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .team-card::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--primary-orange);
+      inset: 0;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.5s;
+      z-index: 1;
     }
 
-    .tabs-container {
-      max-width: 1000px;
-      margin: 0 auto;
+    .team-card:hover::before {
+      opacity: 0.9;
+    }
+
+    .team-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(0, 27, 117, 0.3);
+    }
+
+    .team-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .team-card:hover .team-image {
+      transform: scale(1.1);
+    }
+
+    .team-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+      transform: translateY(80%);
+      transition: transform 0.5s;
+      z-index: 2;
+    }
+
+    .team-card:hover .team-info {
+      transform: translateY(0);
+    }
+
+    .team-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-affiliation {
+      color: var(--accent-gold);
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    /* Message Tabs - Redesigned */
+    .message-section {
+      padding: 8rem 0;
+      background: var(--text-gray);
       position: relative;
     }
 
-    .tabs-list {
-      display: grid;
-      gap: 4px;
-      margin-bottom: 2rem;
-      background: white;
-      /* border: 2px solid #e5e7eb; */
-      overflow: hidden;
+    .message-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.5;
     }
 
-    /* Updated Tabs List for Chairman's Message */
-    .message-tabs-list {
-      grid-template-columns: repeat(3, 1fr);
+    .message-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .message-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .tabs-wrapper {
+      position: relative;
+      z-index: 2;
+    }
+
+    .tabs-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .tab-button {
+      padding: 1.5rem 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    .tab-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-gold);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .tab-button.active {
+      background: var(--accent-gold);
+      border-color: transparent;
+      color: var(--primary-dark);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(231, 193, 110, 0.3);
+    }
+
+    .tab-panels {
+      min-height: 400px;
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 3rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      animation: fadeInScale 0.5s ease-out;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .tab-panel h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .tab-panel p {
+      font-size: 1.125rem;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .history-grid,
+      .chairman-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .chairman-image-frame {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+      }
     }
 
     @media (max-width: 768px) {
@@ -332,194 +673,32 @@
         display: block;
       }
 
-      .nav-mobile {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        background: white;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        z-index: 20;
+      .tabs-nav {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .nav-mobile.active {
-        display: flex;
+      .tab-panel {
+        padding: 2rem 1.5rem;
       }
 
-      .nav-dropdown-mobile .dropdown-menu-mobile {
-        display: none;
-        padding-left: 1rem;
-      }
-
-      .nav-dropdown-mobile.active .dropdown-menu-mobile {
-        display: block;
-      }
-      .message-tabs-list {
+      .hero-stats {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    .tab-input {
-      display: none;
-    }
-
-    .tab-trigger {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      background: white;
-      cursor: pointer;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-dark);
-      transition: all 0.3s;
-      text-align: center;
-      border-right: 1px solid #e5e7eb;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .tab-trigger:last-child {
-      border-right: none;
-    }
-
-    @media (max-width: 768px) {
-      .tab-trigger:nth-child(2n) {
-        border-right: none;
+    @media (max-width: 480px) {
+      .tabs-nav {
+        grid-template-columns: 1fr;
       }
-      .tab-trigger:nth-child(n+3) {
-        border-bottom: none;
+
+      .hero-stats {
+        grid-template-columns: 1fr;
       }
     }
-
-    .tab-trigger:hover {
-      background: #f9fafb;
-      color: var(--primary-blue);
-    }
-
-    .tab-input:checked + .tab-trigger {
-      background: var(--primary-blue);
-      color: white;
-      font-weight: 600;
-      border-color: var(--primary-blue);
-    }
-
-    .tab-content {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .tab-content.active {
-      display: block;
-      opacity: 1;
-      animation: slideIn 0.5s ease-in-out;
-    }
-
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateX(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .tab-content-card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 2rem;
-      border-left: 4px solid var(--primary-orange);
-    }
-
-    .tab-content-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
-    }
-
-    /* Team Section as Cards */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .team-card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      transition: all 0.3s;
-      text-align: center;
-    }
-
-    .team-card:hover {
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-      transform: translateY(-4px);
-    }
-
-    .team-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px 8px 0 0;
-    }
-
-    .team-content {
-      padding: 1.5rem;
-    }
-
-    .team-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--primary-blue);
-      margin-bottom: 0.5rem;
-    }
-
-    .team-affiliation {
-      color: var(--text-gray);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    /* Carousel Navigation Dots */
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .carousel-dot {
-      width: 10px;
-      height: 10px;
-      background: #e5e7eb;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .carousel-dot.active {
-      background: var(--primary-blue);
-    }
-  
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header (unchanged) -->
   <header class="header">
     <div class="container">
       <div class="header-content">
@@ -550,281 +729,239 @@
           <span class="nav-toggle-icon">☰</span>
         </button>
       </div>
-      <nav class="nav-mobile">
-        <a href="/" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link active">About Us</a>
-        <div class="nav-dropdown-mobile">
-          <a href="services.html" class="nav-link">Services</a>
-          <div class="dropdown-menu-mobile">
-            <a href="services/psephological-research.html" class="dropdown-item">Psephological Research & Opinion Polls</a>
-            <a href="services/campaign-management.html" class="dropdown-item">Deep Route Campaign Management</a>
-            <a href="services/voting-pattern.html" class="dropdown-item">Voting Pattern / Field Research</a>
-            <a href="services/media-research.html" class="dropdown-item">Media Research & PRM</a>
-            <a href="services/social-media.html" class="dropdown-item">Social Media Management</a>
-            <a href="services/war-room.html" class="dropdown-item">War Room for Candidate Mapping & Winning Booth</a>
-            <a href="services/ground-campaigns.html" class="dropdown-item">Ground Campaigns / Door to Door</a>
-            <a href="services/ai-robotics.html" class="dropdown-item">AI & Robotics for Mass Reach</a>
-          </div>
-        </div>
-        <a href="research.html" class="nav-link">Research & Reports</a>
-        <a href="institutions.html" class="nav-link">Institutions</a>
-        <a href="services/careers.html" class="nav-link">Careers</a>
-        <a href="blogs.html" class="nav-link">Blogs</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
     </div>
   </header>
 
   <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
-    <div class="hero">
-      <div class="overlay-hero"></div>
-      <div class="container">
-        <h1>About POLL MATRIX</h1>
-        <p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1 class="hero-title">About POLL MATRIX</h1>
+        <p class="hero-subtitle">
           Born from the pioneering work of the Centre for Advanced Analysis and Strategies (CAAS Research Foundation).
         </p>
       </div>
+      <div class="hero-image">
+        <img src="assets/senthilkumarBoardImg.jpg" alt="POLL MATRIX Image">
+      </div>
     </div>
+  </section>
 
     <!-- History Section -->
-    <div class="section history-section">
+    <section class="history-section">
       <div class="container">
-        <div class="card">
-          <div class="card-flex">
-            <div class="card-image">
-              <div class="image-placeholder">
-                   <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+        <div class="history-grid">
+          <div>
+            <div class="history-visual">
+              <img class="history-logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Years of Research</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Studies Conducted</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">28</div>
+                <div class="stat-label">States Covered</div>
               </div>
             </div>
-            <div class="card-content">
-              <h2 class="section-title">Our History</h2>
-              <p class="text-content">
-                For nearly two decades, CAAS Research Foundation has been at the forefront of policy analysis and socio-economic studies. Building on this legacy, POLL MATRIX was conceptualized as a dedicated electoral analytics and democratic research division.
-              </p>
-              <h3 class="subsection-title">Evolution to Specialization</h3>
-              <p class="text-content">
-                Recognizing the growing need for scientific, unbiased electoral research, CAAS evolved POLL MATRIX to examine voter psychology, electoral reforms, governance impact, and digital influence. We merge academic integrity with applied political science.
-              </p>
-              <h3 class="subsection-title">What We Study</h3>
-              <ul class="content-list">
-                <li>Voter psychology and behavior.</li>
-                <li>Electoral reforms and democratic participation.</li>
-                <li>Governance, policy impact, and leadership evaluation.</li>
-                <li>Digital influence, misinformation, and media narratives.</li>
-              </ul>
+          </div>
+          
+          <div class="history-content">
+            <h2>Our History</h2>
+            <p>
+              For nearly two decades, CAAS Research Foundation has been at the forefront of policy analysis and socio-economic studies. Building on this legacy, POLL MATRIX was conceptualized as a dedicated electoral analytics and democratic research division.
+            </p>
+            <h3>Evolution to Specialization</h3>
+            <p>
+              Recognizing the growing need for scientific, unbiased electoral research, CAAS evolved POLL MATRIX to examine voter psychology, electoral reforms, governance impact, and digital influence. We merge academic integrity with applied political science.
+            </p>
+            <h3>What We Study</h3>
+            <div class="study-list">
+              <div class="study-item">Voter psychology and behavior</div>
+              <div class="study-item">Electoral reforms and democratic participation</div>
+              <div class="study-item">Governance, policy impact, and leadership evaluation</div>
+              <div class="study-item">Digital influence, misinformation, and media narratives</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Chairman's Vision Section -->
-    <div class="section">
+    <section class="chairman-section">
       <div class="container">
-        <div class="card chairman-card">
-          <div class="card-flex">
-            <div class="chairman-image">
-                <img src="./assets/image.jpg" alt="Poll Matrix Chairman">
+        <div class="chairman-grid">
+          <div class="chairman-image-wrapper">
+            <div class="chairman-image-frame">
+              <img src="./assets/image.jpg" alt="Mr. P. Senthil Kumar">
             </div>
-            <div class="card-content">
-              <h2 class="section-title">Chairman's Vision</h2>
-              <blockquote class="blockquote">
-                "Indian democracy is not merely a political system—it is a living conversation between the people and those who govern them. Research is the voice of that conversation, and data is its truth."
-              </blockquote>
-              <p class="quote-author">
-                — Mr. P. Senthil Kumar, Founder & Chairman
-              </p>
-              <p class="text-content">
-                The vision of Mr. P. Senthil Kumar drives both CAAS Research Foundation and POLL MATRIX. His belief is simple yet transformative: that data-driven democracy is the future of India's political progress. Under his stewardship, POLL MATRIX was founded as a democratic intelligence network—a platform that seeks to transform raw public sentiment into structured knowledge, and knowledge into strategic governance.
-              </p>
+          </div>
+          <div class="chairman-content">
+            <h2>Chairman's Vision</h2>
+            <div class="chairman-quote">
+              "Indian democracy is not merely a political system—it is a living conversation between the people and those who govern them. Research is the voice of that conversation, and data is its truth."
+              <div class="quote-author">— Mr. P. Senthil Kumar, Founder & Chairman</div>
             </div>
+            <p class="chairman-description">
+              The vision of Mr. P. Senthil Kumar drives both CAAS Research Foundation and POLL MATRIX. His belief is simple yet transformative: that data-driven democracy is the future of India's political progress. Under his stewardship, POLL MATRIX was founded as a democratic intelligence network—a platform that seeks to transform raw public sentiment into structured knowledge, and knowledge into strategic governance.
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Our Team Section -->
-    <div class="section">
+    <!-- Team Section -->
+    <section class="team-section">
       <div class="container">
-        <h2 class="section-title">The Pulse Experts: Our Team</h2>
+        <div class="team-header">
+          <h2>The Pulse Experts: Our Team</h2>
+          <p>Meet the brilliant minds driving democratic research and electoral analytics</p>
+        </div>
         <div class="team-grid">
           <div class="team-card">
             <img src="assets/NeerajNachiketa.jpeg" alt="Dr. Neeraj Nachiketa" class="team-image">
-            <div class="team-content">
+            <div class="team-info">
               <h3 class="team-name">Dr. Neeraj Nachiketa</h3>
               <p class="team-affiliation">IIT Mumbai</p>
             </div>
           </div>
           <div class="team-card">
             <img src="assets/Amitjha.jpeg" alt="Amit Jha" class="team-image">
-            <div class="team-content">
+            <div class="team-info">
               <h3 class="team-name">Amit Jha</h3>
               <p class="team-affiliation">Patna University, Bihar</p>
             </div>
           </div>
           <div class="team-card">
             <img src="assets/masood.jpeg" alt="Dr. Masood Ikram" class="team-image">
-            <div class="team-content">
+            <div class="team-info">
               <h3 class="team-name">Dr. Masood Ikram</h3>
               <p class="team-affiliation">Rajiv Gandhi University, Karnataka</p>
             </div>
           </div>
           <div class="team-card">
             <img src="assets/Bipindra.jpeg" alt="N C Bipindra" class="team-image">
-            <div class="team-content">
+            <div class="team-info">
               <h3 class="team-name">N C Bipindra</h3>
               <p class="team-affiliation">NALSAR University of Law, Hyderabad</p>
             </div>
           </div>
           <div class="team-card">
             <img src="assets/Gauravbansal.jpeg" alt="Gaurav bansal" class="team-image">
-            <div class="team-content">
+            <div class="team-info">
               <h3 class="team-name">Gaurav bansal</h3>
               <p class="team-affiliation">University of Delhi</p>
             </div>
           </div>
           <div class="team-card">
             <img src="assets/PrathivaRanisahoo.jpeg" alt="Prathiva Rani sahoo" class="team-image">
-            <div class="team-content">
+            <div class="team-info">
               <h3 class="team-name">Prathiva Rani sahoo</h3>
               <p class="team-affiliation">Berhampur University, Odisha</p>
             </div>
           </div>
           <div class="team-card">
             <img src="assets/Saravanakumar.jpeg" alt="Saravanakumar" class="team-image">
-            <div class="team-content">
+            <div class="team-info">
               <h3 class="team-name">Saravanakumar V</h3>
               <p class="team-affiliation">Centivens Institute of Innovative Research Pvt Ltd, Coimbatore</p>
             </div>
           </div>
           <div class="team-card">
             <img src="assets/Sureshsubbaiah.jpeg" alt="Suresh subbaiah" class="team-image">
-            <div class="team-content">
-              <h3 class="team-name">Mr.Suresh subbaiah</h3>
+            <div class="team-info">
+              <h3 class="team-name">Mr. Suresh subbaiah</h3>
               <p class="team-affiliation">Middlesex university, London</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Chairman's Message Carousel -->
-    <div class="tabs-section">
+    <!-- Chairman's Message Section -->
+    <section class="message-section">
       <div class="container">
-        <h2 class="tabs-title">Chairman's Message</h2>
-        <div class="tabs-container">
-          <div class="tabs-list message-tabs-list">
-            <input type="radio" name="message-tabs" id="message-0" checked class="tab-input">
-            <label for="message-0" class="tab-trigger">Bridging the Gap</label>
-            <input type="radio" name="message-tabs" id="message-1" class="tab-input">
-            <label for="message-1" class="tab-trigger">Ethical Research</label>
-            <input type="radio" name="message-tabs" id="message-2" class="tab-input">
-            <label for="message-2" class="tab-trigger">Knowledge Ecosystem</label>
-            <input type="radio" name="message-tabs" id="message-3" class="tab-input">
-            <label for="message-3" class="tab-trigger">Conscience of Democracy</label>
-            <input type="radio" name="message-tabs" id="message-4" class="tab-input">
-            <label for="message-4" class="tab-trigger">Democratic Foresight</label>
-            <input type="radio" name="message-tabs" id="message-5" class="tab-input">
-            <label for="message-5" class="tab-trigger">Political Research</label>
+        <div class="message-header">
+          <h2>Chairman's Message</h2>
+        </div>
+        <div class="tabs-wrapper">
+          <div class="tabs-nav">
+            <button class="tab-button active" data-tab="tab1">Bridging the Gap</button>
+            <button class="tab-button" data-tab="tab2">Ethical Research</button>
+            <button class="tab-button" data-tab="tab3">Knowledge Ecosystem</button>
+            <button class="tab-button" data-tab="tab4">Conscience of Democracy</button>
+            <button class="tab-button" data-tab="tab5">Democratic Foresight</button>
+            <button class="tab-button" data-tab="tab6">Political Research</button>
           </div>
-          
-          <div class="tab-content active" id="message-0-content">
-            <div class="tab-content-card">
-              <h3 class="tab-content-title">Bridging the Gap Between People and Policy</h3>
-              <p class="text-content">
-                Mr. Senthil Kumar envisions POLL MATRIX as a bridge—a conduit that connects the lived realities of citizens with the decision-making corridors of power.
-                In his words, “Policy without public perception is prescription without diagnosis.”
-                He believes that effective governance cannot operate in isolation from citizen emotion and expectation. Every policy, every reform, every manifesto promise must be anchored in data that emerges from the real socio-political landscape of India—from the rural panchayat to the metropolitan ward.
+          <div class="tab-panels">
+            <div class="tab-panel active" id="tab1">
+              <h3>Bridging the Gap Between People and Policy</h3>
+              <p>
+                Mr. Senthil Kumar envisions POLL MATRIX as a bridge—a conduit that connects the lived realities of citizens with the decision-making corridors of power. In his words, "Policy without public perception is prescription without diagnosis." He believes that effective governance cannot operate in isolation from citizen emotion and expectation. Every policy, every reform, every manifesto promise must be anchored in data that emerges from the real socio-political landscape of India—from the rural panchayat to the metropolitan ward.
+              </p>
+              <p>
                 POLL MATRIX, therefore, acts as a translation mechanism—decoding what citizens express in emotion and converting it into actionable insights. Through scientific polling methodologies, constituency studies, and behavioral analytics, the organization transforms the voices of millions into measurable parameters that policymakers can act upon.
-                This process bridges not just information gaps but also trust deficits. By making voter sentiment visible, quantifiable, and authentic, POLL MATRIX ensures that people become participants in governance, not passive observers of it.
-                In the Indian political context, where perception often precedes policy, this approach marks a fundamental shift—from intuition-based politics to empirical, people-centric governance.
               </p>
             </div>
-          </div>
-          
-          <div class="tab-content" id="message-1-content">
-            <div class="tab-content-card">
-              <h3 class="tab-content-title">Promoting Ethical and Transparent Research</h3>
-              <p class="text-content">
-                For Mr. Senthil Kumar, integrity in research is the moral backbone of democracy.
-                He often asserts that the credibility of any democracy depends not on how often elections are held, but on how truthfully they are understood.
-                In an age where misinformation and political sensationalism can distort public discourse, POLL MATRIX has committed itself to transparency, verification, and scientific authenticity. Every study, every data point, and every projection that leaves its research ecosystem is subjected to rigorous statistical testing and field validation.
-                This commitment stems from the Chairman’s conviction that political research should enlighten, not manipulate. He advocates for polling and data analytics that serve public knowledge rather than partisan interest. To this end, POLL MATRIX follows strict ethical protocols:
-                • Maintaining non-partisan objectivity in all projects.
-                • Ensuring anonymity and consent in field data collection.
-                • Subjecting all results to peer and methodological review before publication.
-                • Disclosing margins of error, confidence intervals, and sampling frameworks to maintain academic transparency.
-                By doing so, the organization establishes an unprecedented standard of credibility and accountability in the Indian electoral research space.
-                Mr. Kumar’s leadership transforms POLL MATRIX from a research organization into a custodian of democratic ethics—a sentinel that protects the integrity of public knowledge.
+            <div class="tab-panel" id="tab2">
+              <h3>Promoting Ethical and Transparent Research</h3>
+              <p>
+                For Mr. Senthil Kumar, integrity in research is the moral backbone of democracy. He often asserts that the credibility of any democracy depends not on how often elections are held, but on how truthfully they are understood. In an age where misinformation and political sensationalism can distort public discourse, POLL MATRIX has committed itself to transparency, verification, and scientific authenticity.
+              </p>
+              <p>
+                Every study, every data point, and every projection that leaves its research ecosystem is subjected to rigorous statistical testing and field validation. This commitment stems from the Chairman's conviction that political research should enlighten, not manipulate. By maintaining non-partisan objectivity, ensuring anonymity and consent in data collection, and subjecting all results to peer review, POLL MATRIX establishes an unprecedented standard of credibility and accountability.
               </p>
             </div>
-          </div>
-          
-          <div class="tab-content" id="message-2-content">
-            <div class="tab-content-card">
-              <h3 class="tab-content-title">Creating a Knowledge Ecosystem for Democracy</h3>
-              <p class="text-content">
-                Beyond polling and prediction, the Chairman’s vision extends toward building a national knowledge infrastructure for democracy—a collaborative ecosystem that unites researchers, journalists, policymakers, and citizens.
-                He envisions POLL MATRIX as a democratic think hub, where diverse disciplines converge to produce research that shapes both electoral outcomes and governance reform.
-                This knowledge ecosystem is powered by data analytics, academic partnerships, and civic engagement—a triad that ensures democracy evolves with both intellect and empathy.
-                Through partnerships with institutions such as IIT Madras, CSIR-CLRI, and the University of Madras, POLL MATRIX fosters interdisciplinary research that blends technological precision with social insight.
-                By engaging with media networks and civil society, the organization works to democratize access to information, ensuring that knowledge circulates freely and transparently.
-                In Mr. Kumar’s perspective, this convergence is vital for modern India, where governance must increasingly respond to real-time citizen feedback. The age of instinctive politics, he argues, is yielding to the era of informed leadership—one that interprets the voter not as a number but as a narrative.
+            <div class="tab-panel" id="tab3">
+              <h3>Creating a Knowledge Ecosystem for Democracy</h3>
+              <p>
+                Beyond polling and prediction, the Chairman's vision extends toward building a national knowledge infrastructure for democracy—a collaborative ecosystem that unites researchers, journalists, policymakers, and citizens. He envisions POLL MATRIX as a democratic think hub, where diverse disciplines converge to produce research that shapes both electoral outcomes and governance reform.
+              </p>
+              <p>
+                Through partnerships with institutions such as IIT Madras, CSIR-CLRI, and the University of Madras, POLL MATRIX fosters interdisciplinary research that blends technological precision with social insight. This convergence is vital for modern India, where governance must increasingly respond to real-time citizen feedback.
               </p>
             </div>
-          </div>
-          
-          <div class="tab-content" id="message-3-content">
-            <div class="tab-content-card">
-              <h3 class="tab-content-title">Research as the Conscience of Democracy</h3>
-              <p class="text-content">
-                Mr. Senthil Kumar often refers to research as “the conscience of democracy.”
-                For him, research is not a mechanical process of counting opinions—it is an act of national introspection. It reflects who we are as a people, what we expect from leadership, and how we measure progress.
-                This belief drives POLL MATRIX’s dual commitment to scientific rigor and social relevance. Every dataset is treated as a story—of aspiration, anxiety, and agency. Every statistic is a reflection of the human condition within a democratic framework.
-                In the political lexicon he promotes, research is reform. It has the power to correct misjudgments, challenge populism, and introduce rational discourse into the often emotional arena of Indian politics.
-                By institutionalizing data-driven decision-making, he envisions a future where governance is predictive rather than reactive, inclusive rather than elitist, and transparent rather than transactional.
+            <div class="tab-panel" id="tab4">
+              <h3>Research as the Conscience of Democracy</h3>
+              <p>
+                Mr. Senthil Kumar often refers to research as "the conscience of democracy." For him, research is not a mechanical process of counting opinions—it is an act of national introspection. It reflects who we are as a people, what we expect from leadership, and how we measure progress.
+              </p>
+              <p>
+                This belief drives POLL MATRIX's dual commitment to scientific rigor and social relevance. Every dataset is treated as a story—of aspiration, anxiety, and agency. By institutionalizing data-driven decision-making, he envisions a future where governance is predictive rather than reactive, inclusive rather than elitist, and transparent rather than transactional.
               </p>
             </div>
-          </div>
-
-          <div class="tab-content" id="message-4-content">
-            <div class="tab-content-card">
-              <h3 class="tab-content-title">A Legacy of Democratic Foresight</h3>
-              <p class="text-content">
-                Through CAAS Research Foundation and POLL MATRIX, Mr. Senthil Kumar has laid the groundwork for a new generation of political inquiry—one that values truth over trend, insight over influence, and citizens over statistics.
-                His leadership philosophy insists that democracy must be data-literate and morally grounded.
-                In his own words, “Numbers can predict elections, but only ethics can preserve democracy.”
-                He urges scholars, analysts, and policymakers alike to adopt a scientific temperament toward governance—to treat every voter as a data point of dignity and every policy as a hypothesis for progress.
-                Under his direction, POLL MATRIX continues to evolve as a beacon of empirical democracy—a platform that empowers India’s democratic institutions with the intelligence of its people.
-                Mr. Senthil Kumar’s vision thus positions POLL MATRIX not merely as a polling company but as a national institution of democratic introspection, where the science of politics meets the soul of the republic.
+            <div class="tab-panel" id="tab5">
+              <h3>A Legacy of Democratic Foresight</h3>
+              <p>
+                Through CAAS Research Foundation and POLL MATRIX, Mr. Senthil Kumar has laid the groundwork for a new generation of political inquiry—one that values truth over trend, insight over influence, and citizens over statistics. His leadership philosophy insists that democracy must be data-literate and morally grounded.
+              </p>
+              <p>
+                In his own words, "Numbers can predict elections, but only ethics can preserve democracy." He urges scholars, analysts, and policymakers alike to adopt a scientific temperament toward governance—to treat every voter as a data point of dignity and every policy as a hypothesis for progress. Under his direction, POLL MATRIX continues to evolve as a beacon of empirical democracy.
               </p>
             </div>
-          </div>
-
-          <div class="tab-content" id="message-5-content">
-            <div class="tab-content-card">
-              <h3 class="tab-content-title">Revolutionizing Political Research with Next-Gen Technology</h3>
-              <p class="text-content">
-                Mr. Senthil Kumar, founder of CAAS Research Foundation and Poll Matrix, is pioneering a new era in political research by integrating next-level AI, advanced robotics, supercomputing, and 5G technology. His visionary approach combines real-time data analytics, predictive modeling, and automated field intelligence to deliver unparalleled political insights. By leveraging cutting-edge tools, his platforms offer accurate voter sentiment analysis, behavioral tracking, and strategic forecasting. This fusion of technology and political science empowers leaders and policymakers with actionable intelligence, redefining how campaigns are shaped and decisions are made. Mr. Kumar is setting the benchmark for the future of political inquiry.
+            <div class="tab-panel" id="tab6">
+              <h3>Revolutionizing Political Research with Next-Gen Technology</h3>
+              <p>
+                Mr. Senthil Kumar, founder of CAAS Research Foundation and Poll Matrix, is pioneering a new era in political research by integrating next-level AI, advanced robotics, supercomputing, and 5G technology. His visionary approach combines real-time data analytics, predictive modeling, and automated field intelligence to deliver unparalleled political insights.
+              </p>
+              <p>
+                By leveraging cutting-edge tools, his platforms offer accurate voter sentiment analysis, behavioral tracking, and strategic forecasting. This fusion of technology and political science empowers leaders and policymakers with actionable intelligence, redefining how campaigns are shaped and decisions are made. Mr. Kumar is setting the benchmark for the future of political inquiry.
               </p>
             </div>
-          </div>
-
-          <div class="carousel-dots">
-            <span class="carousel-dot active" data-tab="message-0"></span>
-            <span class="carousel-dot" data-tab="message-1"></span>
-            <span class="carousel-dot" data-tab="message-2"></span>
-            <span class="carousel-dot" data-tab="message-3"></span>
-            <span class="carousel-dot" data-tab="message-4"></span>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 
-    <!-- Footer -->
+  <!-- Footer (unchanged) -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -856,7 +993,7 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="research.html">Research & Reports</a></li>
-            <li><a href="institutions.html" class="nav-link">Institutions</a></li>
+            <li><a href="institutions.html">Institutions</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="blogs.html">Blogs</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -870,7 +1007,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span>32/267 Udayam colony , 18th Main Road , Anna Nagar , Chennai- 40</span>
+              <span>32/267 Udayam colony, 18th Main Road, Anna Nagar, Chennai- 40</span>
             </li>
             <li class="contact-item">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -899,56 +1036,46 @@
     </div>
   </footer>
 
-
   <script>
     // Mobile menu toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMobile = document.querySelector('.nav-mobile');
-    navToggle.addEventListener('click', () => {
-      navMobile.classList.toggle('active');
-    });
-
-    // Mobile dropdown toggle
-    const navDropdownMobile = document.querySelector('.nav-dropdown-mobile');
-    const dropdownMenuMobile = document.querySelector('.dropdown-menu-mobile');
-    navDropdownMobile.addEventListener('click', () => {
-      navDropdownMobile.classList.toggle('active');
-    });
-
-    // Tab functionality for chairman's message
-    function setupTabs(tabSelector, contentSelector, dotSelector) {
-      const tabs = document.querySelectorAll(tabSelector);
-      const contents = document.querySelectorAll(contentSelector);
-      const dots = document.querySelectorAll(dotSelector);
-
-      function showTab(index) {
-        tabs.forEach(tab => tab.checked = false);
-        contents.forEach(content => content.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-
-        tabs[index].checked = true;
-        contents[index].classList.add('active');
-        dots[index].classList.add('active');
-      }
-
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('change', () => {
-          showTab(index);
-        });
+    if (navToggle && navMobile) {
+      navToggle.addEventListener('click', () => {
+        navMobile.classList.toggle('active');
       });
-
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          showTab(index);
-        });
-      });
-
-      // Show the first tab by default
-      showTab(0);
     }
 
-    // Initialize message tabs
-    setupTabs('.tab-input[name="message-tabs"]', '.tab-content[id^="message-"]', '.carousel-dot');
+    // Tab functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetTab = button.getAttribute('data-tab');
+        
+        // Remove active class from all buttons and panels
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanels.forEach(panel => panel.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding panel
+        button.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
+      });
+    });
+
+    // Smooth scroll animation on page load
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.team-card, .study-item').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    });
   </script>
 </body>
 </html>

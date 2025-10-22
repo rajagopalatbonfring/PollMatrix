@@ -1,63 +1,55 @@
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Collaborations - Poll Matrix India</title>
+  <title>Institutions - Poll Matrix India</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     @media (max-width: 768px) {
-          .nav-desktop {
-            display: none;
-          }
-
-          .nav-toggle {
-            display: block;
-          }
-
-          .nav-mobile {
-            display: none;
-            flex-direction: column;
-            gap: 1rem;
-            padding: 1rem;
-            background: white;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 20;
-          }
-
-          .nav-mobile.active {
-            display: flex;
-          }
-
-          .nav-dropdown-mobile .dropdown-menu-mobile {
-            display: none;
-            padding-left: 1rem;
-          }
-
-          .nav-dropdown-mobile.active .dropdown-menu-mobile {
-            display: block;
-          }
+      .nav-desktop { display: none; }
+      .nav-toggle { display: block; }
+      .nav-mobile {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 20;
+      }
+      .nav-mobile.active { display: flex; }
+      .nav-dropdown-mobile .dropdown-menu-mobile { display: none; padding-left: 1rem; }
+      .nav-dropdown-mobile.active .dropdown-menu-mobile { display: block; }
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --primary-dark: #0f172a;
+      --primary-dark: #161e4e;
       --primary-blue: #001b75;
-      --primary-orange: #e7c16e;
+      --accent-gold: #e7c16e;
+      --accent-orange: #ff6b35;
       --light-gray: #f8fafc;
       --border-gray: #e2e8f0;
       --text-gray: #64748b;
-      --text-dark: #1e293b;
+      --text-dark: #324461;
+      --gradient-primary: linear-gradient(135deg, #001b75 0%, #0a0e27 100%);
+      --gradient-accent: linear-gradient(135deg, #e7c16e 0%, #ff6b35 100%);
+      --radius: 12px;
     }
 
     body {
@@ -67,29 +59,25 @@
       background: #ffffff;
     }
 
-    .font-headline {
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0px auto;
-      padding: 0 1.5rem;
-    }
+    .font-headline { font-family: 'Space Grotesk', sans-serif; }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+    .logo { width: 300px; border-radius: 10px; padding: 10px; background: #ffffff; }
 
     /* Hero Section */
     .hero-section {
-      background: #0f172a;
+      position: relative;
+      background: linear-gradient(135deg, #001b75 0%, #0f172a 100%);
       color: #ffffff;
-      padding: 5rem 0;
+      padding: 6rem 0;
       text-align: center;
-      border-bottom: 4px solid #3b82f6;
+      border-bottom: 4px solid #e7c16e;
     }
 
     .hero-section h1 {
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .hero-section p {
@@ -100,17 +88,10 @@
     }
 
     /* Main Content */
-    main {
-      background: #ffffff;
-      min-height: 100vh;
-    }
-
-    section {
-      padding: 4rem 0;
-    }
+    main { background: #ffffff; min-height: 100vh; }
+    section { padding: 4rem 0; }
 
     .section-header {
-      margin-top: 30px;
       text-align: center;
       margin-bottom: 3rem;
     }
@@ -125,11 +106,264 @@
     .section-header p {
       font-size: 1.125rem;
       color: #64748b;
-      max-width: 48rem;
+      max-width: 56rem;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    
+    /* Courses Grid */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      max-width: 75rem;
       margin: 0 auto;
     }
 
-    /* Institutional Grid */
+    @media (min-width: 768px) {
+      .courses-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .course-card {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .course-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .course-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.15);
+      transform: translateY(-6px);
+    }
+
+    .course-header {
+      background: linear-gradient(135deg, #f8fafc 0%, var(--light-gray) 100%);
+      padding: 2rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .course-number {
+      display: inline-block;
+      background: var(--accent-gold);
+      color: white;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .course-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .course-content {
+      padding: 2rem;
+    }
+
+    .course-description {
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .course-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-enquire {
+      flex: 1;
+      min-width: 140px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #3b82f6;
+      color: #ffffff;
+      padding: 0.875rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid #3b82f6;
+      cursor: pointer;
+    }
+
+    .btn-enquire:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-icon {
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal.active { display: flex; align-items: center; justify-content: center; }
+
+    .modal-content {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 100vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      background: rgb(255, 255, 255);
+      color: var(--text-gray);
+      padding: 2rem;
+      border-radius: 16px 16px 0 0;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg);
+    }
+
+    .modal-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0;
+      padding-right: 2rem;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 0.875rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'PT Sans', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: #3b82f6;
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .success-message {
+      display: none;
+      background: #dcfce7;
+      border: 2px solid #22c55e;
+      color: #166534;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Institutional Collaborations */
     .institutions-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -139,25 +373,16 @@
     }
 
     @media (min-width: 640px) {
-      .institutions-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .institutions-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (min-width: 768px) {
-      .institutions-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      .institutions-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     @media (min-width: 1024px) {
-      .institutions-grid {
-        grid-template-columns: repeat(5, 1fr);
-      }
-
-      .hero-section h1 {
-        font-size: 3.5rem;
-      }
+      .institutions-grid { grid-template-columns: repeat(5, 1fr); }
+      .hero-section h1 { font-size: 3.5rem; }
     }
 
     .institution-card {
@@ -185,7 +410,6 @@
       justify-content: center;
       padding: 2rem;
       border-bottom: 1px solid #e2e8f0;
-      position: relative;
     }
 
     .institution-logo img {
@@ -197,12 +421,6 @@
 
     .institution-card:hover .institution-logo {
       background: #e0f2fe;
-    }
-
-    .logo-icon {
-      width: 3.5rem;
-      height: 3.5rem;
-      color: #f97316;
     }
 
     .institution-content {
@@ -223,144 +441,13 @@
       letter-spacing: 0.01em;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .content-card {
-      background: #f8fafc;
-      border: 2px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 2.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .content-card:hover {
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      border-color: #3b82f6;
-    }
-
-    .content-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .content-icon {
-      width: 2.5rem;
-      height: 2.5rem;
-      color: #f97316;
-      flex-shrink: 0;
-    }
-
-    .content-header h3 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .content-description {
-      color: #64748b;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    .content-subtitle {
-      font-weight: 600;
-      color: #0f172a;
-      margin-bottom: 0.75rem;
-      font-size: 1.05rem;
-    }
-
-    .content-list {
-      list-style: disc;
-      list-style-position: inside;
-      color: #64748b;
-      margin-bottom: 1.5rem;
-    }
-
-    .content-list li {
-      margin-bottom: 0.5rem;
-      line-height: 1.6;
-    }
-
-    .content-note {
-      font-size: 0.875rem;
-      color: #64748b;
-      font-style: italic;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #3b82f6;
-      color: #ffffff;
-      padding: 0.875rem 1.75rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 2px solid #3b82f6;
-    }
-
-    .btn-primary:hover {
-      background: #2563eb;
-      border-color: #2563eb;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-    }
-
-    .btn-icon {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-
     @media (max-width: 767px) {
-      .hero-section {
-        padding: 3rem 0;
-      }
-
-      .hero-section h1 {
-        font-size: 2rem;
-      }
-
-      section {
-        padding: 2rem 0;
-      }
-
-      .section-header h2 {
-        font-size: 1.875rem;
-      }
-
-      .tabs-list {
-        grid-template-columns: 1fr;
-      }
-
-      .content-card {
-        padding: 1.5rem;
-      }
-
-      .content-header {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .tabs-list {
-        grid-template-columns: 1fr;
-      }
+      .hero-section { padding: 3rem 0; }
+      .hero-section h1 { font-size: 2rem; }
+      section { padding: 2rem 0; }
+      .section-header h2 { font-size: 1.875rem; }
+      .course-actions { flex-direction: column; }
+      .btn-enquire { width: 100%; }
     }
   </style>
 </head>
@@ -426,15 +513,199 @@
     <!-- Hero Section -->
     <div class="hero-section">
       <div class="container">
-        <h1 class="font-headline">Partnerships & Insights</h1>
+        <h1 class="font-headline">Empowering a Data-Driven Democracy</h1>
         <p>
-          Building a national knowledge infrastructure for democracy through collaboration.
+          Building a national knowledge infrastructure for democracy through collaboration, innovation, and education.
         </p>
       </div>
     </div>
 
+    <!-- Vision Section -->
+    <section class="container" style="margin: 60px auto;">
+      <!-- Courses Section -->
+      <div class="section-header">
+        <h2 class="font-headline">Short-Term Courses</h2>
+        <p class="vision-text">
+          Guided by the visionary leadership of <span class="vision-highlight">Mr. P. Senthil Kumar</span>, both CAAS Research Foundation and POLL MATRIX are committed to transforming India's political landscape through innovation, technology, and education. Mr. Kumar believes that a data-driven democracy is the cornerstone of India's political progress.
+        </p>
+        <p class="vision-text">
+          Our institutions serve as platforms for cutting-edge research and training in political science, artificial intelligence, data analytics, and technology-led governance. The courses are crafted to blend academic knowledge with real-world application, ensuring participants gain both theoretical and practical expertise.
+        </p>
+      </div>
+
+      <div class="courses-grid">
+        <!-- Course 1 -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-number">Course 01</span>
+            <h3 class="course-title">Social Media & Digital Campaigning</h3>
+          </div>
+          <div class="course-content">
+            <p class="course-description">
+              Master the art of digital voter engagement, sentiment tracking, and online political branding. Learn how to leverage social media platforms for effective political communication and campaign management.
+            </p>
+            <div class="course-actions">
+              <button class="btn-enquire" onclick="openModal('course1')">
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Enquire Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-number">Course 02</span>
+            <h3 class="course-title">Robotics & Automation in Field Research</h3>
+          </div>
+          <div class="course-content">
+            <p class="course-description">
+              Discover how robotic technology and automation tools revolutionize real-time data collection in political research. Explore innovative methods for field surveys and voter data gathering.
+            </p>
+            <div class="course-actions">
+              <button class="btn-enquire" onclick="openModal('course2')">
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Enquire Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-number">Course 03</span>
+            <h3 class="course-title">Electoral Behavior & Predictive Modelling</h3>
+          </div>
+          <div class="course-content">
+            <p class="course-description">
+              Learn advanced behavioral science techniques combined with predictive AI tools for accurate election forecasting. Understand voter patterns and develop data-driven campaign strategies.
+            </p>
+            <div class="course-actions">
+              <button class="btn-enquire" onclick="openModal('course3')">
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Enquire Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-number">Course 04</span>
+            <h3 class="course-title">Basic Constitution for Political Leadership</h3>
+          </div>
+          <div class="course-content">
+            <p class="course-description">
+              An introduction to the Indian Constitution, focusing on its key principles, structure, fundamental rights, and the role of leaders in upholding democratic values and constitutional governance.
+            </p>
+            <div class="course-actions">
+              <button class="btn-enquire" onclick="openModal('course4')">
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Enquire Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 5 -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-number">Course 05</span>
+            <h3 class="course-title">Basic Economics for Political Leadership</h3>
+          </div>
+          <div class="course-content">
+            <p class="course-description">
+              Covers essential economic concepts such as GDP, inflation, budgeting, and fiscal policy to help emerging political leaders understand and navigate India's economic landscape in policy-making.
+            </p>
+            <div class="course-actions">
+              <button class="btn-enquire" onclick="openModal('course5')">
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Enquire Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 6 -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-number">Course 06</span>
+            <h3 class="course-title">Basic Socio-Economic Development in India</h3>
+          </div>
+          <div class="course-content">
+            <p class="course-description">
+              Explores key issues in India's development including poverty, education, healthcare, and infrastructure, linking socio-economic indicators with political strategies and grassroots-level governance.
+            </p>
+            <div class="course-actions">
+              <button class="btn-enquire" onclick="openModal('course6')">
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Enquire Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 7 -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-number">Course 07</span>
+            <h3 class="course-title">Stratification of Indian Society and Politics</h3>
+          </div>
+          <div class="course-content">
+            <p class="course-description">
+              Analyzes caste, class, religion, and gender dynamics in India, highlighting their influence on electoral politics, policy decisions, and representation in democratic institutions.
+            </p>
+            <div class="course-actions">
+              <button class="btn-enquire" onclick="openModal('course7')">
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Enquire Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 8 -->
+        <div class="course-card">
+          <div class="course-header">
+            <span class="course-number">Course 08</span>
+            <h3 class="course-title">Nationalism and Politics</h3>
+          </div>
+          <div class="course-content">
+            <p class="course-description">
+              Traces the evolution of nationalism in India and its role in shaping political ideologies, movements, party systems, and national identity in the post-independence political framework.
+            </p>
+            <div class="course-actions">
+              <button class="btn-enquire" onclick="openModal('course8')">
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Enquire Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Institutional Collaborations -->
-    <section class="container">
+    <section class="container" style="background: #f8fafc; padding: 4rem 2rem; border-radius: 16px; margin: 60px auto; ">
       <div class="section-header">
         <h2 class="font-headline">Institutional Collaborations</h2>
         <p>
@@ -444,7 +715,7 @@
       <div class="institutions-grid">
         <div class="institution-card">
           <div class="institution-logo">
-            <img src="assets\IIT_Madras.png" alt="Indian Institute of Technology (IIT) Madras Logo">
+            <img src="assets/IIT_Madras.png" alt="Indian Institute of Technology (IIT) Madras Logo">
           </div>
           <div class="institution-content">
             <p>Indian Institute of Technology (IIT) Madras</p>
@@ -486,6 +757,391 @@
     </section>
 
   </main>
+
+  <!-- Enquiry Modals -->
+  <!-- Course 1 Modal -->
+  <div id="course1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Enquire: Social Media & Digital Campaigning</h3>
+        <button class="modal-close" onclick="closeModal('course1')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleSubmit(event, 'course1')">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" required placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Organization (Optional)</label>
+            <input type="text" class="form-input" placeholder="Your organization or institution">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Educational Background</label>
+            <select class="form-select">
+              <option value="">Select your qualification</option>
+              <option value="undergraduate">Undergraduate</option>
+              <option value="graduate">Graduate</option>
+              <option value="postgraduate">Postgraduate</option>
+              <option value="professional">Professional Certification</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message / Questions</label>
+            <textarea class="form-textarea" placeholder="Any specific questions or requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Enquiry</button>
+          <div class="success-message" id="success-course1">
+            Thank you! Your enquiry has been submitted successfully. We'll contact you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course 2 Modal -->
+  <div id="course2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Enquire: Robotics & Automation in Field Research</h3>
+        <button class="modal-close" onclick="closeModal('course2')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleSubmit(event, 'course2')">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" required placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Organization (Optional)</label>
+            <input type="text" class="form-input" placeholder="Your organization or institution">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Educational Background</label>
+            <select class="form-select">
+              <option value="">Select your qualification</option>
+              <option value="undergraduate">Undergraduate</option>
+              <option value="graduate">Graduate</option>
+              <option value="postgraduate">Postgraduate</option>
+              <option value="professional">Professional Certification</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message / Questions</label>
+            <textarea class="form-textarea" placeholder="Any specific questions or requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Enquiry</button>
+          <div class="success-message" id="success-course2">
+            Thank you! Your enquiry has been submitted successfully. We'll contact you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course 3 Modal -->
+  <div id="course3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Enquire: Electoral Behavior & Predictive Modelling</h3>
+        <button class="modal-close" onclick="closeModal('course3')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleSubmit(event, 'course3')">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" required placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Organization (Optional)</label>
+            <input type="text" class="form-input" placeholder="Your organization or institution">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Educational Background</label>
+            <select class="form-select">
+              <option value="">Select your qualification</option>
+              <option value="undergraduate">Undergraduate</option>
+              <option value="graduate">Graduate</option>
+              <option value="postgraduate">Postgraduate</option>
+              <option value="professional">Professional Certification</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message / Questions</label>
+            <textarea class="form-textarea" placeholder="Any specific questions or requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Enquiry</button>
+          <div class="success-message" id="success-course3">
+            Thank you! Your enquiry has been submitted successfully. We'll contact you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course 4 Modal -->
+  <div id="course4" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Enquire: Basic Constitution for Political Leadership</h3>
+        <button class="modal-close" onclick="closeModal('course4')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleSubmit(event, 'course4')">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" required placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Organization (Optional)</label>
+            <input type="text" class="form-input" placeholder="Your organization or institution">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Educational Background</label>
+            <select class="form-select">
+              <option value="">Select your qualification</option>
+              <option value="undergraduate">Undergraduate</option>
+              <option value="graduate">Graduate</option>
+              <option value="postgraduate">Postgraduate</option>
+              <option value="professional">Professional Certification</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message / Questions</label>
+            <textarea class="form-textarea" placeholder="Any specific questions or requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Enquiry</button>
+          <div class="success-message" id="success-course4">
+            Thank you! Your enquiry has been submitted successfully. We'll contact you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course 5 Modal -->
+  <div id="course5" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Enquire: Basic Economics for Political Leadership</h3>
+        <button class="modal-close" onclick="closeModal('course5')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleSubmit(event, 'course5')">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" required placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Organization (Optional)</label>
+            <input type="text" class="form-input" placeholder="Your organization or institution">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Educational Background</label>
+            <select class="form-select">
+              <option value="">Select your qualification</option>
+              <option value="undergraduate">Undergraduate</option>
+              <option value="graduate">Graduate</option>
+              <option value="postgraduate">Postgraduate</option>
+              <option value="professional">Professional Certification</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message / Questions</label>
+            <textarea class="form-textarea" placeholder="Any specific questions or requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Enquiry</button>
+          <div class="success-message" id="success-course5">
+            Thank you! Your enquiry has been submitted successfully. We'll contact you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course 6 Modal -->
+  <div id="course6" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Enquire: Basic Socio-Economic Development in India</h3>
+        <button class="modal-close" onclick="closeModal('course6')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleSubmit(event, 'course6')">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" required placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Organization (Optional)</label>
+            <input type="text" class="form-input" placeholder="Your organization or institution">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Educational Background</label>
+            <select class="form-select">
+              <option value="">Select your qualification</option>
+              <option value="undergraduate">Undergraduate</option>
+              <option value="graduate">Graduate</option>
+              <option value="postgraduate">Postgraduate</option>
+              <option value="professional">Professional Certification</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message / Questions</label>
+            <textarea class="form-textarea" placeholder="Any specific questions or requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Enquiry</button>
+          <div class="success-message" id="success-course6">
+            Thank you! Your enquiry has been submitted successfully. We'll contact you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course 7 Modal -->
+  <div id="course7" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Enquire: Stratification of Indian Society and Politics</h3>
+        <button class="modal-close" onclick="closeModal('course7')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleSubmit(event, 'course7')">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" required placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Organization (Optional)</label>
+            <input type="text" class="form-input" placeholder="Your organization or institution">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Educational Background</label>
+            <select class="form-select">
+              <option value="">Select your qualification</option>
+              <option value="undergraduate">Undergraduate</option>
+              <option value="graduate">Graduate</option>
+              <option value="postgraduate">Postgraduate</option>
+              <option value="professional">Professional Certification</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message / Questions</label>
+            <textarea class="form-textarea" placeholder="Any specific questions or requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Enquiry</button>
+          <div class="success-message" id="success-course7">
+            Thank you! Your enquiry has been submitted successfully. We'll contact you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course 8 Modal -->
+  <div id="course8" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Enquire: Nationalism and Politics</h3>
+        <button class="modal-close" onclick="closeModal('course8')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleSubmit(event, 'course8')">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" required placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Organization (Optional)</label>
+            <input type="text" class="form-input" placeholder="Your organization or institution">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Educational Background</label>
+            <select class="form-select">
+              <option value="">Select your qualification</option>
+              <option value="undergraduate">Undergraduate</option>
+              <option value="graduate">Graduate</option>
+              <option value="postgraduate">Postgraduate</option>
+              <option value="professional">Professional Certification</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message / Questions</label>
+            <textarea class="form-textarea" placeholder="Any specific questions or requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Enquiry</button>
+          <div class="success-message" id="success-course8">
+            Thank you! Your enquiry has been submitted successfully. We'll contact you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -533,7 +1189,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span>32/267 Udayam colony , 18th Main Road , Anna Nagar , Chennai- 40</span>
+              <span>32/267 Udayam colony, 18th Main Road, Anna Nagar, Chennai- 40</span>
             </li>
             <li class="contact-item">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -563,13 +1219,63 @@
   </footer>
 
   <script>
-        // Mobile menu toggle
+    // Mobile menu toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMobile = document.querySelector('.nav-mobile');
     
     navToggle.addEventListener('click', () => {
       navMobile.style.display = navMobile.style.display === 'flex' ? 'none' : 'flex';
     });
+
+    // Modal functions
+    function openModal(courseId) {
+      const modal = document.getElementById(courseId);
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(courseId) {
+      const modal = document.getElementById(courseId);
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      
+      // Reset form and hide success message
+      const form = modal.querySelector('form');
+      form.reset();
+      const successMsg = document.getElementById('success-' + courseId);
+      successMsg.style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+          if (modal === event.target) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        });
+      }
+    }
+
+    // Handle form submission
+    function handleSubmit(event, courseId) {
+      event.preventDefault();
+      
+      // In a real application, you would send the form data to a server
+      // For now, we'll just show a success message
+      
+      const successMsg = document.getElementById('success-' + courseId);
+      successMsg.style.display = 'block';
+      
+      // Hide success message and close modal after 3 seconds
+      setTimeout(() => {
+        closeModal(courseId);
+      }, 3000);
+      
+      return false;
+    }
   </script>
 
   <script src="js/main.js"></script>

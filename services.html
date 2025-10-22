@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services - Poll Matrix India</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css">
   <style>
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
       .nav-desktop {
         display: none;
       }
@@ -50,16 +50,18 @@
       box-sizing: border-box;
     }
 
+
     :root {
-      --primary-dark: #0f172a;
+      --primary-dark: #161e4e;
       --primary-blue: #001b75;
-      --primary-orange: #e7c16e;
+      --accent-gold: #e7c16e;
+      --accent-orange: #ff6b35;
       --light-gray: #f8fafc;
       --border-gray: #e2e8f0;
       --text-gray: #64748b;
-      --text-dark: #1e293b;
-      --light-blue: #e0e7ff;
-      --radius: 12px;
+      --text-dark: #324461;
+      --gradient-primary: linear-gradient(135deg, #001b75 0%, #0a0e27 100%);
+      --gradient-accent: linear-gradient(135deg, #e7c16e 0%, #ff6b35 100%);
     }
 
     body {
@@ -70,14 +72,13 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, var(--primary-blue) 0%, #0f2557 100%);
       background-image: url("assets/service3.jpg");
       background-position: bottom;
       background-repeat: no-repeat;
@@ -90,12 +91,12 @@
 
     .hero h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5rem;
+      font-size: clamp(2.5rem, 6vw, 5rem);
       margin-bottom: 1rem;
     }
 
     .hero p {
-      font-size: 1.125rem;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
       max-width: 700px;
       margin: 0 auto;
       opacity: 0.95;
@@ -115,8 +116,8 @@
     .section-title {
       text-align: center;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      color: var(--primary-blue);
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      color: var(--text-dark);
       margin-bottom: 3rem;
     }
 
@@ -134,7 +135,7 @@
 
     /* Service Card */
     .service-card {
-      background: white;
+      background: rgb(241, 241, 241);
       border: 2px solid var(--light-blue);
       border-radius: var(--radius);
       padding: 2rem;
@@ -152,7 +153,7 @@
     .service-icon {
       width: 60px;
       height: 60px;
-      background: var(--light-blue);
+      background: white;
       border-radius: var(--radius);
       display: flex;
       align-items: center;
@@ -161,9 +162,9 @@
     }
 
     .service-icon svg {
-      width: 32px;
-      height: 32px;
-      color: var(--primary-blue);
+      width: 36px;
+      height: 36px;
+      color: var(--accent-gold);
     }
 
     .service-card h3 {
@@ -245,7 +246,7 @@
     }
 
     .tabs-container {
-      max-width: 900px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
@@ -261,13 +262,14 @@
     }
 
     .tab-label {
-      background: white;
+      background: rgb(236, 236, 236);
       border: 2px solid var(--light-blue);
       padding: 1rem 1.5rem;
       text-align: center;
       cursor: pointer;
       border-radius: var(--radius);
       font-weight: 600;
+      font-size: 1.5rem;
       transition: all 0.3s;
       display: flex;
       align-items: center;
@@ -315,13 +317,13 @@
 
     .management-card h3 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.75rem;
+      font-size: 2rem;
       color: var(--primary-blue);
       margin-bottom: 1rem;
     }
 
     .management-card h4 {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       color: var(--primary-blue);
       margin: 1.5rem 0 1rem;
     }
@@ -332,6 +334,7 @@
     }
 
     .management-list li {
+      font-size: 1.1rem;
       padding: 0.75rem 0;
       display: flex;
       align-items: start;
@@ -358,6 +361,7 @@
       margin-top: 0;
     }
 
+
     /* Media Collaboration */
     .media-section {
       padding: 4rem 0;
@@ -365,7 +369,7 @@
     }
 
     .media-content {
-      max-width: 900px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
@@ -376,120 +380,21 @@
       margin-bottom: 2rem;
     }
 
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
+    .media-card > h3{
+      font-size: 1.8rem;
     }
 
-    .modal-content {
-      background: white;
-      border-radius: var(--radius);
-      padding: 2rem;
-      max-width: 500px;
-      width: 90%;
-      position: relative;
-      box-shadow: 0 8px 24px rgba(0, 27, 117, 0.2);
+    
+    .media-card > p{
+      font-size: 1.1rem;
     }
 
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-gray);
+        
+    .media-card > h4{
+      font-size: 1.1rem;
     }
 
-    .modal-content h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.75rem;
-      color: var(--primary-blue);
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-content form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .modal-content label {
-      font-weight: 600;
-      color: var(--text-dark);
-    }
-
-    .modal-content input,
-    .modal-content select {
-      padding: 0.75rem;
-      border: 1px solid var(--border-gray);
-      border-radius: var(--radius);
-      font-size: 1rem;
-      width: 100%;
-    }
-
-    .modal-content input[type="submit"] {
-      background: var(--primary-blue);
-      color: white;
-      border: none;
-      padding: 0.875rem;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .modal-content input[type="submit"]:hover {
-      background: #00125a;
-      transform: translateY(-2px);
-    }
-
-    /* Details Modal Styles */
-    .details-modal-content {
-      max-width: 600px;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-
-    .details-modal-content h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
-    }
-
-    .details-modal-content p {
-      color: var(--text-gray);
-      margin-bottom: 1rem;
-    }
-
-    .details-modal-content ul {
-      list-style: none;
-      margin-bottom: 1rem;
-    }
-
-    .details-modal-content ul li {
-      padding: 0.5rem 0;
-      color: var(--text-gray);
-      display: flex;
-      align-items: start;
-      gap: 0.5rem;
-    }
-
-    .details-modal-content ul li:before {
-      content: "✓";
-      color: var(--primary-orange);
-      font-weight: bold;
-      flex-shrink: 0;
-    }
+   
   </style>
 </head>
 <body>
@@ -684,7 +589,7 @@
   <section class="macro-micro-section">
     <div class="container">
       <h2 class="section-title">Macro & Micro Electoral Management</h2>
-      <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: var(--text-gray);">Our unique dual research structure ensures a panoramic yet precise understanding of Indian elections—from national narratives to grassroots realities.</p>
+      <p style="text-align: center; max-width: 1200px; margin: 0 auto 3rem; color: var(--text-gray); font-size: 1.3rem;">Our unique dual research structure ensures a panoramic yet precise understanding of Indian elections—from national narratives to grassroots realities.</p>
       
       <div class="tabs-container">
         <input type="radio" name="tabs" id="macro" checked class="tab-input">

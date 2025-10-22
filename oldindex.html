@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Poll Matrix India</title>
+  <title>Institutions - Poll Matrix India</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
   <style>
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
       .nav-desktop {
         display: none;
       }
-
       .nav-toggle {
         display: block;
       }
-
       .nav-mobile {
         display: none;
         flex-direction: column;
@@ -31,26 +28,22 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         z-index: 20;
       }
-
       .nav-mobile.active {
         display: flex;
       }
-
       .nav-dropdown-mobile .dropdown-menu-mobile {
         display: none;
         padding-left: 1rem;
       }
-
       .nav-dropdown-mobile.active .dropdown-menu-mobile {
         display: block;
       }
-}
+    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     :root {
       --primary-dark: #0f172a;
       --primary-blue: #001b75;
@@ -60,938 +53,235 @@
       --text-gray: #64748b;
       --text-dark: #1e293b;
     }
-
     body {
       font-family: 'PT Sans', sans-serif;
       line-height: 1.6;
-      color: var(--text-dark);
+      color: #1e293b;
       background: #ffffff;
     }
-
     .font-headline {
       font-family: 'Space Grotesk', sans-serif;
-      color: white;
     }
-
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
-
-
-/* Hero Section - Full Height Split */
-.hero {
-  position: relative;
-  height: 90vh;
-  display: flex;
-  overflow: hidden;
-}
-
-.hero-left {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem;
-  background: #f5f5f5;
-  z-index: 10;
-}
-
-.hero-content {
-  animation: fadeInLeft 0.8s ease-out;
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.hero-content h1 {
-  font-size: 4rem;
-  font-weight: 900;
-  line-height: 1.1;
-  color: var(--primary-blue);
-  margin-bottom: 1.5rem;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-}
-
-.btn {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  background: var(--primary-blue);
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
-}
-
-.btn:hover {
-  background: #0052a3;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
-}
-
-.hero-right {
-  width: 75%;
-  position: relative;
-  height: 90vh;
-}
-
-.carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1.2s ease-in-out;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.carousel-slide.active {
-  opacity: 1;
-}
-
-.carousel-nav {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 2rem;
-  z-index: 10;
-}
-
-.arrow {
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-}
-
-.arrow:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.arrow-left, .arrow-right {
-  outline: none;
-}
-
-@media (max-width: 1024px) {
-  .hero-left {
-    width: 40%;
-    padding: 3rem;
-  }
-
-  .hero-right {
-    width: 60%;
-  }
-
-  .hero-content h1 {
-    font-size: 3rem;
-  }
-
-  .hero-content p {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .hero-left {
-    width: 100%;
-    padding: 2rem;
-    min-height: 50vh;
-  }
-
-  .hero-right {
-    width: 100%;
-    height: 60vh;
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .carousel-nav {
-    bottom: 2rem;
-  }
-}
-
-
-
-
-
-
-
-
-
-    /* News Banner Section */
-    .News-Banner {
-      background: #1c2526;
-      color: white;
-      padding: 1rem 0;
-      width: 100%;
-      border-top: 4px solid var(--primary-orange);
-      border-bottom: 4px solid var(--primary-orange);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
+    .logo {
+      width: 300px;
+      border-radius: 10px;
+      padding: 10px;
+      background: #ffffff;
     }
-
-    .news-banner-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 100%;
-      padding: 0 1.5rem;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE and Edge */
-    }
-
-    .news-banner-container::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
-    }
-
-    .news-banner-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary-orange);
-      margin-right: 2rem;
-      white-space: nowrap;
-    }
-
-    .news-ticker {
-      display: flex;
-      gap: 2rem;
-      animation: ticker 20s linear infinite;
-      white-space: nowrap;
-    }
-
-    .news-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1rem;
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .news-item:hover {
-      color: var(--primary-orange);
-    }
-
-    .news-item::before {
-      content: '•';
-      color: var(--primary-orange);
-      font-size: 1.2rem;
-    }
-
-    @keyframes ticker {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    .news-ticker:hover {
-      animation-play-state: paused;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .hero-left {
-        width: 40%;
-        padding: 3rem;
-      }
-
-      .hero-right {
-        width: 60%;
-      }
-
-      .hero-content h1 {
-        font-size: 3rem;
-      }
-
-      .hero-content p {
-        font-size: 1.1rem;
-      }
-
-      .news-banner-title {
-        font-size: 1.3rem;
-        margin-right: 1.5rem;
-      }
-
-      .news-item {
-        font-size: 0.95rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .hero-left {
-        width: 100%;
-        padding: 2rem;
-        min-height: 50vh;
-      }
-
-      .hero-right {
-        width: 100%;
-        height: 60vh;
-      }
-
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero-content p {
-        font-size: 1rem;
-      }
-
-      .carousel-dots {
-        bottom: 2rem;
-      }
-
-      .news-banner-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .news-banner-title {
-        margin-bottom: 0.5rem;
-        margin-right: 0;
-      }
-
-      .news-ticker {
-        flex-direction: column;
-        animation: none;
-      }
-
-      .news-item {
-        display: flex;
-        white-space: normal;
-        padding: 0.5rem 0;
-      }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    /* Buttons */
-    .btn {
+    .hero-section {
       position: relative;
-      z-index: 10;
-      display: inline-block;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    .btn-primary {
-      background: var(--primary-blue);
-      color: white;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-    }
-
-    .btn-primary:hover {
-      background: #2563eb;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-    }
-
-    .btn-accent {
-      background: var(--primary-orange);
-      color: white;
-      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
-    }
-
-    .btn-accent:hover {
-      background: var(--primary-orange);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
-    }
-
-/* Sections */
-    .section {
-      padding: 5rem 0;
-    }
-
-    .section-header {
-      position: relative;
-      z-index: 10;
+      background-image: url("assets/partnership.jpg");
+      background-position: center;
+      color: #ffffff;
+      padding: 6rem 0;
       text-align: center;
-      max-width: 48rem;
-      margin: 0 auto 3rem;
+      border-bottom: 4px solid #e7c16e;
     }
-
+    .overlay-hero {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(48, 48, 48, 0.363);
+      z-index: 15;
+    }
+    .hero-section h1 {
+      position: relative;
+      z-index: 20;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero-section p {
+      position: relative;
+      z-index: 20;
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+    main {
+      margin: 60px 0;
+      background: #ffffff;
+      min-height: 100vh;
+    }
+    section {
+      padding: 4rem 0;
+    }
+    .section-header {
+      margin-top: 30px;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
     .section-header h2 {
       font-size: 2.5rem;
       font-weight: 700;
-      color: var(--primary-dark);
+      color: #0f172a;
       margin-bottom: 1rem;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 1rem;
     }
-
-    .section-header h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: var(--primary-orange);
-    }
-
     .section-header p {
-      margin-top: 1.5rem;
       font-size: 1.125rem;
-      color: var(--text-gray);
-    }
-
-
-    
-
-    /* Vision and Mission */
-
-
-    .vision-mission > .container> .section-header > h2, .vision-mission > .container> .section-header > p{
-      color: white;
-    }
-
-    .vision-mission {
-      z-index: 10;
-      position: relative;
-      background: white;
-      background-image: url("assets/CHIEF-MINISTERS-OF-INDIA-2023.webp");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    
-    .overlay-intro-section{
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.527);
-      z-index: 10;
-    }
-
-    .intro-wrapper {
-      z-index: 10;
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 2rem;
-      margin-bottom: 4rem;
-      align-items: stretch;
-    }
-
-    .intro-content {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      border: 2px solid var(--border-gray);
-      transition: all 0.3s;
-      background: #fafafa;
-    }
-
-    .intro-content:hover {
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
-      border-color: var(--primary-blue);
-    }
-
-    .intro-content h2 {
-      position: relative;
-      z-index: 20;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
-    }
-
-    .intro-content p {
-      position: relative;
-      z-index: 20;
-      font-size: 1.125rem;
-      color: rgb(36, 36, 36);
-      line-height: 1.8;
-    }
-
-    .ceo-profile {
-      position: relative;
-      z-index: 20;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 2.5rem;
-      background: white;
-      border-radius: 12px;
-      border: 2px solid var(--border-gray);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s;
-    }
-
-    .ceo-profile:hover {
-      border-color: var(--primary-blue);
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
-      transform: translateY(-4px);
-    }
-
-    .ceo-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1.5rem;
-      border: 3px solid var(--primary-blue);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .ceo-profile h3 {
-      position: relative;
-      z-index: 20;
-      font-size: 1.875rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .ceo-profile .title {
-      font-size: 1.125rem;
-      color: var(--primary-orange);
-      margin-bottom: 1rem;
-    }
-
-    .ceo-profile p {
-      font-size: 1rem;
-      color: var(--text-gray);
-      line-height: 1.7;
-    }
-
-    .vision-mission-grid {
-            position: relative;
-      z-index: 20;
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: 1fr 1fr;
-      margin-top: 3rem;
-    }
-
-    .vision-mission-grid > div {
-      padding: 2.5rem;
-      background: white;
-      border-radius: 12px;
-      border: 2px solid var(--border-gray);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s;
-    }
-
-    .vision-mission-grid > div:hover {
-      border-color: var(--primary-blue);
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
-      transform: translateY(-4px);
-    }
-
-    .vision-mission-grid h3 {
-      font-size: 1.875rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: 1rem;
-    }
-
-    .vision-mission-grid p {
-      font-size: 1.125rem;
-      color: var(--text-gray);
-      line-height: 1.7;
-    }
-
-    @media (max-width: 768px) {
-      .intro-wrapper {
-        grid-template-columns: 1fr;
-      }
-      .ceo-profile {
-        margin: 0 auto;
-        max-width: 400px;
-      }
-      .vision-mission-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-
-    /* Core Values */
-    .core-values {
-      background: var(--light-gray);
-    }
-
-    .core-values-grid {
-      margin-top: 3rem;
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 768px) {
-      .core-values-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .core-value {
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
-      padding: 2rem;
-      background: white;
-      border-radius: 12px;
-      border: 2px solid var(--border-gray);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: all 0.3s;
-    }
-
-    .core-value:hover {
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      transform: translateY(-4px);
-      border-color: var(--primary-blue);
-    }
-
-    .icon-wrapper {
-      background: var(--primary-dark);
-      padding: 1rem;
-      border-radius: 8px;
-      flex-shrink: 0;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .icon-wrapper i {
-      font-size: 1.75rem;
-      color: var(--primary-orange);
-    }
-
-    .core-value h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .core-value p {
-      color: var(--text-gray);
-    }
-
-    /* Services */
-    
-    .services > .container> .section-header > h2, .services > .container> .section-header > p{
-      color: white;
-    }
-
-
-
-
-    .services {
-      position: relative;
-      z-index: 10;
-      position: relative;
-      /* background: white; */
-      background-image: url("servicebgimg.jpg");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .overlay-service{
-      position: absolute;
-      background: #01050f8f ;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      z-index: 10;
-    }
-
-    .services-grid {
-      position: relative;
-      z-index: 10;
-      margin-top: 3rem;
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 640px) {
-      .services-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .services-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-    }
-
-    .card {
-      text-align: center;
-      border: 2px solid var(--border-gray);
-      border-radius: 12px;
-      background: white;
-      padding: 2rem 1.5rem;
-      transition: all 0.3s;
-    }
-
-    .card:hover {
-      border-color: var(--primary-blue);
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
-      transform: translateY(-5px);
-    }
-
-    .card-icon {
-      margin: 0 auto 1.5rem;
-      width: 70px;
-      height: 70px;
-      border-radius: 8px;
-      background: var(--light-gray);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card-icon i {
-      font-size: 2rem;
-      color: var(--primary-orange);
-    }
-
-    .card h3 {
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: 0.75rem;
-    }
-
-    .card p {
-      color: var(--text-gray);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* CTA Section */
-    .cta-section {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, #1e293b 100%);
-      color: white;
-      padding: 1rem 0;
-      text-align: center;
-    }
-
-    .cta-section-container{
-      display: flex;
-      align-items: center;
-      justify-content: start;
-    }
-
-    .cta-section >.container > img {
-      width: 400px;
-    }
-
-    .cta-content > a{
-      display: inline-block;
-    }
-
-    .cta-content h2 {
-      text-align: left;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--primary-orange);
-    }
-
-    .cta-content p {
-       text-align: left;
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: #64748b;
       max-width: 48rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-
-    /* Contact Form Section */
-    .contact-section {
-      color: white;
-      background: var(--light-gray);
-      background-image: url("assets/newcta.jpg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 5rem 0;
-      position: relative;
-    }
-
-    .contact-section > .container> .section-header > h2, .contact-section > .container> .section-header > p{
-      color: white;
-    }
-
-    .overlay-contact-form{
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      background: #01050f8f;
-      z-index: 10;
-    }
-
-    .contact-form-wrapper {
-      position: relative;
-      z-index: 20;
-      max-width: 42rem;
       margin: 0 auto;
     }
-
-    .form-grid {
-      position: relative;
-      z-index: 20;
+    .courses-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 2rem;
+      max-width: 72rem;
+      margin: 0 auto;
     }
-
-    @media (min-width: 768px) {
-      .form-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .form-group.full-width {
-        grid-column: span 2;
+    @media (min-width: 640px) {
+      .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
-
-    .form-group {
+    @media (min-width: 1024px) {
+      .courses-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .hero-section h1 {
+        font-size: 3.5rem;
+      }
+    }
+    .course-card {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .course-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.2);
+      transform: translateY(-6px);
+    }
+    .course-content {
+      padding: 2rem;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #f9fafb;
+    }
+    .course-content h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+    .course-content p {
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.7;
       margin-bottom: 1.5rem;
     }
-
-    .form-group label {
-      display: block;
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #3b82f6;
+      color: #ffffff;
+      padding: 0.875rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
       font-weight: 600;
-      color: white;
+      transition: all 0.3s ease;
+      border: 2px solid #3b82f6;
+    }
+    .btn-primary:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .modal-content h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 1.5rem;
+    }
+    .modal-content label {
+      display: block;
+      font-size: 1rem;
+      color: #0f172a;
       margin-bottom: 0.5rem;
     }
-
-    .form-group input,
-    .form-group textarea {
+    .modal-content input,
+    .modal-content select {
       width: 100%;
-      padding: 0.875rem;
-      border: 2px solid var(--border-gray);
+      padding: 0.75rem;
+      border: 2px solid #e2e8f0;
       border-radius: 8px;
+      margin-bottom: 1rem;
       font-size: 1rem;
-      font-family: 'PT Sans', sans-serif;
-      transition: all 0.3s;
+      color: #1e293b;
     }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
+    .modal-content input:focus,
+    .modal-content select:focus {
+      border-color: #3b82f6;
       outline: none;
-      border-color: var(--primary-blue);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     }
-
-    .form-group textarea {
-      min-height: 150px;
-      resize: vertical;
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #64748b;
+      cursor: pointer;
     }
-
-    .form-status {
-      margin-top: 1rem;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-      display: none;
+    .close-modal:hover {
+      color: #0f172a;
     }
-
-    .form-status.success {
-      background: #d1fae5;
-      color: #065f46;
-      border: 2px solid #6ee7b7;
+    @media (max-width: 767px) {
+      .hero-section {
+        padding: 3rem 0;
+      }
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 2rem 0;
+      }
+      .section-header h2 {
+        font-size: 1.875rem;
+      }
+      .course-card {
+        padding: 1.5rem;
+      }
     }
-
-    .form-status.error {
-      background: #fee2e2;
-      color: #991b1b;
-      border: 2px solid #fca5a5;
-    }
-    
   </style>
 </head>
 <body>
@@ -1000,14 +290,14 @@
       <div class="header-content">
         <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
         <nav class="nav-desktop">
-          <a href="/" class="nav-link active">Home</a>
+          <a href="/" class="nav-link">Home</a>
           <a href="about.html" class="nav-link">About Us</a>
           <div class="nav-dropdown">
             <a href="services.html" class="nav-link">Services</a>
             <div class="dropdown-menu">
               <a href="services/psephological-research.html" class="dropdown-item">Psephological Research & Opinion Polls</a>
               <a href="services/campaign-management.html" class="dropdown-item">Deep Route Campaign Management</a>
-              <a href="services/voting-pattern.html" class="dropdown-item">Voting Pattern / Field Research</a>
+              <a href="/services/voting-pattern.html" class="dropdown-item">Voting Pattern / Field Research</a>
               <a href="services/media-research.html" class="dropdown-item">Media Research & PRM</a>
               <a href="services/social-media.html" class="dropdown-item">Social Media Management</a>
               <a href="services/war-room.html" class="dropdown-item">War Room for Candidate Mapping & Winning Booth</a>
@@ -1016,7 +306,7 @@
             </div>
           </div>
           <a href="research.html" class="nav-link">Research & Reports</a>
-          <a href="institutions.html" class="nav-link">Institutions</a>
+          <a href="institutions.html" class="nav-link active">Institutions</a>
           <a href="careers.html" class="nav-link">Careers</a>
           <a href="blogs.html" class="nav-link">Blogs</a>
           <a href="contact.html" class="nav-link">Contact</a>
@@ -1026,7 +316,7 @@
         </button>
       </div>
       <nav class="nav-mobile">
-        <a href="/" class="nav-link active">Home</a>
+        <a href="/" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About Us</a>
         <div class="nav-dropdown-mobile">
           <a href="services.html" class="nav-link">Services</a>
@@ -1042,8 +332,8 @@
           </div>
         </div>
         <a href="research.html" class="nav-link">Research & Reports</a>
-        <a href="institutions.html" class="nav-link">Institutions</a>
-        <a href="services/careers.html" class="nav-link">Careers</a>
+        <a href="institutions.html" class="nav-link active">Institutions</a>
+        <a href="careers.html" class="nav-link">Careers</a>
         <a href="blogs.html" class="nav-link">Blogs</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
@@ -1051,240 +341,102 @@
   </header>
 
   <main>
-  <section class="hero">
-    <div class="hero-left">
-      <div class="hero-content">
-        <h1>POLL MATRIX<br>India</h1>
-        <p>Where data meets democracy, and insight drives informed governance.</p>
-        <a href="about.html" class="btn">About Us</a>
+    <div class="hero-section">
+      <div class="overlay-hero"></div>
+      <div class="container">
+        <h1 class="font-headline">Empowering a Data-Driven Democracy</h1>
+        <p>
+          Transforming India’s political landscape through innovation, technology, and education.
+        </p>
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="carousel-slide active" style="background-image: url('assets/List_of_Prime_Ministers_of_India.png')"></div>
-      <div class="carousel-slide" style="background-image: url('assets/National-Party-leaders.png')"></div>
-      <div class="carousel-slide" style="background-image: url('assets/tamilnaduParties.png')"></div>
-      <div class="carousel-slide" style="background-image: url('assets/ElectionCommissionMain.jpg')"></div>
-      <div class="carousel-slide" style="background-image: url('assets/CELEBRATE DEMOCRACY.png')"></div>
-      <div class="carousel-slide" style="background-image: url('assets/Voters-standing-in-a-queue-to-cast-their-vote.png')"></div>
-      
-      <div class="carousel-nav">
-        <button class="arrow arrow-left">&#9664;</button>
-        <button class="arrow arrow-right">&#9654;</button>
+    <section class="container">
+      <div class="section-header">
+        <h2 class="font-headline">Short-Term Courses</h2>
+        <p>
+          Guided by the visionary leadership of Mr. P. Senthil Kumar, CAAS Research Foundation and POLL MATRIX offer specialized courses to empower the next generation of political analysts, strategists, and technologists. These courses blend academic knowledge with real-world application, focusing on political science, AI, data analytics, and technology-led governance.
+        </p>
+      </div>
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-content">
+            <h3>Social Media & Digital Campaigning</h3>
+            <p>Understand digital voter engagement, sentiment tracking, and online political branding.</p>
+            <a href="#" class="btn-primary enquire-btn" data-course="Social Media & Digital Campaigning">Enquire Now</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-content">
+            <h3>Robotics & Automation in Field Research</h3>
+            <p>Discover how robotic tech and automation tools are used for real-time data collection.</p>
+            <a href="#" class="btn-primary enquire-btn" data-course="Robotics & Automation in Field Research">Enquire Now</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-content">
+            <h3>Electoral Behavior & Predictive Modelling</h3>
+            <p>Learn behavioral science techniques combined with predictive AI tools for election forecasting.</p>
+            <a href="#" class="btn-primary enquire-btn" data-course="Electoral Behavior & Predictive Modelling">Enquire Now</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-content">
+            <h3>Basic Constitution for Political Leadership</h3>
+            <p>An introduction to the Indian Constitution, focusing on its key principles, structure, fundamental rights, and the role of leaders in upholding democratic values.</p>
+            <a href="#" class="btn-primary enquire-btn" data-course="Basic Constitution for Political Leadership">Enquire Now</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-content">
+            <h3>Basic Economics for Political Leadership</h3>
+            <p>Covers essential economic concepts such as GDP, inflation, budgeting, and fiscal policy to navigate India's economic landscape in policy-making.</p>
+            <a href="#" class="btn-primary enquire-btn" data-course="Basic Economics for Political Leadership">Enquire Now</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-content">
+            <h3>Basic Socio-Economic Development in India</h3>
+            <p>Explores key issues in India’s development including poverty, education, healthcare, and infrastructure, linking socio-economic indicators with political strategies.</p>
+            <a href="#" class="btn-primary enquire-btn" data-course="Basic Socio-Economic Development in India">Enquire Now</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-content">
+            <h3>Stratification of Indian Society and Politics</h3>
+            <p>Analyzes caste, class, religion, and gender dynamics in India, highlighting their influence on electoral politics and policy decisions.</p>
+            <a href="#" class="btn-primary enquire-btn" data-course="Stratification of Indian Society and Politics">Enquire Now</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-content">
+            <h3>Nationalism and Politics</h3>
+            <p>Traces the evolution of nationalism in India and its role in shaping political ideologies, movements, and national identity.</p>
+            <a href="#" class="btn-primary enquire-btn" data-course="Nationalism and Politics">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal" id="enquiryModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Course Enquiry</h2>
+        <form id="enquiryForm" action="/submit-enquiry" method="POST">
+          <label for="course">Course</label>
+          <input type="text" id="course" name="course" readonly>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your name">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+          <label for="message">Message</label>
+          <input type="text" id="message" name="message" placeholder="Any additional information">
+          <button type="submit" class="btn-primary">Submit Enquiry</button>
+        </form>
       </div>
     </div>
-  </section>
-
-    <section class="News-Banner">
-      <div class="news-banner-container">
-        <h2 class="news-banner-title " style="background-color: red;">CURRENT NEWS</h2>
-        <div class="news-ticker">
-          <a href="#" class="news-item">Opposition Calls for Electoral Reforms Ahead of 2026 State Elections</a>
-          <a href="#" class="news-item">Supreme Court to Review Political Funding Transparency Laws</a>
-          <a href="#" class="news-item">New Coalition Government Faces Challenges in Policy Implementation</a>
-          <a href="#" class="news-item">Voter Turnout Expected to Rise in Upcoming By-Elections</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section vision-mission">
-      <div class="overlay-intro-section"></div>
-      <div class="container">
-        <div class="section-header">
-            <h1 class="font-headline" style="font-size: 4rem;">WHO WE ARE</h1>
-            <p>Our work is guided by principles that ensure the quality, credibility, and impact of our insights.</p>
-        </div>
-        <div class="intro-wrapper">
-          <div class="ceo-profile">
-            <img src="assets/CEO-profileimg.jpg" alt="CEO" class="ceo-image">
-            <h3 class="font-headline">Mr.P.Senthil Kumar</h3>
-            <p class="title">Founder & Chairman</p>
-            <p>
-              Mr. P. Senthil Kumar’s vision guides both CAAS Research Foundation and POLL MATRIX. He believes that data-driven democracy is key to India’s political progress.
-            </p>
-          </div>
-            <div class="intro-content">
-              <h2 class="font-headline">Decoding the Pulse of Indian Democracy</h2>
-              <p>
-                We are committed to decoding the pulse of Indian democracy through cutting-edge data analytics, field intelligence, and academic rigor. POLL MATRIX studies how India votes, why it votes, and what those choices mean for governance, policy, and social transformation.
-              </p>
-            </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="vision-mission-grid">
-          <div>
-            <h3 class="font-headline">Our Vision</h3>
-            <p>
-              To emerge as India's premier center of excellence in electoral research and analytics, creating a bridge between citizens' voices and policy action through technology-driven, socially inclusive research.
-            </p>
-          </div>
-          <div>
-            <h3 class="font-headline">Our Mission</h3>
-            <p>
-              To strengthen Indian democracy by delivering independent, ethical, and innovative research that informs governance, shapes public discourse, and fosters civic awareness.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="section core-values">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="font-headline"  style="font-size: 4rem;">Our Core Values</h2>
-          <p>Our work is guided by principles that ensure the quality, credibility, and impact of our insights.</p>
-        </div>
-        <div class="core-values-grid">
-          <div class="core-value">
-            <div class="icon-wrapper">
-              <i class="fas fa-shield-alt"></i>
-            </div>
-            <div>
-              <h3 class="font-headline">Integrity</h3>
-              <p>Non-partisan, data-verified research.</p>
-            </div>
-          </div>
-          <div class="core-value">
-            <div class="icon-wrapper">
-              <i class="fas fa-lightbulb"></i>
-            </div>
-            <div>
-              <h3 class="font-headline">Innovation</h3>
-              <p>Leveraging AI&ML, advanced analytics in political forecasting.</p>
-            </div>
-          </div>
-          <div class="core-value">
-            <div class="icon-wrapper">
-              <i class="fas fa-users"></i>
-            </div>
-            <div>
-              <h3 class="font-headline">Inclusion</h3>
-              <p>Representing diverse social, regional, and economic groups.</p>
-            </div>
-          </div>
-          <div class="core-value">
-            <div class="icon-wrapper">
-              <i class="fas fa-bullseye"></i>
-            </div>
-            <div>
-              <h3 class="font-headline">Impact</h3>
-              <p>Translating data into meaningful political and policy insights.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section services">
-      <div class="overlay-service"></div>
-      <div class="container">
-        <div class="section-header">
-          <h2 class="font-headline"  style="font-size: 4rem;">Our Services</h2>
-          <p>From national-level opinion polls to grassroots constituency analysis, we offer a comprehensive suite of research services.</p>
-        </div>
-        <div class="services-grid">
-          <div class="card">
-            <div class="card-icon">
-              <i class="fas fa-poll"></i>
-            </div>
-            <h3 class="font-headline">Opinion & Exit Polls</h3>
-            <p>Scientifically designed polls reflecting the authentic voice of the electorate.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h3 class="font-headline">Voter Behavior Analytics</h3>
-            <p>Analyzing patterns and triggers that influence electoral outcomes.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <i class="fas fa-map-marked-alt"></i>
-            </div>
-            <h3 class="font-headline">Constituency Profiling</h3>
-            <p>Detailed socio-economic mapping and community segmentation.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <i class="fas fa-file-alt"></i>
-            </div>
-            <h3 class="font-headline">Policy Impact Studies</h3>
-            <p>Assessing how policies on education and employment shape voter sentiment.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <i class="fas fa-bullhorn"></i>
-            </div>
-            <h3 class="font-headline">Campaign Effectiveness</h3>
-            <p>Tracking media outreach and message resonance to evaluate communications.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <i class="fas fa-laptop"></i>
-            </div>
-            <h3 class="font-headline">Digital & Media Intelligence</h3>
-            <p>Mapping online electoral behavior through real-time sentiment analysis.</p>
-          </div>
-        </div>
-        <div style="text-align: center; margin-top: 3rem;">
-          <a href="services.html" class="btn btn-primary">Explore All Services</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="container cta-section-container">
-        <img src="assets\handImg.png" alt="">
-        <div class="cta-content">
-          <h2 class="font-headline"  style="font-size: 4rem; line-height: 1.1;">Ready to Transform Democracy with Data?</h2>
-          <p>Partner with us to gain insights that shape the future of Indian governance and civic engagement.</p>
-          <a href="contact.html" class="btn btn-accent">Contact Us Today</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <div class="overlay-contact-form"></div>
-      <div class="container">
-        <div class="section-header">
-          <h2 class="font-headline"  style="font-size: 4rem;">Get In Touch</h2>
-          <p>Have questions or want to collaborate? Send us a message and we'll get back to you shortly.</p>
-        </div>
-        <div class="contact-form-wrapper">
-          <form id="contactForm">
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone">
-              </div>
-              <div class="form-group">
-                <label for="organization">Organization</label>
-                <input type="text" id="organization" name="organization">
-              </div>
-              <div class="form-group full-width">
-                <label for="message">Message *</label>
-                <textarea id="message" name="message" required></textarea>
-              </div>
-              <div class="form-group full-width">
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-              </div>
-            </div>
-            <div id="formStatus" class="form-status"></div>
-          </form>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
@@ -1361,119 +513,40 @@
     </div>
   </footer>
 
-
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMobile = document.querySelector('.nav-mobile');
+    navToggle.addEventListener('click', () => {
+      navMobile.style.display = navMobile.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    const modal = document.getElementById('enquiryModal');
+    const enquireBtns = document.querySelectorAll('.enquire-btn');
+    const closeModal = document.querySelector('.close-modal');
+    const courseInput = document.getElementById('course');
+
+    enquireBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+        const courseName = btn.getAttribute('data-course');
+        courseInput.value = courseName;
+        modal.style.display = 'flex';
       });
     });
 
-
-    const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('formStatus');
-
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const formData = new FormData(contactForm);
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        organization: formData.get('organization'),
-        message: formData.get('message')
-      };
-
-      const subject = encodeURIComponent('Contact Form Submission from ' + data.name);
-      const body = encodeURIComponent(
-        `Name: ${data.name}\n` +
-        `Email: ${data.email}\n` +
-        `Phone: ${data.phone || 'N/A'}\n` +
-        `Organization: ${data.organization || 'N/A'}\n\n` +
-        `Message:\n${data.message}`
-      );
-      
-      const mailtoLink = `mailto:careers@pollmatrix.in?subject=${subject}&body=${body}`;
-      
-      window.location.href = mailtoLink;
-      
-      formStatus.textContent = 'Opening your email client... Please send the email to complete your submission.';
-      formStatus.className = 'form-status success';
-      formStatus.style.display = 'block';
-      
-      setTimeout(() => {
-        contactForm.reset();
-        formStatus.style.display = 'none';
-      }, 5000);
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
     });
 
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      if (link.href === window.location.href) {
-        link.classList.add('active');
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
       }
     });
   </script>
-  
-
-<script>
-const slides = document.querySelectorAll('.carousel-slide');
-let currentSlide = 0;
-let autoPlayInterval;
-const slideDuration = 5000;
-
-function showSlide(index) {
-  index = (index + slides.length) % slides.length;
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
-  });
-  currentSlide = index;
-}
-
-function nextSlide() {
-  showSlide(currentSlide + 1);
-}
-
-function prevSlide() {
-  showSlide(currentSlide - 1);
-}
-
-function startAutoPlay() {
-  stopAutoPlay();
-  autoPlayInterval = setInterval(nextSlide, slideDuration);
-}
-
-function stopAutoPlay() {
-  clearInterval(autoPlayInterval);
-}
-
-document.querySelector('.arrow-left').addEventListener('click', () => {
-  prevSlide();
-  stopAutoPlay();
-  startAutoPlay();
-});
-
-document.querySelector('.arrow-right').addEventListener('click', () => {
-  nextSlide();
-  stopAutoPlay();
-  startAutoPlay();
-});
-
-const heroRight = document.querySelector('.hero-right');
-heroRight.addEventListener('mouseenter', stopAutoPlay);
-heroRight.addEventListener('mouseleave', startAutoPlay);
-
-showSlide(0);
-startAutoPlay();
-</script>
 </body>
-</html> 
--->
+</html> -->
+
+
+
+

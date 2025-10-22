@@ -51,15 +51,16 @@
     }
 
     :root {
-      --primary-dark: #0f172a;
+      --primary-dark: #161e4e;
       --primary-blue: #001b75;
-      --primary-orange: #e7c16e;
+      --accent-gold: #e7c16e;
+      --accent-orange: #ff6b35;
       --light-gray: #f8fafc;
       --border-gray: #e2e8f0;
       --text-gray: #64748b;
-      --text-dark: #1e293b;
-      --light-blue: #e6f0ff;
-      --light-yellow: #fef9e7;
+      --text-dark: #324461;
+      --gradient-primary: linear-gradient(135deg, #001b75 0%, #0a0e27 100%);
+      --gradient-accent: linear-gradient(135deg, #e7c16e 0%, #ff6b35 100%);
       --radius: 12px;
     }
 
@@ -71,27 +72,43 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
 
     /* Hero Section */
     .hero {
-      background: var(--primary-blue);
+      position: relative;
+      background-image: url("assets/research&report.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
       color: white;
-      padding: 4rem 0;
+      padding: 3.5rem 0;
       text-align: center;
     }
 
+    .overlay-hero {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(48, 48, 48, 0.438);
+      z-index: 15;
+    }
+
     .hero-content {
+      position: relative;
+      z-index: 20;
       max-width: 800px;
       margin: 0 auto;
     }
 
     .hero h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5rem;
+      font-size: clamp(2.5rem, 6vw, 5rem);
       margin-bottom: 1.25rem;
       font-weight: 700;
     }
@@ -119,9 +136,9 @@
 
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
+      font-size: clamp(2.5rem, 4vw, 4rem);
       text-align: center;
-      color: var(--primary-blue);
+      color: var(--text-dark);
       margin-bottom: 2.5rem;
       font-weight: 700;
     }
@@ -176,7 +193,7 @@
 
     .featured-text h3 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.75rem;
+      font-size: 1.7rem;
       color: var(--primary-blue);
       margin-bottom: 0.75rem;
       font-weight: 700;
@@ -184,7 +201,7 @@
 
     .featured-text p {
       color: var(--text-gray);
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 1.5rem;
       line-height: 1.7;
     }
@@ -227,7 +244,7 @@
 
     .publications-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
       margin-bottom: 3rem;
     }
@@ -270,7 +287,7 @@
 
     .pub-card h3 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       color: var(--primary-blue);
       margin-bottom: 0.75rem;
       font-weight: 700;
@@ -278,7 +295,7 @@
 
     .pub-card p {
       color: var(--text-gray);
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       margin-bottom: 1.25rem;
       line-height: 1.6;
     }
@@ -299,12 +316,12 @@
 
     /* Info Section */
     .info-section {
-      background: var(--light-blue);
-      padding: 2rem;
+      background: var(--light-gray);
+      padding: 4rem;
       border-radius: var(--radius);
       text-align: center;
-      max-width: 900px;
-      margin: 0 auto 3rem;
+      max-width: 1200px;
+      margin: 5rem auto 0;
       box-shadow: 0 6px 18px rgba(0, 27, 117, 0.08);
       display: flex;
       flex-direction: column;
@@ -313,14 +330,14 @@
 
     .info-section h3 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       color: var(--primary-blue);
       font-weight: 700;
     }
 
     .info-section p {
       color: var(--text-gray);
-      font-size: 1rem;
+      font-size: 1.1rem;
       line-height: 1.7;
     }
 
@@ -459,6 +476,7 @@
 
   <!-- Hero Section -->
   <section class="hero">
+    <div class="overlay-hero"></div>
     <div class="container">
       <div class="hero-content">
         <h1>Research & Reports</h1>
@@ -481,9 +499,6 @@
           <h3>The National Voter Sentiment Survey</h3>
           <p>An in-depth analysis of public mood, key issues, and voting intentions across the nation, offering unparalleled insights into the electorate's pulse. This comprehensive survey has informed policy dialogues, media debates, and academic curricula across India.</p>
           <button class="btn btn-primary" data-report="The National Voter Sentiment Survey">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
             Request Report
           </button>
         </div>
@@ -507,9 +522,6 @@
             <h3>Public Trust & Governance Index</h3>
             <p>A comprehensive index measuring citizen trust in public institutions and governance effectiveness. This report has informed policy dialogues and media debates across India.</p>
             <button class="btn btn-outline" data-report="Public Trust & Governance Index">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
               Request Details
             </button>
           </div>
@@ -526,9 +538,6 @@
             <h3>Election and Development Linkage Report</h3>
             <p>Examining the correlation between development indicators and electoral outcomes in key states. This flagship publication serves as a credible reference document for policy analysts.</p>
             <button class="btn btn-outline" data-report="Election and Development Linkage Report">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
               Request Details
             </button>
           </div>
@@ -545,9 +554,6 @@
             <h3>Digital Influence in Indian Politics</h3>
             <p>A study on the role of social media, misinformation, and digital campaigns in shaping voter behavior. Essential reading for academics and election commissions.</p>
             <button class="btn btn-outline" data-report="Digital Influence in Indian Politics">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
               Request Details
             </button>
           </div>
@@ -564,9 +570,6 @@
             <h3>Economic Indicators & Voting Patterns</h3>
             <p>An analysis of how economic factors influence voter preferences across urban and rural India. A key resource for understanding electoral dynamics.</p>
             <button class="btn btn-outline" data-report="Economic Indicators & Voting Patterns">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
               Request Details
             </button>
           </div>

@@ -51,15 +51,16 @@
     }
 
     :root {
-      --primary-dark: #0f172a;
+      --primary-dark: #161e4e;
       --primary-blue: #001b75;
-      --primary-orange: #e7c16e;
+      --accent-gold: #e7c16e;
+      --accent-orange: #ff6b35;
       --light-gray: #f8fafc;
       --border-gray: #e2e8f0;
       --text-gray: #64748b;
-      --text-dark: #1e293b;
-      --light-blue: #e6f0ff;
-      --light-yellow: #fef9e7;
+      --text-dark: #324461;
+      --gradient-primary: linear-gradient(135deg, #001b75 0%, #0a0e27 100%);
+      --gradient-accent: linear-gradient(135deg, #e7c16e 0%, #ff6b35 100%);
       --radius: 12px;
     }
 
@@ -67,37 +68,54 @@
       font-family: 'PT Sans', sans-serif;
       color: var(--text-dark);
       line-height: 1.6;
-      background: white;
+      background: rgb(65, 52, 52);
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
+
 
     /* Hero Section */
     .hero {
-      background: var(--primary-blue);
+      position: relative;
+      background-image: url("assets/blogs.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
       color: white;
       padding: 4rem 0;
       text-align: center;
     }
 
+    .overlay-hero {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(48, 48, 48, 0.411);
+      z-index: 15;
+    }
+
     .hero-content {
+      position: relative;
+      z-index: 20;
       max-width: 800px;
       margin: 0 auto;
     }
 
     .hero h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5rem;
+      font-size: clamp(2.5rem, 6vw, 5rem);
       margin-bottom: 1.25rem;
       font-weight: 700;
     }
 
     .hero p {
-      font-size: 1.125rem;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
       opacity: 0.9;
       line-height: 1.7;
     }
@@ -119,16 +137,16 @@
 
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
+      font-size: clamp(2.5rem, 4vw, 4rem);
       text-align: center;
-      color: var(--primary-blue);
+      color: var(--text-dark);
       margin-bottom: 2.5rem;
       font-weight: 700;
     }
 
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-bottom: 3rem;
     }
@@ -170,7 +188,7 @@
 
     .blog-content h3 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
       color: var(--primary-blue);
       margin-bottom: 0.75rem;
       font-weight: 700;
@@ -178,7 +196,7 @@
 
     .blog-content p {
       color: var(--text-gray);
-      font-size: 0.95rem;
+      font-size: clamp(1rem, 2vw, 1rem);
       margin-bottom: 1.25rem;
       line-height: 1.6;
     }
@@ -213,18 +231,18 @@
 
     /* Subscribe Section */
     .subscribe-section {
-      background: var(--light-blue);
+      background: rgb(236, 236, 236);
       padding: 2rem;
       border-radius: var(--radius);
       text-align: center;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto 3rem;
       box-shadow: 0 6px 18px rgba(0, 27, 117, 0.08);
     }
 
     .subscribe-section h3 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
+      font-size: clamp(2.2rem, 2vw, 2rem);
       color: var(--primary-blue);
       margin-bottom: 1rem;
       font-weight: 700;
@@ -232,7 +250,7 @@
 
     .subscribe-section p {
       color: var(--text-gray);
-      font-size: 1rem;
+      font-size: clamp(1rem, 2vw, 1.1rem);
       line-height: 1.7;
       margin-bottom: 1.5rem;
     }
@@ -328,6 +346,7 @@
 
   <!-- Hero Section -->
   <section class="hero">
+    <div class="overlay-hero"></div>
     <div class="container">
       <div class="hero-content">
         <h1>POLL INSIGHTS</h1>
