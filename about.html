@@ -34,11 +34,6 @@
       overflow-x: hidden;
     }
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
 
     /* Hero Section - Redesigned */
     .hero {
@@ -46,7 +41,7 @@
       min-height: 35vh;
       display: flex;
       align-items: center;
-      background: var(--text-gray);
+      background: #0f3b55;
       overflow: hidden;
       width: 100vw;
       margin-left: calc(-50vw + 50%);
@@ -189,7 +184,7 @@
 
     .stat-item:hover {
       transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.575);
     }
 
     .stat-number {
@@ -662,6 +657,10 @@
         max-width: 400px;
         margin: 0 auto;
       }
+      
+      .history-section::before {
+        display: none;
+      }
     }
 
     @media (max-width: 768px) {
@@ -694,6 +693,7 @@
       .hero-stats {
         grid-template-columns: 1fr;
       }
+
     }
   </style>
 </head>
@@ -702,10 +702,12 @@
   <header class="header">
     <div class="container">
       <div class="header-content">
-        <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+        <img class="logo" src="https://placehold.co/300x80/black/e7c16e?text=POLL+MATRIX+India" alt="POLL MATRIX India">
+        
         <nav class="nav-desktop">
           <a href="/" class="nav-link">Home</a>
           <a href="about.html" class="nav-link active">About Us</a>
+          
           <div class="nav-dropdown">
             <a href="services.html" class="nav-link">Services</a>
             <div class="dropdown-menu">
@@ -719,16 +721,43 @@
               <a href="services/ai-robotics.html" class="dropdown-item">AI & Robotics for Mass Reach</a>
             </div>
           </div>
+          
           <a href="research.html" class="nav-link">Research & Reports</a>
           <a href="institutions.html" class="nav-link">Institutions</a>
           <a href="careers.html" class="nav-link">Careers</a>
           <a href="blogs.html" class="nav-link">Blogs</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </nav>
+        
         <button class="nav-toggle" aria-label="Toggle menu">
           <span class="nav-toggle-icon">☰</span>
         </button>
       </div>
+      
+      <nav class="nav-mobile">
+        <a href="/" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About Us</a>
+        
+        <div class="nav-dropdown-mobile">
+          <a href="services.html" class="nav-link">Services</a>
+          <div class="dropdown-menu-mobile">
+            <a href="services/psephological-research.html" class="dropdown-item">Psephological Research & Opinion Polls</a>
+            <a href="services/campaign-management.html" class="dropdown-item">Deep Route Campaign Management</a>
+            <a href="services/voting-pattern.html" class="dropdown-item">Voting Pattern / Field Research</a>
+            <a href="services/media-research.html" class="dropdown-item">Media Research & PRM</a>
+            <a href="services/social-media.html" class="dropdown-item">Social Media Management</a>
+            <a href="services/war-room.html" class="dropdown-item">War Room for Candidate Mapping & Winning Booth</a>
+            <a href="services/ground-campaigns.html" class="dropdown-item">Ground Campaigns / Door to Door</a>
+            <a href="services/ai-robotics.html" class="dropdown-item">AI & Robotics for Mass Reach</a>
+          </div>
+        </div>
+        
+        <a href="research.html" class="nav-link">Research & Reports</a>
+        <a href="institutions.html" class="nav-link">Institutions</a>
+        <a href="careers.html" class="nav-link">Careers</a>
+        <a href="blogs.html" class="nav-link">Blogs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -738,7 +767,8 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1 class="hero-title">About POLL MATRIX</h1>
+        <p class="hero-subtitle">About Us</p>
+        <h1 class="hero-title">POLL MATRIX</h1>
         <p class="hero-subtitle">
           Born from the pioneering work of the Centre for Advanced Analysis and Strategies (CAAS Research Foundation).
         </p>
@@ -755,7 +785,7 @@
         <div class="history-grid">
           <div>
             <div class="history-visual">
-              <img class="history-logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+              <img class="history-logo" src="https://placehold.co/300x80/black/e7c16e?text=POLL+MATRIX+India" alt="POLL MATRIX India">
             </div>
             <div class="hero-stats">
               <div class="stat-item">
@@ -966,7 +996,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-section">
-          <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+          <img class="logo" src="https://placehold.co/300x80/white/e7c16e?text=POLL+MATRIX+India" alt="POLL MATRIX India">
           <p>Where data meets democracy, and insight drives informed governance.</p>
           <div class="social-links">
             <a href="#" class="social-link"><span class="sr-only">Facebook</span>
@@ -1037,15 +1067,6 @@
   </footer>
 
   <script>
-    // Mobile menu toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMobile = document.querySelector('.nav-mobile');
-    if (navToggle && navMobile) {
-      navToggle.addEventListener('click', () => {
-        navMobile.classList.toggle('active');
-      });
-    }
-
     // Tab functionality
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabPanels = document.querySelectorAll('.tab-panel');
@@ -1075,6 +1096,53 @@
           el.style.transform = 'translateY(0)';
         }, index * 100);
       });
+    });
+  </script>
+
+    <script>
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMobile = document.querySelector('.nav-mobile');
+    
+    if (navToggle && navMobile) {
+      navToggle.addEventListener('click', () => {
+        navMobile.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+    }
+
+    // Mobile dropdown toggle
+    const mobileDropdowns = document.querySelectorAll('.nav-dropdown-mobile > .nav-link');
+    
+    mobileDropdowns.forEach(dropdown => {
+      dropdown.addEventListener('click', (e) => {
+        e.preventDefault();
+        const parent = dropdown.parentElement;
+        const dropdownMenu = parent.querySelector('.dropdown-menu-mobile');
+        
+        parent.classList.toggle('active');
+        dropdownMenu.classList.toggle('active');
+      });
+    });
+
+    // Add scrolled class to header
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMobile.classList.contains('active') && 
+          !navMobile.contains(e.target) && 
+          !navToggle.contains(e.target)) {
+        navMobile.classList.remove('active');
+        navToggle.classList.remove('active');
+      }
     });
   </script>
 </body>

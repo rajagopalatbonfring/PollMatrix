@@ -60,18 +60,60 @@
     }
 
     .font-headline { font-family: 'Space Grotesk', sans-serif; }
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-    .logo { width: 300px; border-radius: 10px; padding: 10px; background: #ffffff; }
+
+
+        /* Buttons */
+    .btn {
+      position: relative;
+      z-index: 10;
+      display: inline-block;
+      padding: 0.9rem 1.8rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: white;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-accent {
+      background: var(--accent-gold);
+      color: white;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
+    }
 
     /* Hero Section */
     .hero-section {
       position: relative;
-      background: linear-gradient(135deg, #001b75 0%, #0f172a 100%);
+      background:linear-gradient(#001b7591,rgba(0, 0, 0, 0.664)),url('assets/institutionHeroImg.jpg') center/cover;
+      /* background-image: url('assets/institutionHeroImg.jpg'); */
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
       color: #ffffff;
       padding: 6rem 0;
       text-align: center;
-      border-bottom: 4px solid #e7c16e;
     }
+    
 
     .hero-section h1 {
       font-size: 3rem;
@@ -140,7 +182,7 @@
     }
 
     .course-card:hover {
-      border-color: #3b82f6;
+      border-color: #3b83f64f;
       box-shadow: 0 12px 30px rgba(59, 130, 246, 0.15);
       transform: translateY(-6px);
     }
@@ -153,7 +195,7 @@
 
     .course-number {
       display: inline-block;
-      background: var(--accent-gold);
+      background: #ffca58f6;
       color: white;
       font-weight: 700;
       font-size: 0.875rem;
@@ -456,16 +498,18 @@
   <header class="header">
     <div class="container">
       <div class="header-content">
-        <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+        <img class="logo" src="https://placehold.co/300x80/black/e7c16e?text=POLL+MATRIX+India" alt="POLL MATRIX India">
+        
         <nav class="nav-desktop">
           <a href="/" class="nav-link">Home</a>
           <a href="about.html" class="nav-link">About Us</a>
+          
           <div class="nav-dropdown">
             <a href="services.html" class="nav-link">Services</a>
             <div class="dropdown-menu">
               <a href="services/psephological-research.html" class="dropdown-item">Psephological Research & Opinion Polls</a>
               <a href="services/campaign-management.html" class="dropdown-item">Deep Route Campaign Management</a>
-              <a href="/services/voting-pattern.html" class="dropdown-item">Voting Pattern / Field Research</a>
+              <a href="services/voting-pattern.html" class="dropdown-item">Voting Pattern / Field Research</a>
               <a href="services/media-research.html" class="dropdown-item">Media Research & PRM</a>
               <a href="services/social-media.html" class="dropdown-item">Social Media Management</a>
               <a href="services/war-room.html" class="dropdown-item">War Room for Candidate Mapping & Winning Booth</a>
@@ -473,19 +517,23 @@
               <a href="services/ai-robotics.html" class="dropdown-item">AI & Robotics for Mass Reach</a>
             </div>
           </div>
+          
           <a href="research.html" class="nav-link">Research & Reports</a>
           <a href="institutions.html" class="nav-link active">Institutions</a>
           <a href="careers.html" class="nav-link">Careers</a>
           <a href="blogs.html" class="nav-link">Blogs</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </nav>
+        
         <button class="nav-toggle" aria-label="Toggle menu">
           <span class="nav-toggle-icon">☰</span>
         </button>
       </div>
+      
       <nav class="nav-mobile">
         <a href="/" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About Us</a>
+        
         <div class="nav-dropdown-mobile">
           <a href="services.html" class="nav-link">Services</a>
           <div class="dropdown-menu-mobile">
@@ -499,6 +547,7 @@
             <a href="services/ai-robotics.html" class="dropdown-item">AI & Robotics for Mass Reach</a>
           </div>
         </div>
+        
         <a href="research.html" class="nav-link">Research & Reports</a>
         <a href="institutions.html" class="nav-link active">Institutions</a>
         <a href="careers.html" class="nav-link">Careers</a>
@@ -545,7 +594,7 @@
               Master the art of digital voter engagement, sentiment tracking, and online political branding. Learn how to leverage social media platforms for effective political communication and campaign management.
             </p>
             <div class="course-actions">
-              <button class="btn-enquire" onclick="openModal('course1')">
+              <button class="btn btn-primary" style="text-align: center; display: inline-flex; gap: 2px;" onclick="openModal('course1')">
                 <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -566,7 +615,7 @@
               Discover how robotic technology and automation tools revolutionize real-time data collection in political research. Explore innovative methods for field surveys and voter data gathering.
             </p>
             <div class="course-actions">
-              <button class="btn-enquire" onclick="openModal('course2')">
+              <button class="btn btn-primary" style="text-align: center; display: inline-flex; gap: 2px;" onclick="openModal('course2')">
                 <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -587,7 +636,7 @@
               Learn advanced behavioral science techniques combined with predictive AI tools for accurate election forecasting. Understand voter patterns and develop data-driven campaign strategies.
             </p>
             <div class="course-actions">
-              <button class="btn-enquire" onclick="openModal('course3')">
+              <button class="btn btn-primary" style="text-align: center; display: inline-flex; gap: 2px;" onclick="openModal('course3')">
                 <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -608,7 +657,7 @@
               An introduction to the Indian Constitution, focusing on its key principles, structure, fundamental rights, and the role of leaders in upholding democratic values and constitutional governance.
             </p>
             <div class="course-actions">
-              <button class="btn-enquire" onclick="openModal('course4')">
+              <button class="btn btn-primary" style="text-align: center; display: inline-flex; gap: 2px;" onclick="openModal('course4')">
                 <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -629,7 +678,7 @@
               Covers essential economic concepts such as GDP, inflation, budgeting, and fiscal policy to help emerging political leaders understand and navigate India's economic landscape in policy-making.
             </p>
             <div class="course-actions">
-              <button class="btn-enquire" onclick="openModal('course5')">
+              <button class="btn btn-primary" style="text-align: center; display: inline-flex; gap: 2px;" onclick="openModal('course5')">
                 <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -650,7 +699,7 @@
               Explores key issues in India's development including poverty, education, healthcare, and infrastructure, linking socio-economic indicators with political strategies and grassroots-level governance.
             </p>
             <div class="course-actions">
-              <button class="btn-enquire" onclick="openModal('course6')">
+              <button class="btn btn-primary" style="text-align: center; display: inline-flex; gap: 2px;" onclick="openModal('course6')">
                 <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -671,7 +720,7 @@
               Analyzes caste, class, religion, and gender dynamics in India, highlighting their influence on electoral politics, policy decisions, and representation in democratic institutions.
             </p>
             <div class="course-actions">
-              <button class="btn-enquire" onclick="openModal('course7')">
+              <button class="btn btn-primary" style="text-align: center; display: inline-flex; gap: 2px;" onclick="openModal('course7')">
                 <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -692,7 +741,7 @@
               Traces the evolution of nationalism in India and its role in shaping political ideologies, movements, party systems, and national identity in the post-independence political framework.
             </p>
             <div class="course-actions">
-              <button class="btn-enquire" onclick="openModal('course8')">
+              <button class="btn btn-primary" style="text-align: center; display: inline-flex; gap: 2px;" onclick="openModal('course8')">
                 <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -705,7 +754,7 @@
     </section>
 
     <!-- Institutional Collaborations -->
-    <section class="container" style="background: #f8fafc; padding: 4rem 2rem; border-radius: 16px; margin: 60px auto; ">
+    <!-- <section class="container" style="background: #f8fafc; padding: 4rem 2rem; border-radius: 16px; margin: 60px auto; ">
       <div class="section-header">
         <h2 class="font-headline">Institutional Collaborations</h2>
         <p>
@@ -754,7 +803,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
   </main>
 
@@ -1148,7 +1197,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-section">
-          <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+          <img class="logo" src="https://placehold.co/300x80/white/e7c16e?text=POLL+MATRIX+India" alt="POLL MATRIX India">
           <p>Where data meets democracy, and insight drives informed governance.</p>
           <div class="social-links">
             <a href="#" class="social-link"><span class="sr-only">Facebook</span>
@@ -1175,7 +1224,7 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="research.html">Research & Reports</a></li>
-            <li><a href="institutions.html" class="nav-link">Institutions</a></li>
+            <li><a href="institutions.html">Institutions</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="blogs.html">Blogs</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -1219,13 +1268,6 @@
   </footer>
 
   <script>
-    // Mobile menu toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMobile = document.querySelector('.nav-mobile');
-    
-    navToggle.addEventListener('click', () => {
-      navMobile.style.display = navMobile.style.display === 'flex' ? 'none' : 'flex';
-    });
 
     // Modal functions
     function openModal(courseId) {
@@ -1278,6 +1320,52 @@
     }
   </script>
 
-  <script src="js/main.js"></script>
+  <script>
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMobile = document.querySelector('.nav-mobile');
+    
+    if (navToggle && navMobile) {
+      navToggle.addEventListener('click', () => {
+        navMobile.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+    }
+
+    // Mobile dropdown toggle
+    const mobileDropdowns = document.querySelectorAll('.nav-dropdown-mobile > .nav-link');
+    
+    mobileDropdowns.forEach(dropdown => {
+      dropdown.addEventListener('click', (e) => {
+        e.preventDefault();
+        const parent = dropdown.parentElement;
+        const dropdownMenu = parent.querySelector('.dropdown-menu-mobile');
+        
+        parent.classList.toggle('active');
+        dropdownMenu.classList.toggle('active');
+      });
+    });
+
+    // Add scrolled class to header
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMobile.classList.contains('active') && 
+          !navMobile.contains(e.target) && 
+          !navToggle.contains(e.target)) {
+        navMobile.classList.remove('active');
+        navToggle.classList.remove('active');
+      }
+    });
+  </script>
+
 </body>
 </html>

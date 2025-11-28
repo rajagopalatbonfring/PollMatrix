@@ -69,18 +69,6 @@
       background: #ffffff;
     }
 
-        .logo {
-      width: 300px;
-      border-radius: 10px;
-      padding: 10px;
-      background: #ffffff;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
 
     /* Hero */
     .hero {
@@ -337,6 +325,9 @@
       .details-content {
         max-width: 100%;
       }
+      .hero{
+        height: 100%;
+      }
     }
   </style>
 </head>
@@ -345,10 +336,12 @@
   <header class="header">
     <div class="container">
       <div class="header-content">
-        <img class="logo" src="../assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+        <img class="logo" src="https://placehold.co/300x80/black/e7c16e?text=POLL+MATRIX+India" alt="POLL MATRIX India">
+        
         <nav class="nav-desktop">
-          <a href="/" class="nav-link">Home</a>
+          <a href="../" class="nav-link">Home</a>
           <a href="../about.html" class="nav-link">About Us</a>
+          
           <div class="nav-dropdown">
             <a href="../services.html" class="nav-link active">Services</a>
             <div class="dropdown-menu">
@@ -362,20 +355,24 @@
               <a href="ai-robotics.html" class="dropdown-item">AI & Robotics for Mass Reach</a>
             </div>
           </div>
+          
           <a href="../research.html" class="nav-link">Research & Reports</a>
           <a href="../institutions.html" class="nav-link">Institutions</a>
           <a href="../careers.html" class="nav-link">Careers</a>
           <a href="../blogs.html" class="nav-link">Blogs</a>
           <a href="../contact.html" class="nav-link">Contact</a>
         </nav>
+        
         <button class="nav-toggle" aria-label="Toggle menu">
           <span class="nav-toggle-icon">☰</span>
         </button>
       </div>
+      
       <nav class="nav-mobile">
-        <a href="/" class="nav-link">Home</a>
+        <a href="../" class="nav-link">Home</a>
         <a href="../about.html" class="nav-link">About Us</a>
-        <div class="nav-dropdown-mobile">
+        
+        <div class="../nav-dropdown-mobile">
           <a href="../services.html" class="nav-link active">Services</a>
           <div class="dropdown-menu-mobile">
             <a href="psephological-research.html" class="dropdown-item">Psephological Research & Opinion Polls</a>
@@ -388,6 +385,7 @@
             <a href="ai-robotics.html" class="dropdown-item">AI & Robotics for Mass Reach</a>
           </div>
         </div>
+        
         <a href="../research.html" class="nav-link">Research & Reports</a>
         <a href="../institutions.html" class="nav-link">Institutions</a>
         <a href="../careers.html" class="nav-link">Careers</a>
@@ -515,7 +513,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-section">
-          <img class="logo" src="../assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+          <img class="logo" src="https://placehold.co/300x80/white/e7c16e?text=POLL+MATRIX+India" alt="POLL MATRIX India">
           <p>Where data meets democracy, and insight drives informed governance.</p>
           <div class="social-links">
             <a href="#" class="social-link"><span class="sr-only">Facebook</span>
@@ -539,13 +537,13 @@
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="../about.html">About Us</a></li>
-            <li><a href="../services.html">Services</a></li>
-            <li><a href="../research.html">Research & Reports</a></li>
-            <li><a href="../institutions.html" class="nav-link">Institutions</a></li>
-            <li><a href="../careers.html">Careers</a></li>
-            <li><a href="../blogs.html">Blogs</a></li>
-            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="research.html">Research & Reports</a></li>
+            <li><a href="institutions.html">Institutions</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-section">
@@ -556,7 +554,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span>32/267 Udayam colony , 18th Main Road , Anna Nagar , Chennai- 40</span>
+              <span>32/267 Udayam colony, 18th Main Road, Anna Nagar, Chennai- 40</span>
             </li>
             <li class="contact-item">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -586,15 +584,6 @@
   </footer>
 
   <script>
-        // Mobile menu toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMobile = document.querySelector('.nav-mobile');
-    
-    navToggle.addEventListener('click', () => {
-      navMobile.style.display = navMobile.style.display === 'flex' ? 'none' : 'flex';
-    });
-
-
     // Handle form submission (for demonstration)
     const registerForm = document.getElementById('registerForm');
     registerForm.addEventListener('submit', (e) => {
@@ -602,6 +591,53 @@
       console.log('Form submitted');
       alert('Registration submitted successfully!');
       registerForm.reset();
+    });
+  </script>
+
+    <script>
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMobile = document.querySelector('.nav-mobile');
+    
+    if (navToggle && navMobile) {
+      navToggle.addEventListener('click', () => {
+        navMobile.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+    }
+
+    // Mobile dropdown toggle
+    const mobileDropdowns = document.querySelectorAll('.nav-dropdown-mobile > .nav-link');
+    
+    mobileDropdowns.forEach(dropdown => {
+      dropdown.addEventListener('click', (e) => {
+        e.preventDefault();
+        const parent = dropdown.parentElement;
+        const dropdownMenu = parent.querySelector('.dropdown-menu-mobile');
+        
+        parent.classList.toggle('active');
+        dropdownMenu.classList.toggle('active');
+      });
+    });
+
+    // Add scrolled class to header
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMobile.classList.contains('active') && 
+          !navMobile.contains(e.target) && 
+          !navToggle.contains(e.target)) {
+        navMobile.classList.remove('active');
+        navToggle.classList.remove('active');
+      }
     });
   </script>
 </body>

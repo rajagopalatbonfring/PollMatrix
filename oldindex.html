@@ -1,286 +1,353 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Institutions - Poll Matrix India</title>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POLL MATRIX India - Navigation</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @media (max-width: 768px) {
-      .nav-desktop {
-        display: none;
-      }
-      .nav-toggle {
-        display: block;
-      }
-      .nav-mobile {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        background: white;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        z-index: 20;
-      }
-      .nav-mobile.active {
-        display: flex;
-      }
-      .nav-dropdown-mobile .dropdown-menu-mobile {
-        display: none;
-        padding-left: 1rem;
-      }
-      .nav-dropdown-mobile.active .dropdown-menu-mobile {
-        display: block;
-      }
-    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     :root {
-      --primary-dark: #0f172a;
+      --primary-nav: #000000;
+      --primary-dark: #161e4e;
       --primary-blue: #001b75;
-      --primary-orange: #e7c16e;
+      --accent-gold: #e7c16e;
+      --accent-orange: #ff6b35;
       --light-gray: #f8fafc;
       --border-gray: #e2e8f0;
       --text-gray: #64748b;
-      --text-dark: #1e293b;
+      --text-dark: #324461;
     }
+
     body {
       font-family: 'PT Sans', sans-serif;
       line-height: 1.6;
-      color: #1e293b;
-      background: #ffffff;
+      margin: 0;
     }
-    .font-headline {
-      font-family: 'Space Grotesk', sans-serif;
-    }
+
     .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 2rem;
     }
-    .logo {
-      width: 300px;
-      border-radius: 10px;
-      padding: 10px;
-      background: #ffffff;
-    }
-    .hero-section {
-      position: relative;
-      background-image: url("assets/partnership.jpg");
-      background-position: center;
-      color: #ffffff;
-      padding: 6rem 0;
-      text-align: center;
-      border-bottom: 4px solid #e7c16e;
-    }
-    .overlay-hero {
-      position: absolute;
+
+    /* Header Styles */
+    .header {
+      background: white;
+      padding: 1rem 0;
+      position: sticky;
       top: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(48, 48, 48, 0.363);
-      z-index: 15;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      transition: box-shadow 0.3s ease;
     }
-    .hero-section h1 {
-      position: relative;
-      z-index: 20;
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+
+    .header.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
     }
-    .hero-section p {
-      position: relative;
-      z-index: 20;
-      font-size: 1.125rem;
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 48rem;
-      margin: 0 auto;
-    }
-    main {
-      margin: 60px 0;
-      background: #ffffff;
-      min-height: 100vh;
-    }
-    section {
-      padding: 4rem 0;
-    }
-    .section-header {
-      margin-top: 30px;
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .section-header h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 1rem;
-    }
-    .section-header p {
-      font-size: 1.125rem;
-      color: #64748b;
-      max-width: 48rem;
-      margin: 0 auto;
-    }
-    .courses-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      max-width: 72rem;
-      margin: 0 auto;
-    }
-    @media (min-width: 640px) {
-      .courses-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (min-width: 1024px) {
-      .courses-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .hero-section h1 {
-        font-size: 3.5rem;
-      }
-    }
-    .course-card {
-      background: #ffffff;
-      border: 2px solid #e2e8f0;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s ease;
+
+    .header-content {
       display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-    .course-card:hover {
-      border-color: #3b82f6;
-      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.2);
-      transform: translateY(-6px);
-    }
-    .course-content {
-      padding: 2rem;
-      text-align: center;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
       justify-content: space-between;
-      background: #f9fafb;
-    }
-    .course-content h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 1rem;
-    }
-    .course-content p {
-      color: #64748b;
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    .btn-primary {
-      display: inline-flex;
       align-items: center;
+      gap: 2rem;
+    }
+
+    .logo {
+      width: 280px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.02);
+    }
+
+    /* Desktop Navigation */
+    .nav-desktop {
+      display: flex;
       gap: 0.5rem;
-      background: #3b82f6;
-      color: #ffffff;
-      padding: 0.875rem 1.75rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 2px solid #3b82f6;
-    }
-    .btn-primary:hover {
-      background: #2563eb;
-      border-color: #2563eb;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
       align-items: center;
-      justify-content: center;
     }
-    .modal-content {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 2rem;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    .nav-link {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-blue);
+      background: rgba(231, 193, 110, 0.1);
+    }
+
+    .nav-link.active {
+      color: var(--primary-blue);
+      font-weight: 700;
+      background: linear-gradient(135deg, rgba(231, 193, 110, 0.15), rgba(255, 107, 53, 0.1));
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 1rem;
+      right: 1rem;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange));
+      border-radius: 2px;
+    }
+
+    /* Dropdown Styles */
+    .nav-dropdown {
       position: relative;
     }
-    .modal-content h2 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 1.5rem;
+
+    .nav-dropdown > .nav-link::after {
+      content: '▾';
+      margin-left: 0.35rem;
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
     }
-    .modal-content label {
-      display: block;
-      font-size: 1rem;
-      color: #0f172a;
-      margin-bottom: 0.5rem;
+
+    .nav-dropdown:hover > .nav-link::after {
+      transform: rotate(180deg);
     }
-    .modal-content input,
-    .modal-content select {
-      width: 100%;
-      padding: 0.75rem;
-      border: 2px solid #e2e8f0;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      color: #1e293b;
-    }
-    .modal-content input:focus,
-    .modal-content select:focus {
-      border-color: #3b82f6;
-      outline: none;
-    }
-    .close-modal {
+
+    .dropdown-menu {
+      display: none;
       position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      color: #64748b;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      background: white;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      min-width: 320px;
+      padding: 0.75rem;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-gray);
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.85rem 1rem;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+      font-size: 0.92rem;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(135deg, rgba(0, 27, 117, 0.08), rgba(231, 193, 110, 0.08));
+      color: var(--primary-blue);
+      transform: translateX(4px);
+      padding-left: 1.25rem;
+    }
+
+    /* Mobile Toggle Button */
+    .nav-toggle {
+      display: none;
+      background: var(--primary-blue);
+      border: none;
+      color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .close-modal:hover {
-      color: #0f172a;
+
+    .nav-toggle:hover {
+      background: var(--primary-dark);
+      transform: scale(1.05);
     }
-    @media (max-width: 767px) {
-      .hero-section {
-        padding: 3rem 0;
+
+    .nav-toggle:active {
+      transform: scale(0.95);
+    }
+
+    .nav-toggle-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .nav-toggle.active .nav-toggle-icon {
+      transform: rotate(90deg);
+    }
+
+    /* Mobile Navigation */
+    .nav-mobile {
+      display: none;
+      background: white;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .nav-mobile.active {
+      display: block;
+      max-height: 600px;
+      padding: 1rem 0;
+    }
+
+    .nav-mobile .nav-link {
+      display: block;
+      padding: 1rem 2rem;
+      border-radius: 0;
+      border-left: 3px solid transparent;
+    }
+
+    .nav-mobile .nav-link:hover,
+    .nav-mobile .nav-link.active {
+      background: var(--light-gray);
+      border-left-color: var(--accent-gold);
+    }
+
+    /* Mobile Dropdown */
+    .nav-dropdown-mobile {
+      position: relative;
+    }
+
+    .nav-dropdown-mobile > .nav-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-dropdown-mobile > .nav-link::after {
+      content: '▾';
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-dropdown-mobile.active > .nav-link::after {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu-mobile {
+      display: none;
+      background: var(--light-gray);
+      padding: 0.5rem 0;
+    }
+
+    .dropdown-menu-mobile.active {
+      display: block;
+    }
+
+    .dropdown-menu-mobile .dropdown-item {
+      padding: 0.75rem 3rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .nav-desktop {
+        gap: 0.25rem;
       }
-      .hero-section h1 {
-        font-size: 2rem;
+
+      .nav-link {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.9rem;
       }
-      section {
-        padding: 2rem 0;
+
+      .dropdown-menu {
+        min-width: 280px;
       }
-      .section-header h2 {
-        font-size: 1.875rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
       }
-      .course-card {
-        padding: 1.5rem;
+
+      .nav-desktop {
+        display: none;
       }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .logo {
+        width: 220px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .logo {
+        width: 180px;
+      }
+
+      .nav-toggle {
+        width: 40px;
+        height: 40px;
+      }
+
+      .nav-toggle-icon {
+        font-size: 1.3rem;
+      }
+
+      .nav-mobile .nav-link {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .dropdown-menu-mobile .dropdown-item {
+        padding: 0.65rem 2.5rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Demo Content */
+    .demo-content {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
+      min-height: 60vh;
+    }
+
+    .demo-content h1 {
+      color: var(--primary-blue);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .demo-content p {
+      color: var(--text-gray);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -288,16 +355,18 @@
   <header class="header">
     <div class="container">
       <div class="header-content">
-        <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
+        <img class="logo" src="https://placehold.co/300x80/white/e7c16e?text=POLL+MATRIX+India" alt="POLL MATRIX India">
+        
         <nav class="nav-desktop">
           <a href="/" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About Us</a>
+          <a href="about.html" class="nav-link active">About Us</a>
+          
           <div class="nav-dropdown">
             <a href="services.html" class="nav-link">Services</a>
             <div class="dropdown-menu">
               <a href="services/psephological-research.html" class="dropdown-item">Psephological Research & Opinion Polls</a>
               <a href="services/campaign-management.html" class="dropdown-item">Deep Route Campaign Management</a>
-              <a href="/services/voting-pattern.html" class="dropdown-item">Voting Pattern / Field Research</a>
+              <a href="services/voting-pattern.html" class="dropdown-item">Voting Pattern / Field Research</a>
               <a href="services/media-research.html" class="dropdown-item">Media Research & PRM</a>
               <a href="services/social-media.html" class="dropdown-item">Social Media Management</a>
               <a href="services/war-room.html" class="dropdown-item">War Room for Candidate Mapping & Winning Booth</a>
@@ -305,19 +374,23 @@
               <a href="services/ai-robotics.html" class="dropdown-item">AI & Robotics for Mass Reach</a>
             </div>
           </div>
+          
           <a href="research.html" class="nav-link">Research & Reports</a>
-          <a href="institutions.html" class="nav-link active">Institutions</a>
+          <a href="institutions.html" class="nav-link">Institutions</a>
           <a href="careers.html" class="nav-link">Careers</a>
           <a href="blogs.html" class="nav-link">Blogs</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </nav>
+        
         <button class="nav-toggle" aria-label="Toggle menu">
           <span class="nav-toggle-icon">☰</span>
         </button>
       </div>
+      
       <nav class="nav-mobile">
         <a href="/" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About Us</a>
+        <a href="about.html" class="nav-link active">About Us</a>
+        
         <div class="nav-dropdown-mobile">
           <a href="services.html" class="nav-link">Services</a>
           <div class="dropdown-menu-mobile">
@@ -331,8 +404,9 @@
             <a href="services/ai-robotics.html" class="dropdown-item">AI & Robotics for Mass Reach</a>
           </div>
         </div>
+        
         <a href="research.html" class="nav-link">Research & Reports</a>
-        <a href="institutions.html" class="nav-link active">Institutions</a>
+        <a href="institutions.html" class="nav-link">Institutions</a>
         <a href="careers.html" class="nav-link">Careers</a>
         <a href="blogs.html" class="nav-link">Blogs</a>
         <a href="contact.html" class="nav-link">Contact</a>
@@ -340,213 +414,58 @@
     </div>
   </header>
 
-  <main>
-    <div class="hero-section">
-      <div class="overlay-hero"></div>
-      <div class="container">
-        <h1 class="font-headline">Empowering a Data-Driven Democracy</h1>
-        <p>
-          Transforming India’s political landscape through innovation, technology, and education.
-        </p>
-      </div>
-    </div>
-
-    <section class="container">
-      <div class="section-header">
-        <h2 class="font-headline">Short-Term Courses</h2>
-        <p>
-          Guided by the visionary leadership of Mr. P. Senthil Kumar, CAAS Research Foundation and POLL MATRIX offer specialized courses to empower the next generation of political analysts, strategists, and technologists. These courses blend academic knowledge with real-world application, focusing on political science, AI, data analytics, and technology-led governance.
-        </p>
-      </div>
-      <div class="courses-grid">
-        <div class="course-card">
-          <div class="course-content">
-            <h3>Social Media & Digital Campaigning</h3>
-            <p>Understand digital voter engagement, sentiment tracking, and online political branding.</p>
-            <a href="#" class="btn-primary enquire-btn" data-course="Social Media & Digital Campaigning">Enquire Now</a>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-content">
-            <h3>Robotics & Automation in Field Research</h3>
-            <p>Discover how robotic tech and automation tools are used for real-time data collection.</p>
-            <a href="#" class="btn-primary enquire-btn" data-course="Robotics & Automation in Field Research">Enquire Now</a>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-content">
-            <h3>Electoral Behavior & Predictive Modelling</h3>
-            <p>Learn behavioral science techniques combined with predictive AI tools for election forecasting.</p>
-            <a href="#" class="btn-primary enquire-btn" data-course="Electoral Behavior & Predictive Modelling">Enquire Now</a>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-content">
-            <h3>Basic Constitution for Political Leadership</h3>
-            <p>An introduction to the Indian Constitution, focusing on its key principles, structure, fundamental rights, and the role of leaders in upholding democratic values.</p>
-            <a href="#" class="btn-primary enquire-btn" data-course="Basic Constitution for Political Leadership">Enquire Now</a>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-content">
-            <h3>Basic Economics for Political Leadership</h3>
-            <p>Covers essential economic concepts such as GDP, inflation, budgeting, and fiscal policy to navigate India's economic landscape in policy-making.</p>
-            <a href="#" class="btn-primary enquire-btn" data-course="Basic Economics for Political Leadership">Enquire Now</a>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-content">
-            <h3>Basic Socio-Economic Development in India</h3>
-            <p>Explores key issues in India’s development including poverty, education, healthcare, and infrastructure, linking socio-economic indicators with political strategies.</p>
-            <a href="#" class="btn-primary enquire-btn" data-course="Basic Socio-Economic Development in India">Enquire Now</a>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-content">
-            <h3>Stratification of Indian Society and Politics</h3>
-            <p>Analyzes caste, class, religion, and gender dynamics in India, highlighting their influence on electoral politics and policy decisions.</p>
-            <a href="#" class="btn-primary enquire-btn" data-course="Stratification of Indian Society and Politics">Enquire Now</a>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-content">
-            <h3>Nationalism and Politics</h3>
-            <p>Traces the evolution of nationalism in India and its role in shaping political ideologies, movements, and national identity.</p>
-            <a href="#" class="btn-primary enquire-btn" data-course="Nationalism and Politics">Enquire Now</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="modal" id="enquiryModal">
-      <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2>Course Enquiry</h2>
-        <form id="enquiryForm" action="/submit-enquiry" method="POST">
-          <label for="course">Course</label>
-          <input type="text" id="course" name="course" readonly>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required placeholder="Enter your name">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="Enter your email">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
-          <label for="message">Message</label>
-          <input type="text" id="message" name="message" placeholder="Any additional information">
-          <button type="submit" class="btn-primary">Submit Enquiry</button>
-        </form>
-      </div>
-    </div>
-  </main>
-
-  <footer class="footer">
+  <div class="demo-content">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-section">
-          <img class="logo" src="assets/poll-matrix-india-Logo.png" alt="POLL MATRIX India">
-          <p>Where data meets democracy, and insight drives informed governance.</p>
-          <div class="social-links">
-            <a href="#" class="social-link"><span class="sr-only">Facebook</span>
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-              </svg>
-            </a>
-            <a href="#" class="social-link"><span class="sr-only">Twitter</span>
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-              </svg>
-            </a>
-            <a href="#" class="social-link"><span class="sr-only">LinkedIn</span>
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                <circle cx="4" cy="4" r="2" stroke="none" fill="currentColor" />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="research.html">Research & Reports</a></li>
-            <li><a href="institutions.html" class="nav-link">Institutions</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="blogs.html">Blogs</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Contact Us</h3>
-          <ul>
-            <li class="contact-item">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span>32/267 Udayam colony , 18th Main Road , Anna Nagar , Chennai- 40</span>
-            </li>
-            <li class="contact-item">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              <a href="mailto:careers@pollmatrix.in">careers@pollmatrix.in</a>
-            </li>
-            <li class="contact-item">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              <span>+91-123-456-7890</span>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Our Mission</h3>
-          <p>
-            To strengthen Indian democracy by delivering independent, ethical, and innovative research that informs governance, shapes public discourse, and fosters civic awareness.
-          </p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 POLL MATRIX India. All rights reserved.</p>
-      </div>
+      <h1>Welcome to POLL MATRIX India</h1>
+      <p>Your trusted partner in psephological research and political campaign management. Navigate through our comprehensive services using the menu above.</p>
     </div>
-  </footer>
+  </div>
 
   <script>
+    // Mobile menu toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMobile = document.querySelector('.nav-mobile');
-    navToggle.addEventListener('click', () => {
-      navMobile.style.display = navMobile.style.display === 'flex' ? 'none' : 'flex';
-    });
+    
+    if (navToggle && navMobile) {
+      navToggle.addEventListener('click', () => {
+        navMobile.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+    }
 
-    const modal = document.getElementById('enquiryModal');
-    const enquireBtns = document.querySelectorAll('.enquire-btn');
-    const closeModal = document.querySelector('.close-modal');
-    const courseInput = document.getElementById('course');
-
-    enquireBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    // Mobile dropdown toggle
+    const mobileDropdowns = document.querySelectorAll('.nav-dropdown-mobile > .nav-link');
+    
+    mobileDropdowns.forEach(dropdown => {
+      dropdown.addEventListener('click', (e) => {
         e.preventDefault();
-        const courseName = btn.getAttribute('data-course');
-        courseInput.value = courseName;
-        modal.style.display = 'flex';
+        const parent = dropdown.parentElement;
+        const dropdownMenu = parent.querySelector('.dropdown-menu-mobile');
+        
+        parent.classList.toggle('active');
+        dropdownMenu.classList.toggle('active');
       });
     });
 
-    closeModal.addEventListener('click', () => {
-      modal.style.display = 'none';
+    // Add scrolled class to header
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     });
 
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMobile.classList.contains('active') && 
+          !navMobile.contains(e.target) && 
+          !navToggle.contains(e.target)) {
+        navMobile.classList.remove('active');
+        navToggle.classList.remove('active');
       }
     });
   </script>
 </body>
-</html> -->
-
-
-
-
+</html>
