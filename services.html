@@ -71,6 +71,8 @@
       background: #ffffff;
     }
 
+
+
     /* Hero */
     .hero {
       background-image: url("assets/service3.jpg");
@@ -96,11 +98,7 @@
       opacity: 0.95;
     }
 
-    @media (min-width: 768px) {
-      .hero h1 {
-        font-size: 3.5rem;
-      }
-    }
+
 
     /* Services Section */
     .services-section {
@@ -121,11 +119,7 @@
       margin-bottom: 4rem;
     }
 
-    @media (min-width: 768px) {
-      .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+
 
     /* Service Card */
     .service-card {
@@ -233,12 +227,20 @@
       box-shadow: 0 4px 12px rgba(0, 27, 117, 0.3);
     }
 
+
+
     /* Macro & Micro Section */
     .macro-micro-section {
       background: var(--light-gray);
       padding: 4rem 0;
     }
 
+    .macro-micro-section > .container > p{
+      text-align: center; 
+      max-width: 1200px; 
+      margin: 0 auto 3rem; 
+    }
+ 
     .tabs-container {
       max-width: 1400px;
       margin: 0 auto;
@@ -291,16 +293,6 @@
       display: block;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
     .management-card {
       background: white;
@@ -356,6 +348,7 @@
     }
 
 
+
     /* Media Collaboration */
     .media-section {
       padding: 4rem 0;
@@ -388,16 +381,129 @@
       font-size: 1.1rem;
     }
 
+
+
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+
     @media (max-width: 480px) {
+      .hero{
+        height: auto;
+      }
+
+      .hero > .container > h1{
+        font-size: 2.4rem;
+      }
+
+      .hero > .container > p{
+        font-size: 1.125rem;
+      }
+
+      .section-title{
+        font-size: 2.4rem;
+      }
+
+      .services-grid{ 
+        margin-bottom: 0;
+      }
+
+      .service-card > h3{
+        font-size: 1.6rem;
+      }
+
+      .service-card > p{
+        font-size: 1rem;
+      }
+
+      .service-buttons > a{
+        background: #0000000a;
+      }
+
+      .macro-micro-section > .container > .section-title{
+        font-size: 2.4rem;
+      }
+
+      .macro-micro-section > .container > p{
+        font-size: 1.125rem;
+      }
+
+      .tab-label{
+        font-size: 1.125rem;
+      }
+
       .tabs-list {
         display: grid;
         grid-template-columns: 1fr ;
         gap: 1rem;
         margin-bottom: 2rem;
       }
+
+      .management-card > h3{
+        font-size: 1.6rem;
+      }
+
+      .management-card > h4{
+        font-size: 1.125rem;
+      }
+
+      .management-card > p{
+        font-size: 1rem;
+      }
+
+      .management-card > li {
+        font-size: 1rem;
+      }
+
+      .deliverables > h4{
+        font-size: 1.125rem;
+      }
+
+      .media-section{
+        padding: 4rem 0;
+      }
+
+      .media-section > .container > .section-title{margin: 0;
+        font-size: 2.4rem;
+      }
+
+      .media-card{
+        margin: 0;
+      }
+
+      .media-card > h3{
+        font-size: 1.6rem;
+      }
+
+      .media-card > p{
+        font-size: 1.125rem;
+      }
+
+      .media-card > h4{
+        font-size: 1.125rem;
+      }
+
     }
 
-   
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -599,7 +705,7 @@
   <section class="macro-micro-section">
     <div class="container">
       <h2 class="section-title">Macro & Micro Electoral Management</h2>
-      <p style="text-align: center; max-width: 1200px; margin: 0 auto 3rem; color: var(--text-gray); font-size: 1.3rem;">Our unique dual research structure ensures a panoramic yet precise understanding of Indian elections—from national narratives to grassroots realities.</p>
+      <p>Our unique dual research structure ensures a panoramic yet precise understanding of Indian elections—from national narratives to grassroots realities.</p>
       
       <div class="tabs-container">
         <input type="radio" name="tabs" id="macro" checked class="tab-input">
