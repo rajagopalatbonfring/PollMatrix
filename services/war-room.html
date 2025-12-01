@@ -5,45 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Psephological Research & Opinion Polls - Poll Matrix India</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/modal.css">
   <style>
-@media (max-width: 768px) {
-      .nav-desktop {
-        display: none;
-      }
+    @media (max-width: 768px) {
+          .nav-desktop {
+            display: none;
+          }
 
-      .nav-toggle {
-        display: block;
-      }
+          .nav-toggle {
+            display: block;
+          }
 
-      .nav-mobile {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        background: white;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        z-index: 20;
-      }
+          .nav-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 20;
+          }
 
-      .nav-mobile.active {
-        display: flex;
-      }
+          .nav-mobile.active {
+            display: flex;
+          }
 
-      .nav-dropdown-mobile .dropdown-menu-mobile {
-        display: none;
-        padding-left: 1rem;
-      }
+          .nav-dropdown-mobile .dropdown-menu-mobile {
+            display: none;
+            padding-left: 1rem;
+          }
 
-      .nav-dropdown-mobile.active .dropdown-menu-mobile {
-        display: block;
-      }
-}
+          .nav-dropdown-mobile.active .dropdown-menu-mobile {
+            display: block;
+          }
+    }
     * {
       margin: 0;
       padding: 0;
@@ -121,11 +122,21 @@
 
     /* Sidebar */
     .sidebar {
-      flex: 0 0 250px;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: center;
+      flex: 0 0 300px;
       background: var(--light-gray);
       border-radius: var(--radius);
       padding: 1.5rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar > .otherservice{
+      background-color: white;
+      padding: 1rem .8rem;
+      border-radius: 1rem;
     }
 
     .sidebar h3 {
@@ -408,17 +419,27 @@
       <div class="details-wrapper">
         <!-- Sidebar -->
         <nav class="sidebar">
-          <h3>Other Services</h3>
-          <ul>
-            <li><a href="psephological-research.html">Psephological Research & Opinion Polls</a></li>
-            <li><a href="campaign-management.html">Deep Route Campaign Management</a></li>
-            <li><a href="voting-pattern.html">Voting Pattern / Field Research</a></li>
-            <li><a href="media-research.html">Media Research & PRM</a></li>
-            <li><a href="social-media.html">Social Media Management</a></li>
-            <li><a href="ground-campaigns.html">Ground Campaigns / Door to Door</a></li>
-            <li><a href="ai-robotics.html">AI & Robotics for Mass Reach</a></li>
-          </ul>
-          <a href="../services.html" class="view-all">View All Services</a>
+          <!-- Registration CTA -->
+          <div class="sidebar-cta">
+            <h4 class="sidebar-cta-title">Interested in This Service?</h3>
+            <p class="sidebar-cta-text">Register now for expert consultation across any of our services.</p>
+            <button onclick="openServiceModal()" class="sidebar-cta-btn">
+              Register for Services
+            </button>
+          </div>
+          <div class="otherservice">
+            <h3>Other Services</h3>
+            <ul>
+              <li><a href="psephological-research.html">Psephological Research & Opinion Polls</a></li>
+              <li><a href="campaign-management.html">Deep Route Campaign Management</a></li>
+              <li><a href="voting-pattern.html">Voting Pattern / Field Research</a></li>
+              <li><a href="media-research.html">Media Research & PRM</a></li>
+              <li><a href="social-media.html">Social Media Management</a></li>
+              <li><a href="ground-campaigns.html">Ground Campaigns / Door to Door</a></li>
+              <li><a href="ai-robotics.html">AI & Robotics for Mass Reach</a></li>
+            </ul>
+            <a href="../services.html" class="view-all">View All Services</a>
+          </div>
         </nav>
 
         <!-- Details Content -->
@@ -473,34 +494,6 @@
           <img src="data-center.jpg" alt="Data Operations Center">
           <div class="image-caption">Data Operations Center</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Registration Section -->
-  <section class="registration-section">
-    <div class="container">
-      <h2 class="section-title">Register for This Service</h2>
-      <div class="registration-form">
-        <h2>Service Registration</h2>
-        <form id="registerForm">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" required>
-          
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-          
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" required>
-          
-          <label for="organization">Organization (Optional)</label>
-          <input type="text" id="organization" name="organization">
-          
-          <label for="service">Service</label>
-          <input type="text" id="service" name="service" value="War Room for Candidate Mapping & Winning Booth" readonly required>
-          
-          <input type="submit" value="Submit Registration">
-        </form>
       </div>
     </div>
   </section>
@@ -590,7 +583,7 @@
     });
   </script>
 
-    <script>
+  <script>
     // Mobile menu toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMobile = document.querySelector('.nav-mobile');
@@ -635,6 +628,12 @@
         navToggle.classList.remove('active');
       }
     });
+  </script>
+  <script src="../js/modal.js"></script>
+  <script>
+    fetch("../components/modal.html")
+      .then(r => r.text())
+      .then(html => document.body.insertAdjacentHTML("beforeend", html));
   </script>
 </body>
 </html>

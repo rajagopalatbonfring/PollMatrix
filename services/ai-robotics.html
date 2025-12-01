@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Psephological Research & Opinion Polls - Poll Matrix India</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/modal.css">
   <style>
 @media (max-width: 768px) {
       .nav-desktop {
@@ -122,11 +123,21 @@
 
     /* Sidebar */
     .sidebar {
-      flex: 0 0 250px;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: center;
+      flex: 0 0 300px;
       background: var(--light-gray);
       border-radius: var(--radius);
       padding: 1.5rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar > .otherservice{
+      background-color: white;
+      padding: 1rem .8rem;
+      border-radius: 1rem;
     }
 
     .sidebar h3 {
@@ -304,6 +315,7 @@
       }
 
       .sidebar {
+        flex-direction: column;
         flex: none;
         margin-bottom: 2rem;
       }
@@ -408,7 +420,19 @@
     <div class="container">
       <div class="details-wrapper">
         <!-- Sidebar -->
-        <nav class="sidebar">
+      <!-- Sidebar with Registration CTA on Top -->
+      <nav class="sidebar">
+        <!-- Registration CTA -->
+        <div class="sidebar-cta">
+          <h4 class="sidebar-cta-title">Interested in This Service?</h3>
+          <p class="sidebar-cta-text">Register now for expert consultation across any of our services.</p>
+          <button onclick="openServiceModal()" class="sidebar-cta-btn">
+            Register for Services
+          </button>
+        </div>
+
+        <!-- Other Services List -->
+        <div class="otherservice">
           <h3>Other Services</h3>
           <ul>
             <li><a href="psephological-research.html">Psephological Research & Opinion Polls</a></li>
@@ -420,7 +444,8 @@
             <li><a href="ground-campaigns.html">Ground Campaigns / Door to Door</a></li>
           </ul>
           <a href="../services.html" class="view-all">View All Services</a>
-        </nav>
+        </div>
+      </nav>
 
         <!-- Details Content -->
         <div class="details-content">
@@ -477,36 +502,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Registration Section -->
-  <section class="registration-section">
-    <div class="container">
-      <h2 class="section-title">Register for This Service</h2>
-      <div class="registration-form">
-        <h2>Service Registration</h2>
-        <form id="registerForm">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" required>
-          
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-          
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" required>
-          
-          <label for="organization">Organization (Optional)</label>
-          <input type="text" id="organization" name="organization">
-          
-          <label for="service">Service</label>
-          <input type="text" id="service" name="service" value="AI & Robotics for Mass Reach" readonly required>
-          
-          <input type="submit" value="Submit Registration">
-        </form>
-      </div>
-    </div>
-  </section>
-
-  
 
   <!-- Footer -->
   <footer class="footer">
@@ -593,8 +588,7 @@
       registerForm.reset();
     });
   </script>
-
-    <script>
+  <script>
     // Mobile menu toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMobile = document.querySelector('.nav-mobile');
@@ -639,6 +633,12 @@
         navToggle.classList.remove('active');
       }
     });
+  </script>
+  <script src="../js/modal.js"></script>
+  <script>
+    fetch("../components/modal.html")
+      .then(r => r.text())
+      .then(html => document.body.insertAdjacentHTML("beforeend", html));
   </script>
 </body>
 </html>

@@ -34,12 +34,8 @@
     .read-more{color:#001b75;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.35rem}
     .read-more:hover{color:#ea580c}
     .sidebar-card{background:white;border-radius:0.75rem;padding:1.5rem;box-shadow:0 4px 6px rgba(0,0,0,0.1);margin-bottom:2rem}
-    .newsletter-card{background:linear-gradient(135deg,#001b75,#0a1a4a);color:white}
-    .newsletter-card h3,.newsletter-card p{color:white}
-    .newsletter-form{display:flex;flex-direction:column;gap:0.75rem;margin-top:1rem}
-    .newsletter-form input{padding:0.75rem 1rem;border-radius:0.5rem;border:none;outline:none}
-    .newsletter-form button{background:#ea580c;color:white;border:none;padding:0.75rem;border-radius:0.5rem;cursor:pointer;font-weight:600}
-    .newsletter-form button:hover{background:#c2410c}
+    .help-card p {font-size: 0.875rem;color: #4b5563;margin-bottom: 1rem;}
+    .help-card button {width: 100%;background: #111827;color: white;font-weight: 600;padding: 0.5rem;border: none;border-radius: 0.5rem;cursor: pointer;transition: background 0.3s;}
     .news-item{display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start}
     .news-item img{width:70px;height:70px;border-radius:0.5rem;object-fit:cover}
     .news-item a{color:#1f2937;text-decoration:none;font-weight:600;font-size:0.95rem;line-height:1.4}
@@ -153,14 +149,10 @@
             </div>
           </div>
         </div>
-
-        <div class="sidebar-card newsletter-card">
-          <h3 class="heading-font">Subscribe to Newsletter</h3>
-          <p>Get the latest insights on Indian elections and democracy delivered to your inbox.</p>
-          <form class="newsletter-form" onsubmit="event.preventDefault();alert('Thank you for subscribing!');this.reset();">
-            <input type="email" placeholder="Your email address" required>
-            <button type="submit">Subscribe Now</button>
-          </form>
+        <div class="sidebar-card help-card">
+          <h3 class="heading-font">Need Help?</h3>
+          <p>Have questions about our research or consultancy services?</p>
+          <button>Contact Us</button>
         </div>
       </aside>
     </div>

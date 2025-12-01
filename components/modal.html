@@ -1,0 +1,61 @@
+<!-- ===== GLOBAL SERVICE REGISTRATION MODAL ===== -->
+<div id="serviceRegisterModal" class="service-modal" aria-hidden="true">
+  <div class="service-modal-overlay" onclick="closeServiceModal()"></div>
+  <div class="service-modal-content" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+    <div class="service-modal-header">
+      <h2 id="serviceModalTitle" class="service-modal-title">Register for Services</h2>
+      <button class="service-modal-close" aria-label="Close modal" onclick="closeServiceModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="service-modal-body">
+      <form id="serviceRegisterForm" onsubmit="handleServiceSubmit(event)">
+        <!-- User Info -->
+        <div class="service-form-section">
+          <h3 class="service-form-section-title">Your Information</h3>
+          <div class="service-form-group">
+            <label for="serviceName" class="service-form-label">Full Name <span class="required">*</span></label>
+            <input type="text" id="serviceName" name="name" class="service-form-input" placeholder="Enter your full name" required />
+          </div>
+          <div class="service-form-group">
+            <label for="serviceEmail" class="service-form-label">Email Address <span class="required">*</span></label>
+            <input type="email" id="serviceEmail" name="email" class="service-form-input" placeholder="your.email@example.com" required />
+          </div>
+          <div class="service-form-group">
+            <label for="servicePhone" class="service-form-label">Phone Number</label>
+            <input type="tel" id="servicePhone" name="phone" class="service-form-input" placeholder="+91 XXXXX XXXXX" />
+          </div>
+          <div class="service-form-group">
+            <label for="serviceOrg" class="service-form-label">Organization (Optional)</label>
+            <input type="text" id="serviceOrg" name="organization" class="service-form-input" placeholder="Your organization" />
+          </div>
+        </div>
+
+        <!-- Services Selection -->
+        <div class="service-form-section">
+          <h3 class="service-form-section-title">Select Services <span class="required">*</span></h3>
+          <p class="service-form-hint">You can select multiple services</p>
+          <div class="service-checkboxes-grid" id="servicesCheckboxes">
+            <!-- Filled dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="service-form-section">
+          <label for="serviceMessage" class="service-form-label">Message / Requirements</label>
+          <textarea id="serviceMessage" name="message" class="service-form-textarea" rows="4"
+            placeholder="Any specific requirements or timeline?"></textarea>
+        </div>
+
+        <div id="serviceSuccessMessage" class="service-success-message" style="display:none;">
+          <strong>Thank you!</strong> Your request has been submitted. We will contact you shortly.
+        </div>
+
+        <button type="submit" class="service-btn-submit">Submit Registration</button>
+      </form>
+    </div>
+  </div>
+</div>

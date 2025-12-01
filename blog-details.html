@@ -64,13 +64,8 @@
     .popular-item-title{font-size:.875rem;font-weight:600;color:#1f2937;margin-bottom:.25rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
     .popular-item:hover .popular-item-title{color:#001b75}
     .popular-item-date{font-size:.75rem;color:#6b7280}
-    .newsletter-card{background:linear-gradient(to bottom right,#001b75,#0a1a4a);color:white}
-    .newsletter-card h3,.newsletter-card p{color:white}
-    .newsletter-card p{font-size:.875rem;color:#bfdbfe;margin-bottom:1rem}
-    .newsletter-form{display:flex;flex-direction:column;gap:.75rem}
-    .newsletter-form input{width:100%;padding:.625rem 1rem;border-radius:.5rem;border:none;outline:none}
-    .newsletter-form button{width:100%;background:#f97316;color:white;font-weight:600;padding:.625rem;border:none;border-radius:.5rem;cursor:pointer;transition:background .3s}
-    .newsletter-form button:hover{background:#ea580c}
+    .help-card p {font-size: 0.875rem;color: #4b5563;margin-bottom: 1rem;}
+    .help-card button {width: 100%;background: #111827;color: white;font-weight: 600;padding: 0.5rem;border: none;border-radius: 0.5rem;cursor: pointer;transition: background 0.3s;}
     @media(min-width:640px){.related-grid{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:1024px){
       .main-container{grid-template-columns:1fr 350px}
@@ -193,14 +188,11 @@
         <h3 class="heading-font">Popular Posts</h3>
         <div class="popular-list" id="popularPosts"></div>
       </div>
-      <div class="sidebar-card newsletter-card">
-        <h3 class="heading-font">Newsletter</h3>
-        <p>Subscribe for the latest insights on elections, governance, and society.</p>
-        <form class="newsletter-form" onsubmit="handleSubscribe(event)">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
+        <div class="sidebar-card help-card">
+          <h3 class="heading-font">Need Help?</h3>
+          <p>Have questions about our research or consultancy services?</p>
+          <button>Contact Us</button>
+        </div>
     </aside>
   </div>
 
